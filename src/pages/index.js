@@ -7,5 +7,6 @@ import PageDell from './PageDell'
 import PageAsus from './PageAsus'
 import Accessory from './Accessory'
 import NotFound from './notFound/NotFound'
+import LaptopDetail from './detail/LaptopDetail'
 
-export { Home, Laptop, ProductDetail, Asus, Dell, PageAsus, PageDell, NotFound, Accessory }
+export { Home, Laptop, ProductDetail, Asus, Dell, PageAsus, PageDell, NotFound, Accessory, LaptopDetail }

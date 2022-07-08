@@ -15,7 +15,7 @@ const PageAsus = () => {
 	}
 	return (
 		<Layout>
-			<Slider isDetail={true} />
+			{/* <Slider isDetail={true} /> */}
 			<div className="laptop">
 				<h2 className="title">Asus</h2>
 				<div className="filter_price">

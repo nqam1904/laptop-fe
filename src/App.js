@@ -1,12 +1,20 @@
-import { Home, NotFound, PageAsus, PageDell, ProductDetail } from 'pages'
+import { Home, LaptopDetail, NotFound, ProductDetail } from 'pages'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
+import { headerSelector } from 'redux/selector/headerSeletor'
 const App = ({ history }) => {
+	const header = useSelector(headerSelector)
+	const routeLaptop = () => {
+		return header.map((item, index) => (
+			<Route key={index} path={item?.url} element={<LaptopDetail title={item.categories[0]?.name} />} />
+		))
+
+	}
 	return (
 		<Routes history={history}>
 			<Route path="/" element={<Home />} />
-			<Route path="/asus" element={<PageAsus />} />
-			<Route path="/dell" element={<PageDell />} />
+			{routeLaptop()}
 			<Route path="/product/:slug" element={<ProductDetail />} />
 			<Route path="*" element={<NotFound />} />
 		</Routes>

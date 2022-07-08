@@ -10,12 +10,14 @@ import Accessory from './Accessory'
 import { useDispatch, useSelector } from 'react-redux'
 import { bannerSelector } from 'redux/selector/bannerSelector'
 import { getBannerAction } from '../redux/actions/bannerAction';
+import { getHeaderAction } from 'redux/actions/headerAction'
 
 const Home = () => {
 	const dipatch = useDispatch()
 	const banners = useSelector(bannerSelector)
 	useEffect(() => {
 		dipatch(getBannerAction())
+		dipatch(getHeaderAction())
 	}, []);
 	return (
 		<Layout>

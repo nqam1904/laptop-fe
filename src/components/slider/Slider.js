@@ -1,14 +1,17 @@
+
 import React, { Component } from 'react'
 import Slider from 'react-slick'
-import './styles.css'
+import './styles.scss'
 class SimpleSlider extends Component {
 	constructor(props) {
 		super(props);
 		const { isDetail } = props;
 		this.isDetail = isDetail
-	}
-	render() {
 
+	}
+
+	render() {
+		const BASE_URL = "http://localhost:1337"
 		const settings = {
 			dots: true,
 			infinite: true,
@@ -46,27 +49,15 @@ class SimpleSlider extends Component {
 		return (
 			<div className={this.isDetail ? "slider_isDetal" : "slider"}>
 				<Slider {...settings}>
-					<div className="slider_item">
-						<img
-							src="https://images.fpt.shop/unsafe/filters:quality(5)/fptshop.com.vn/uploads/images/tin-tuc/143035/Originals/NF_1200x628_1644214085.png"
-							alt="example"
-							className={this.isDetail ? "image_slider-detail" : "image_slider"}
-						/>
-					</div>
-					<div className="slider_item">
-						<img
-							src="https://cdn1.hoanghamobile.com/tin-tuc/wp-content/uploads/2022/01/271594880_4875218375849949_8554620656839742886_n.jpg"
-							alt="example"
-							className={this.isDetail ? "image_slider-detail" : "image_slider"}
-						/>
-					</div>
-					<div className="slider_item">
-						<img
-							src="https://images.fpt.shop/unsafe/filters:quality(5)/fptshop.com.vn/uploads/images/tin-tuc/144787/Originals/NF_1200x628.png"
-							alt="example"
-							className={this.isDetail ? "image_slider-detail" : "image_slider"}
-						/>
-					</div>
+					{this.props.data?.map((item, index) => (
+						<div className="slider_item" key={index}>
+							<img
+								src={`${BASE_URL}` + item?.images[0]?.url}
+								alt={item?.images[0]?.name}
+								className={this.isDetail ? "image_slider-detail" : "image_slider"}
+							/>
+						</div>
+					))}
 				</Slider>
 			</div>
 		)

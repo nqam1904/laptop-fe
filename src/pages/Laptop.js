@@ -7,7 +7,6 @@ import "./Laptop.scss"
 const Laptop = () => {
 
    const getParams = useParams()
-   console.log(getParams, 'getParams')
    return (
       <div className='laptop'>
          <h2 className='title'>Laptop bán chạy nhất</h2>

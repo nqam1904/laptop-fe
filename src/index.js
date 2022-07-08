@@ -15,23 +15,21 @@ let { store } = configureStore()
 const container = document.getElementById('root')
 const root = createRoot(container)
 root.render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<BrowserRouter>
-				<App history={history} />
-				<ToastContainer
-					position="bottom-center"
-					autoClose={3000}
-					hideProgressBar={false}
-					newestOnTop={false}
-					closeOnClick
-					rtl={false}
-					pauseOnFocusLoss
-					draggable
-					pauseOnHover
-				/>
-				<Loading ref={(refs) => Loading.setRef(refs)} />
-			</BrowserRouter>
-		</Provider>
-	</React.StrictMode>
+	<Provider store={store}>
+		<BrowserRouter>
+			<App history={history} />
+			<ToastContainer
+				position="bottom-center"
+				autoClose={3000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
+			<Loading ref={(refs) => Loading.setRef(refs)} />
+		</BrowserRouter>
+	</Provider>
 )

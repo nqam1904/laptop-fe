@@ -1,18 +1,8 @@
 import axios from 'axios'
-import StorageKeys from 'constants/Storage-key'
-import { API_URL } from 'config'
 
-const storage = localStorage || window.localStorage
-
-export function getAccessToken() {
-	if (storage.getItem(StorageKeys.TOKEN)) {
-		return storage.getItem(StorageKeys.TOKEN)
-	}
-	return ''
-}
 
 const axiosClient = axios.create({
-	baseURL: API_URL,
+	baseURL: 'http://localhost:1337/',
 	timeout: 30000,
 	headers: {
 		'Content-Type': 'application/json',
@@ -22,7 +12,6 @@ const axiosClient = axios.create({
 // Add a request interceptor
 axiosClient.interceptors.request.use(
 	function (config) {
-		config.headers['Authorization'] = 'Bearer ' + getAccessToken()
 		return config
 	},
 	function (error) {

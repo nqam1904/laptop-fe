@@ -1,5 +1,7 @@
 import { Product } from 'components'
 import { accessory } from '../constants/data'
+import"./Accessory.scss"
+
 const Accessory = () => {
 	const showProduct = () => {
 		return accessory?.map((item, i) => <Product key={i} product={item} />)

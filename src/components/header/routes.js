@@ -1,22 +1,22 @@
 export const routes = [
 	{
 		id: 0,
-		name: 'Asus',
+		name: 'ASUS',
 	},
 	{
 		id: 1,
-		name: 'Dell',
+		name: 'DELL',
 	},
 	{
 		id: 2,
-		name: 'Msi',
+		name: 'MSI',
 	},
 	{
 		id: 3,
-		name: 'Hp',
+		name: 'HP',
 	},
 	{
 		id: 4,
-		name: 'Apple',
+		name: 'APPLE',
 	},
 ]

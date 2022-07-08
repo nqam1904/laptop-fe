@@ -12,6 +12,7 @@ const FooterBanner = () => {
                {/* <h3>{largeText2}</h3>
                <p>{saleTime}</p> */}
             </div>
+            <img src={'https://cdn.sanity.io/images/kyml1h03/production/a64b345016e96adfb8849af5521c8e0ecfe8f027-555x555.webp'} className="footer-banner-image" />
             <div className="right">
                <p>beast solo air</p>
                <h3>29 Apr to 29 may</h3>
@@ -20,8 +21,6 @@ const FooterBanner = () => {
                   <button type="button">mua ngay</button>
                </Link>
             </div>
-
-            <img src={'https://cdn.sanity.io/images/kyml1h03/production/a64b345016e96adfb8849af5521c8e0ecfe8f027-555x555.webp'} className="footer-banner-image" />
          </div>
       </div>
    );

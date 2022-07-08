@@ -4,6 +4,8 @@ import { Modal, Product, TableTechnique } from 'components'
 import Layout from 'layouts/Layout'
 import Popup from 'reactjs-popup'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
+import './ProducDetail.scss'
+
 const ProductDetail = () => {
 	const [index, setIndex] = useState(0)
 	const showImageOther = () => {
@@ -42,7 +44,7 @@ const ProductDetail = () => {
 						<br />
 						{/* option map array  */}
 						<div className='product-detail_option'>
-							<div style={{ display: 'flex', alignItems: 'center' }}>
+							<div className="configuration">
 								<span className='title-option'>CPU:</span>
 								<label className='item-option'>
 									<span>Core™ i7-11800H</span>
@@ -50,7 +52,7 @@ const ProductDetail = () => {
 							</div>
 						</div>
 						<div className='product-detail_option'>
-							<div style={{ display: 'flex', alignItems: 'center' }}>
+							<div className="configuration">
 								<span className='title-option'>RAM:</span>
 								<label className='item-option'>
 									<span>16 GB</span>
@@ -58,7 +60,7 @@ const ProductDetail = () => {
 							</div>
 						</div>
 						<div className='product-detail_option'>
-							<div style={{ display: 'flex', alignItems: 'center' }}>
+							<div className="configuration">
 								<span className='title-option'>Ổ cứng:</span>
 								<label className='item-option'>
 									<span>SSD M.2 1TB</span>
@@ -66,7 +68,7 @@ const ProductDetail = () => {
 							</div>
 						</div>
 						<div className='product-detail_option'>
-							<div style={{ display: 'flex', alignItems: 'center' }}>
+							<div className="configuration">
 								<span className='title-option'>Màn hình:</span>
 								<label className='item-option'>
 									<span>QHD</span>
@@ -74,7 +76,7 @@ const ProductDetail = () => {
 							</div>
 						</div>
 						<div className='product-detail_option'>
-							<div style={{ display: 'flex', alignItems: 'center' }}>
+							<div className="configuration">
 								<span className='title-option'>VGA:</span>
 								<label className='item-option'>
 									<span>NVIDIA® GeForce RTX™ 3070</span>

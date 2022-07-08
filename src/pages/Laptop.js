@@ -2,6 +2,8 @@ import { Product } from 'components'
 import React from 'react'
 import { product } from '../constants/data'
 import { useParams } from 'react-router-dom';
+import "./Laptop.scss"
+
 const Laptop = () => {
 
    const getParams = useParams()

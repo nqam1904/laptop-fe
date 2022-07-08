@@ -1,8 +1,8 @@
 .footer-container {
    display: flex;
    flex-direction: row;
-   align-items: center;
-   justify-content: space-evenly;
+   //align-items: center;
+   justify-content:space-around;
    color: white;
    margin-top: 20px;
    padding: 30px 100px;
@@ -11,7 +11,19 @@
    gap: 10px;
    background-color: #1D1D1F;
 }
-
+.title_content_1{
+   font-size: 16px;
+}
+.title-discription{
+   color: #D2D2D7;
+}
+.item_menu{
+   color: #86868B;
+}
+.item_menu:hover{
+   transform: scale(1.1, 1.1);
+   color: #D2D2D7;
+}
 .content_1 {
    width: 300px;
 }
@@ -25,7 +37,13 @@
    display: flex;
    flex-direction: column;
 }
-
+.content_4{
+   display: flex;
+   flex-direction: column;
+}
+.title_content_address{
+   margin-top: 16px;
+}
 
 .footer-banner-container {
    padding: 100px 40px;
@@ -34,10 +52,8 @@
    position: relative;
    line-height: 1;
    color: white;
-   width: 100%;
    margin-top: 120px;
 }
-
 .banner-desc {
    display: flex;
    justify-content: space-between;
@@ -66,11 +82,11 @@
 }
 
 .footer-banner-image {
-   position: absolute;
+ position: absolute;
    /* top: -35%;
   left: 8%; */
    top: -25%;
-   left: 25%;
+  left: 27%;
 }
 
 .banner-desc .right {
@@ -89,4 +105,11 @@
 .banner-desc .right .company-desc {
    font-size: 14px;
    font-weight: 300;
+}
+.icons{
+   width: 50%;
+   font-size: 50px;
+   display: flex;
+   justify-content: space-between;
+   margin-top: 20px;
 }

@@ -2,6 +2,8 @@ import { Product, Slider } from 'components'
 import Layout from 'layouts/Layout'
 import React from 'react'
 import { filterPice, product } from '../constants/data'
+import "./PageAsus.scss"
+
 const PageAsus = () => {
 	const showProduct = () => {
 		const isProd = product.filter((x) => x.category === 'Asus')

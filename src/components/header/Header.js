@@ -7,7 +7,7 @@ const Header = () => {
    return (
       <div className="header-container">
          <p className="logo">
-            <Link to="/">Thinh Store</Link>
+            <Link to="/">THINH STORE</Link>
          </p>
          <div className="list-link_menu">
             {routes.map((x) => (

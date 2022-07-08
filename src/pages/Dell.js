@@ -2,6 +2,8 @@ import { Product } from 'components'
 import React from 'react'
 import { history } from 'redux/store'
 import { product } from '../constants/data'
+import "./Dell.scss"
+
 const Dell = () => {
 	const showProduct = () => {
 		const isProd = product.filter((x) => x.category === 'Dell')
@@ -10,7 +12,7 @@ const Dell = () => {
 	}
 	const show_more = () => {
 		history.push('/dell')
-		// window.location.reload()
+		window.location.reload()
 	}
 	return (
 		<div className="laptop">

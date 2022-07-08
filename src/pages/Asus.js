@@ -1,6 +1,8 @@
 import { Product } from 'components'
 import { history } from 'redux/store'
 import { product } from '../constants/data'
+import "./Asus.scss"
+
 const Asus = () => {
 	const showProduct = (props) => {
 		const isProd = product.filter((x) => x.category === 'Asus')

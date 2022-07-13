@@ -1,19 +1,24 @@
-import { Product } from 'components'
-import React from 'react'
-import { product } from '../constants/data'
-import { useParams } from 'react-router-dom';
-import "./Laptop.scss"
+import { Product } from 'components';
+import { useSelector } from 'react-redux';
+import { laptopSelector } from 'redux/selector/laptopSelector';
+import { product } from '../constants/data';
+import "./Laptop.scss";
 
 const Laptop = () => {
-
-   const getParams = useParams()
+   const listLaptop = useSelector(laptopSelector)
+   const data = () => {
+      const isShowLaptopBest = listLaptop.filter((is) => is.show === true)
+      const showLaptop = isShowLaptopBest.map((item, index) => (
+         <Product key={item.id} product={item} />
+      ))
+      return showLaptop
+   }
+   console.log(listLaptop, 'listLaptop')
    return (
       <div className='laptop'>
          <h2 className='title'>Laptop bán chạy nhất</h2>
          <div className="products-container">
-            {product?.map((product) => (
-               <Product key={product.id} product={product} />
-            ))}
+            {data()}
          </div>
       </div>
    )

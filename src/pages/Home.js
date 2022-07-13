@@ -11,13 +11,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { bannerSelector } from 'redux/selector/bannerSelector'
 import { getBannerAction } from '../redux/actions/bannerAction';
 import { getHeaderAction } from 'redux/actions/headerAction'
+import { getListLaptopAction } from 'redux/actions/laptopAction'
 
 const Home = () => {
-	const dipatch = useDispatch()
+	const dispatch = useDispatch()
 	const banners = useSelector(bannerSelector)
 	useEffect(() => {
-		dipatch(getBannerAction())
-		dipatch(getHeaderAction())
+		dispatch(getBannerAction())
+		dispatch(getHeaderAction())
+		dispatch(getListLaptopAction())
 	}, []);
 	return (
 		<Layout>

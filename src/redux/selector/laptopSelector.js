@@ -1,1 +1,1 @@
-export const laptopSelector = (state) => state.laptop.listLaptop
+export const laptopSelector = (state) => state?.laptop?.listLaptop

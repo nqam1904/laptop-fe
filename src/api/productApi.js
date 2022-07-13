@@ -1,9 +1,9 @@
 import axiosClient from "./axiosClient"
 
 const ProductApi = {
-   getProdcut() {
+   getProductList() {
       const url = '/products'
-      axiosClient.get(url)
+      return axiosClient.get(url)
    }
 }
 

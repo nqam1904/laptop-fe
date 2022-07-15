@@ -1,8 +1,13 @@
 import React from "react";
 import { AiFillInstagram, AiOutlineTwitter } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
+import { getLaptopByCateAction } from "redux/actions/laptopAction";
+import { headerSelector } from "redux/selector/headerSeletor";
 import './styles.scss'
 const Footer = () => {
+   const header = useSelector(headerSelector)
+   const dispatch = useDispatch()
    return (
       <div className="footer-container">
          <div className="content_1">
@@ -10,26 +15,17 @@ const Footer = () => {
             <span className="title-discription">
                Năm 2020, Thinh Store trở thành đại lý ủy quyền của Apple. Chúng tôi phát triển chuỗi cửa hàng tiêu chuẩn và Apple Store nhằm mang đến trải nghiệm tốt nhất về sản phẩm và dịch vụ của Apple cho người dùng Việt Nam.
             </span>
-             <div className="icons">
+            <div className="icons">
                <AiFillInstagram />
                <AiOutlineTwitter />
             </div>
          </div>
          <div className="content_2">
             <p className="title_content_1">Sản phẩm</p>
-               <Link className="item_menu" to="/">Asus</Link>
-            <span className="item_menu">
-               <Link to="/">Dell</Link>
-            </span>
-            <span className="item_menu">
-               <Link to="/">Apple</Link>
-            </span>
-            <span className="item_menu">
-               <Link to="/">Asus</Link>
-            </span>
-            <p className="item_menu">
-               <Link to="/">MSI</Link>
-            </p>
+            {header.map((item, index) => (
+               <Link key={index} onClick={() => dispatch(getLaptopByCateAction(item?.categories?.[0]?.name))} className="item_menu" to={`${item.url}`}>{item?.categories?.[0]?.name}</Link>
+            ))}
+
          </div>
          <div className="content_3">
             <p className="title_content_1">Thông tin</p>

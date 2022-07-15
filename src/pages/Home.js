@@ -1,17 +1,14 @@
-import { Slider, FooterBanner } from 'components'
+import { Slider } from 'components'
 
 import Layout from 'layouts/Layout'
-import Laptop from './Laptop'
-import Dell from './Dell'
-import Asus from './Asus'
+import Laptop from './laptop/Laptop'
 
-import React, { useEffect } from 'react'
-import Accessory from './Accessory'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { bannerSelector } from 'redux/selector/bannerSelector'
-import { getBannerAction } from '../redux/actions/bannerAction';
 import { getHeaderAction } from 'redux/actions/headerAction'
 import { getListLaptopAction } from 'redux/actions/laptopAction'
+import { bannerSelector } from 'redux/selector/bannerSelector'
+import { getBannerAction } from '../redux/actions/bannerAction'
 
 const Home = () => {
 	const dispatch = useDispatch()
@@ -25,10 +22,10 @@ const Home = () => {
 		<Layout>
 			<Slider data={banners} />
 			<Laptop />
-			<Dell />
+			{/* <Dell />
 			<Asus />
 			<Accessory />
-			<FooterBanner />
+			<FooterBanner /> */}
 		</Layout>
 	)
 }

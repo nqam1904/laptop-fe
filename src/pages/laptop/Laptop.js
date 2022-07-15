@@ -1,7 +1,6 @@
 import { Product } from 'components';
 import { useSelector } from 'react-redux';
 import { laptopSelector } from 'redux/selector/laptopSelector';
-import { product } from '../constants/data';
 import "./Laptop.scss";
 
 const Laptop = () => {
@@ -13,7 +12,6 @@ const Laptop = () => {
       ))
       return showLaptop
    }
-   console.log(listLaptop, 'listLaptop')
    return (
       <div className='laptop'>
          <h2 className='title'>Laptop bán chạy nhất</h2>

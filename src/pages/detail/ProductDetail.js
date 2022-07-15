@@ -1,43 +1,52 @@
-import React, { useState } from 'react'
-import { product } from 'constants/data'
-import { Modal, Product, TableTechnique } from 'components'
+import swal from '@sweetalert/with-react'
+import { TableTechnique } from 'components'
+import ReactMarkdown from 'https://esm.sh/react-markdown@7'
 import Layout from 'layouts/Layout'
-import Popup from 'reactjs-popup'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
+import { detailLaptopSelector } from 'redux/selector/laptopSelector'
+import { API_URL } from 'utils/constant'
+import { formatNumber } from 'utils/function'
 import './ProducDetail.scss'
 
 const ProductDetail = () => {
-	const [index, setIndex] = useState(0)
+	const [imagesOther, setImagesOhter] = useState('')
+	const detailLaptop = useSelector(detailLaptopSelector)
+	console.log(detailLaptop?.[0]?.images?.[0]?.url, 'detailLaptop?.[0]?.images?.[0]?.url')
+	useEffect(() => {
+		setImagesOhter(detailLaptop?.[0]?.images?.[0]?.url);
+	}, []);
+
+
 	const showImageOther = () => {
-		const featureProduct = product.filter((x) => x.id)
-		const productShow = featureProduct.length > 3 ? featureProduct.slice(0, 3) : featureProduct
-		return productShow?.map((item, i) => (
+		return detailLaptop?.[0]?.images?.map((item, i) => (
 			<img
 				key={i}
-				src={item.image}
-				alt={item.name}
-				className={i === index ? 'small-image selected-image' : 'small-image'}
-				onMouseEnter={() => setIndex(i)}
+				src={`${API_URL}` + item?.url}
+				alt={item?.name}
+				className={i === imagesOther ? 'small-image' : 'small-image'}
+				onClick={() => setImagesOhter(item?.url)}
 			/>
 		))
 	}
+
 	return (
 		<Layout>
 			<div className="product-detail-container">
 				<div className='product-detail-left'>
 					<div className="image-container">
 						<img
-							src={
-								'https://laptop88.vn/media/product/7246_lenovo_ideapad_gaming_3__1_.jpg'
-							}
+							src={`${API_URL}` + imagesOther || detailLaptop?.[0]?.images?.url}
 							className="product-detail-image"
 						/>
 					</div>
 					<div className="small-images-container">{showImageOther()}</div>
 				</div>
 				<div className="product-detail-right">
-					<h1>{product[0].name}</h1>
-					<p className="price">{product[0].price}</p>
+					<h1>{detailLaptop?.[0]?.name}</h1>
+					<span className={detailLaptop?.[0]?.price_promotion > 0 ? 'product-promotion' : 'price'}>{formatNumber(detailLaptop?.[0]?.price_promotion > 0 ? detailLaptop?.[0]?.price_promotion : detailLaptop?.[0]?.price)}₫</span>
+					{detailLaptop?.[0]?.price_promotion > 0 && <span className="price">{formatNumber(detailLaptop?.[0]?.price_promotion)}₫</span>}
 					<hr />
 					<div className='product-detail_info'>
 						<h2>Cấu hình:</h2>
@@ -47,7 +56,7 @@ const ProductDetail = () => {
 							<div className="configuration">
 								<span className='title-option'>CPU:</span>
 								<label className='item-option'>
-									<span>Core™ i7-11800H</span>
+									<span>{detailLaptop?.[0]?.cpu}</span>
 								</label>
 							</div>
 						</div>
@@ -55,7 +64,7 @@ const ProductDetail = () => {
 							<div className="configuration">
 								<span className='title-option'>RAM:</span>
 								<label className='item-option'>
-									<span>16 GB</span>
+									<span>{detailLaptop?.[0]?.ram}</span>
 								</label>
 							</div>
 						</div>
@@ -63,7 +72,7 @@ const ProductDetail = () => {
 							<div className="configuration">
 								<span className='title-option'>Ổ cứng:</span>
 								<label className='item-option'>
-									<span>SSD M.2 1TB</span>
+									<span>{detailLaptop?.[0]?.disk}</span>
 								</label>
 							</div>
 						</div>
@@ -71,7 +80,7 @@ const ProductDetail = () => {
 							<div className="configuration">
 								<span className='title-option'>Màn hình:</span>
 								<label className='item-option'>
-									<span>QHD</span>
+									<span>{detailLaptop?.[0]?.display}</span>
 								</label>
 							</div>
 						</div>
@@ -79,7 +88,7 @@ const ProductDetail = () => {
 							<div className="configuration">
 								<span className='title-option'>VGA:</span>
 								<label className='item-option'>
-									<span>NVIDIA® GeForce RTX™ 3070</span>
+									<span>{detailLaptop?.[0]?.vga}</span>
 								</label>
 							</div>
 						</div>
@@ -87,15 +96,13 @@ const ProductDetail = () => {
 						<br />
 					</div>
 					<h3>Tình trạng:</h3>
-					<p>Máy đẹp 99% có xước nhẹ mặt A vết nhỏ ko đáng khó thấy</p>
+					<p>{detailLaptop?.[0]?.appearence || ''}</p>
 					<hr />
 					<div className="ulti">
 						<h3>Chính sách:</h3>
-						<p> ✔ Bảo hành chính hãng 12 tháng.</p>
-						<p> ✔ Hỗ trợ đổi mới trong 7 ngày.</p>
-						<p> ✔ Windows bản quyền tích hợp.</p>
+						<p> ✔ {detailLaptop?.[0]?.insurance_laptop}</p>
 					</div>
-					<div className="promition-detail_product">
+					{/* <div className="promition-detail_product">
 						<h3 className="title-promotion_product">Quà tặng:</h3>
 						<div className="promiton-body_product">
 							<span className="item-promtion_product">🎁 Túi chống sốc</span>
@@ -106,20 +113,21 @@ const ProductDetail = () => {
 								🎁 Giảm ngay 200.000đ khi mua chuột Logitech G203 kèm Laptop Gaming
 							</span>
 						</div>
-					</div>
+					</div> */}
 					<div className='mcredit'>
 						<h3>Hỗ trợ trả góp MPOS (Thẻ tín dụng)</h3>
 					</div>
 					<div className="buttons">
-						<Popup
-							modal
-							trigger={
-								<button type="button" className="buy-now">
-									Mua ngay
-								</button>
-							}>
-							{(close) => <Modal close={close} />}
-						</Popup>
+						<button type="button" className="buy-now" onClick={() => swal(
+							<div>
+								<h1>Thông báo</h1>
+								<p>
+									Tính đang phát triển!
+								</p>
+							</div>
+						)}>
+							Mua ngay
+						</button>
 					</div>
 				</div>
 			</div>
@@ -130,22 +138,22 @@ const ProductDetail = () => {
 					<Tab>Thông số</Tab>
 				</TabList>
 				<TabPanel style={{ padding: 20 }}>
-					<p>{product[0].des}</p>
+					<ReactMarkdown>{detailLaptop?.[0]?.description || ''}</ReactMarkdown>
 				</TabPanel>
 				<TabPanel style={{ paddingLeft: 20, marginTop: 20 }}>
 					<h1 style={{ marginBottom: 20 }}>Thông tin kỹ thuật</h1>
-					<TableTechnique configuration={product[0].configuration} />
+					<TableTechnique configuration={detailLaptop} />
 				</TabPanel>
 			</Tabs>
 
 			<div className="maylike-products-wrapper">
 				<h2>Bạn có thể tham khảo</h2>
 				<div className="marquee">
-					<div className="maylike-products-container track">
+					{/* <div className="maylike-products-container track">
 						{product.map((item) => (
 							<Product key={item.id} product={item} />
 						))}
-					</div>
+					</div> */}
 				</div>
 			</div>
 

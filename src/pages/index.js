@@ -1,12 +1,10 @@
 import Home from './Home'
-import Laptop from './Laptop'
-import ProductDetail from './ProductDetail'
-import Dell from './Dell'
-import Asus from './Asus'
+import Laptop from './laptop/Laptop'
+import ProductDetail from './detail/ProductDetail'
 import PageDell from './PageDell'
 import PageAsus from './PageAsus'
 import Accessory from './Accessory'
 import NotFound from './notFound/NotFound'
-import LaptopDetail from './detail/LaptopDetail'
+import LaptopByCate from './category/LaptopByCate'
 
-export { Home, Laptop, ProductDetail, Asus, Dell, PageAsus, PageDell, NotFound, Accessory, LaptopDetail }
+export { Home, Laptop, ProductDetail, PageAsus, PageDell, NotFound, Accessory, LaptopByCate }

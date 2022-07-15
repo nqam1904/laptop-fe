@@ -1,22 +1,20 @@
 export const routes = [
 	{
-		id: 0,
-		name: 'ASUS',
-	},
-	{
 		id: 1,
-		name: 'DELL',
+		name: "Asus",
+		description: null,
+		published_at: "2022-07-06T18:58:35.000Z",
+		created_at: "2022-07-06T18:58:33.000Z",
+		updated_at: "2022-07-06T18:58:35.000Z",
+		show: true
 	},
 	{
 		id: 2,
-		name: 'MSI',
-	},
-	{
-		id: 3,
-		name: 'HP',
-	},
-	{
-		id: 4,
-		name: 'APPLE',
+		name: "Dell",
+		description: null,
+		published_at: "2022-07-06T18:58:35.000Z",
+		created_at: "2022-07-06T18:58:33.000Z",
+		updated_at: "2022-07-06T18:58:35.000Z",
+		show: true
 	},
 ]

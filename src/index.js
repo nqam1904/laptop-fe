@@ -9,7 +9,6 @@ import configureStore, { history } from 'redux/store'
 import App from './App'
 import './global.css'
 import './reset.css'
-import 'reactjs-popup/dist/index.css'
 import 'react-tabs/style/react-tabs.css'
 let { store } = configureStore()
 const container = document.getElementById('root')

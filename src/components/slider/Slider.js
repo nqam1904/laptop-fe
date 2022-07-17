@@ -1,6 +1,9 @@
 
 import React, { Component } from 'react'
 import Slider from 'react-slick'
+import { API_URL } from 'utils/constant'
+import LeftArrow from "assets/left-arrow.svg"
+import RightArrow from "assets/right-arrow.svg"
 import './styles.scss'
 class SimpleSlider extends Component {
 	constructor(props) {
@@ -9,9 +12,15 @@ class SimpleSlider extends Component {
 		this.isDetail = isDetail
 
 	}
+	SlickArrowLeft = () => (
+		<img src={LeftArrow} alt="prevArrow" {...this.props} />
+	);
 
+	SlickArrowRight = () => (
+		<img src={RightArrow} alt="nextArrow" {...this.props} />
+	);
 	render() {
-		const BASE_URL = "http://localhost:1337"
+
 		const settings = {
 			dots: true,
 			infinite: true,
@@ -19,6 +28,8 @@ class SimpleSlider extends Component {
 			autoplay: true,
 			slidesToShow: 1,
 			slidesToScroll: 1,
+			prevArrow: this.SlickArrowLeft(),
+			nextArrow: this.SlickArrowRight(),
 			responsive: [
 				{
 					breakpoint: 1024,
@@ -47,12 +58,12 @@ class SimpleSlider extends Component {
 			],
 		}
 		return (
-			<div className={this.isDetail ? "slider_isDetal" : "slider"}>
+			<div className={"slider"}>
 				<Slider {...settings}>
 					{this.props.data?.map((item, index) => (
 						<div className="slider_item" key={index}>
 							<img
-								src={`${BASE_URL}` + item?.images[0]?.url}
+								src={`${API_URL}` + item?.images[0]?.url}
 								alt={item?.images[0]?.name}
 								className={this.isDetail ? "image_slider-detail" : "image_slider"}
 							/>

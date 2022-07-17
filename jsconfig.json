@@ -5,6 +5,7 @@
 		"baseUrl": "./src/",
 		"moduleResolution": "node",
 		"paths": {
+			"assest/*":["assest/*"],
 			"components/*": ["components/*"],
 			"constants/*": ["constants/*"],
 			"api/*": ["api/*"],

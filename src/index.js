@@ -4,12 +4,14 @@ import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 import configureStore, { history } from 'redux/store'
 import App from './App'
+// import css library react
 import './global.css'
 import './reset.css'
 import 'react-tabs/style/react-tabs.css'
+import 'react-toastify/dist/ReactToastify.css'
+import 'react-spring-bottom-sheet/dist/style.css'
 let { store } = configureStore()
 const container = document.getElementById('root')
 const root = createRoot(container)

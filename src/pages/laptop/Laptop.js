@@ -7,8 +7,9 @@ const Laptop = () => {
    const listLaptop = useSelector(laptopSelector)
    const data = () => {
       const isShowLaptopBest = listLaptop.filter((is) => is.show === true)
-      const showLaptop = isShowLaptopBest.map((item, index) => (
-         <Product key={item.id} product={item} />
+      const productShow = isShowLaptopBest.length > 8 ? isShowLaptopBest.slice(0, 8) : isShowLaptopBest
+      const showLaptop = productShow.map((item, index) => (
+         <Product key={index} product={item} />
       ))
       return showLaptop
    }

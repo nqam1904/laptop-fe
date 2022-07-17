@@ -1,12 +1,18 @@
-
+@import 'assets/colors.scss';
 .header-container {
-    display: flex;
-    justify-content: center;
-   //position: relative;
-   background-color: #515154;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   z-index: 100;
+   min-height: 8vh;
+   background-color: $nav;
+
 }
 .logo {
-   color: white;
+   color: $white;
    padding: 20px;
    font-size: 20px;
    position: absolute;
@@ -18,12 +24,49 @@
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
+   width: 35%;
 }
 .item-menu {
-   padding: 20px;
+   padding: 1rem;
    font-size: 16px;
-   color: #FFFFFF;
+   color: $white;
+   letter-spacing: 3px;
+   font-weight: 500;
+   font-family: 'Roboto', sans-serif;
 }
 .item-menu:hover{
-   background-color: #4B4B4B;
+   background-color: $white;
+   border-radius: 8px;
+   &.item-menu{
+      color: $nav;
+   }
+}
+.buger{
+   width: 30px;
+   height: 30px;
+   position: absolute;
+   margin-top: 5px;
+   top: 0;
+   right: 2rem;
+}
+.buger{
+   display: none;
+}  
+
+// reponsive header mobile
+@media screen and (max-width: 1024px) {
+.list-link_menu {
+      width: 50%;
+   }
+}
+@media screen and (max-width: 768px){
+   .list-link_menu {
+         display: none;
+      }
+   .buger {
+      display: block;
+   }
+   .logo{
+      position: relative;
+   }
 }

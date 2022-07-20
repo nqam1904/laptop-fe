@@ -13,12 +13,17 @@ body {
 a {
 	text-decoration: none;
 }
- 
+.layout{
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	margin: 0;
+}
 .main-container {
 	max-width: 1400px;
 	margin: auto;
 	width: 100%;
-	padding: 20px;
+	padding: 1rem;
 }
 .laptop {
 	margin-top: 20px;

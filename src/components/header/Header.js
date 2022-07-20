@@ -52,7 +52,7 @@ const Header = () => {
       <header className={classes.header}>
          <div className={classes.header__content}>
             <Link to="/" className={classes.header__content__logo}>
-               navbar
+               Laptop Thinh
             </Link>
             <nav
                className={`${classes.header__content__nav} ${menuOpen && size.width < 768 ? classes.isMenu : ""

@@ -83,12 +83,13 @@
    background: $bg;
    width: 100%;
    height: $headerHeight;
-   padding: 0 1.5rem;
-
+   padding: 1rem;
+   position: fixed;
+   top: 0;
+   z-index: 100;
    @include breakpoint(md) {
       padding: 0 3rem;
    }
-
    transition: 0.3s ease all;
 
    &__content {

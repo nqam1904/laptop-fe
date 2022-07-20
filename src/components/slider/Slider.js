@@ -5,11 +5,14 @@ import { API_URL } from 'utils/constant'
 import LeftArrow from "assets/left-arrow.svg"
 import RightArrow from "assets/right-arrow.svg"
 import './styles.scss'
+import { images } from 'assets'
 class SimpleSlider extends Component {
 	constructor(props) {
 		super(props);
-		const { isDetail } = props;
-		this.isDetail = isDetail
+		let { className, onClick, isDetail } = props;
+		// this.className = className,
+		// 	this.onClick = onClick,
+		// 	this.isDetail = isDetail
 
 	}
 	SlickArrowLeft = () => (
@@ -19,46 +22,36 @@ class SimpleSlider extends Component {
 	SlickArrowRight = () => (
 		<img src={RightArrow} alt="nextArrow" {...this.props} />
 	);
+	PreviousBtn = () => {
+		return (
+			<div className={this.className} onClick={this.onClick}>
+				<img src={images.ic_arrow_left}  width={25} height={25} />
+			</div>
+		);
+	};
+
+	NextBtn = () => {
+		return (
+			<div className={this.className} onClick={this.onClick}>
+				<img src={images.ic_arrow_right} width={25} height={25} />
+			</div>
+		);
+	};
 	render() {
 
 		const settings = {
 			dots: true,
 			infinite: true,
-			speed: 1000,
+			speed: 500,
 			autoplay: true,
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			prevArrow: this.SlickArrowLeft(),
-			nextArrow: this.SlickArrowRight(),
-			responsive: [
-				{
-					breakpoint: 1024,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						infinite: true,
-						dots: true,
-					},
-				},
-				{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						initialSlide: 1,
-					},
-				},
-				{
-					breakpoint: 480,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1,
-					},
-				},
-			],
+			initialSlide: 2,
+			prevArrow: this.PreviousBtn(),
+			nextArrow: this.NextBtn(),
 		}
 		return (
-			<div className={"slider"}>
+			<div className="slider">
 				<Slider {...settings}>
 					{this.props.data?.map((item, index) => (
 						<div className="slider_item" key={index}>

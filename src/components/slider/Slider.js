@@ -9,10 +9,7 @@ import { images } from 'assets'
 class SimpleSlider extends Component {
 	constructor(props) {
 		super(props);
-		let { className, onClick, isDetail } = props;
-		// this.className = className,
-		// 	this.onClick = onClick,
-		// 	this.isDetail = isDetail
+
 
 	}
 	SlickArrowLeft = () => (
@@ -25,7 +22,7 @@ class SimpleSlider extends Component {
 	PreviousBtn = () => {
 		return (
 			<div className={this.className} onClick={this.onClick}>
-				<img src={images.ic_arrow_left}  width={25} height={25} />
+				<img src={images.ic_arrow_left} width={25} height={25} />
 			</div>
 		);
 	};
@@ -38,7 +35,6 @@ class SimpleSlider extends Component {
 		);
 	};
 	render() {
-
 		const settings = {
 			dots: true,
 			infinite: true,
@@ -58,7 +54,7 @@ class SimpleSlider extends Component {
 							<img
 								src={`${API_URL}` + item?.images[0]?.url}
 								alt={item?.images[0]?.name}
-								className={this.isDetail ? "image_slider-detail" : "image_slider"}
+								className={"image_slider"}
 							/>
 						</div>
 					))}

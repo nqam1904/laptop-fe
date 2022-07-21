@@ -1,17 +1,27 @@
+@import 'assets/colors.scss';
+@import '../../reponsive.scss';
 .slider {
-	margin-top: 4rem;
+	margin-top: 3.5rem;
 	margin-bottom: 4rem;
 	width: 100vw;
 	left: calc(-50vw + 50%);
 	position: relative;
 }
-.slider_item {
-	// width: 100vw;
-	// height: ;
-}
 .image_slider {
 	width: 100%;
-	// height: 600px;
+	height: 600px;
+}
+@media (max-width: 1024px) {
+	.image_slider {
+		width: 100%;
+		height: auto;
+	}
+}
+@media (max-width: 768px) {
+	.image_slider {
+			width: 100%;
+			height: auto;
+	}
 }
 
 /* banner demo */

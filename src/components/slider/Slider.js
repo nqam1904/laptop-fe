@@ -1,38 +1,25 @@
 
-import React, { Component } from 'react'
+import { images } from 'assets'
+import { Component } from 'react'
+import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from 'react-icons/fa'
 import Slider from 'react-slick'
 import { API_URL } from 'utils/constant'
-import LeftArrow from "assets/left-arrow.svg"
-import RightArrow from "assets/right-arrow.svg"
 import './styles.scss'
-import { images } from 'assets'
 class SimpleSlider extends Component {
 	constructor(props) {
 		super(props);
-
-
 	}
-	SlickArrowLeft = () => (
-		<img src={LeftArrow} alt="prevArrow" {...this.props} />
-	);
 
-	SlickArrowRight = () => (
-		<img src={RightArrow} alt="nextArrow" {...this.props} />
-	);
 	PreviousBtn = () => {
 		return (
-			<div className={this.className} onClick={this.onClick}>
-				<img src={images.ic_arrow_left} width={25} height={25} />
-			</div>
+			<FaRegArrowAltCircleLeft color='white' />
 		);
 	};
 
 	NextBtn = () => {
 		return (
-			<div className={this.className} onClick={this.onClick}>
-				<img src={images.ic_arrow_right} width={25} height={25} />
-			</div>
-		);
+			<FaRegArrowAltCircleRight color='white' />
+		)
 	};
 	render() {
 		const settings = {
@@ -44,7 +31,7 @@ class SimpleSlider extends Component {
 			slidesToScroll: 1,
 			initialSlide: 2,
 			prevArrow: this.PreviousBtn(),
-			nextArrow: this.NextBtn(),
+			nextArrow: this.NextBtn()
 		}
 		return (
 			<div className="slider">

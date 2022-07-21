@@ -21,6 +21,10 @@ const ProductApi = {
       const nameSlug = queryDetailProduct(slug)
       const url = `/products?${nameSlug}`
       return axiosClient.get(url)
+   },
+   updateViewLaptop(body) {
+      const url = `/products/${body?.id}`
+      return axiosClient.put(url, body)
    }
 }
 

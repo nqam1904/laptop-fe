@@ -33,7 +33,6 @@ function* laptopByPriceSaga(action) {
    }
 }
 function* laptopDetailSaga(action) {
-   console.log(action.payload)
    try {
       const response = yield call(ProductApi.queryDetailLaptop, action.payload)
       yield put(getDetailLaptopSuccess(response))

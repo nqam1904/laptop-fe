@@ -9,15 +9,19 @@ import { detailLaptopSelector } from 'redux/selector/laptopSelector'
 import { API_URL } from 'utils/constant'
 import { formatNumber } from 'utils/function'
 import './ProducDetail.scss'
+import ProductApi from 'api/productApi'
 
 const ProductDetail = () => {
 	const [imagesOther, setImagesOhter] = useState('')
 	const detailLaptop = useSelector(detailLaptopSelector)
-	console.log(detailLaptop?.[0]?.images?.[0]?.url, 'detailLaptop?.[0]?.images?.[0]?.url')
 	useEffect(() => {
+		updateView()
 		setImagesOhter(detailLaptop?.[0]?.images?.[0]?.url);
 	}, []);
-
+	const updateView = () => {
+		let view = detailLaptop?.[0]?.view
+		ProductApi.updateViewLaptop({ id: detailLaptop?.[0]?.id, view: ++view })
+	}
 
 	const showImageOther = () => {
 		return detailLaptop?.[0]?.images?.map((item, i) => (

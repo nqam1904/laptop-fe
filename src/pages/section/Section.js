@@ -11,7 +11,6 @@ const Section = () => {
    const dispatch = useDispatch()
    const section = useSelector(sectionSelector)
    const nameCate = section.forEach(e => {
-      console.log(e.category?.name, 'name')
    })
    const laptop = useSelector(laptopByCateSelector)
    const titleSection = () => {
@@ -21,16 +20,11 @@ const Section = () => {
    }
    const laptopByCate = async () => {
       let array = []
-      console.log(array, 'array')
-
       const a = await section.forEach(element => { ProductApi.queryFilterCategory(element?.category?.name) });
-      console.log(a, 'a')
       array.push(...a)
-      console.log(array, 'new array')
    }
 
    const showProduct = () => {
-      console.log(laptop, 'nameCate')
       const isProd = laptop.filter((x) => x.category.name === nameCate)
       const productShow = isProd.length > 4 ? isProd.slice(0, 4) : isProd
       return productShow?.map((item, i) => (

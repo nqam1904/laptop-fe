@@ -1,6 +1,6 @@
 import { Product } from 'components'
 import { accessory } from '../constants/data'
-import"./Accessory.scss"
+import "./Accessory.scss"
 
 const Accessory = () => {
 	const showProduct = () => {

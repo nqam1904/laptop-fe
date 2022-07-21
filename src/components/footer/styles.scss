@@ -26,14 +26,15 @@ footer{
 }
 
 .footer-distributed h3 {
-   color: #ffffff;
-   font: normal 36px 'Cookie', cursive;
+   color: $white;
+   font-size: 36px;
+   // font: normal 36px 'Cookie', cursive;
    margin: 0;
 }
 
 
 .footer-distributed h3 span {
-   color: #e0ac1c;
+   // color: #e0ac1c;
 }
 
 /* Footer links */
@@ -59,46 +60,15 @@ footer{
 
 /* Footer Center */
 
-.footer-distributed .footer-center {
+.footer-center {
    width: 35%;
+   display: flex;
+   justify-content: center;
 }
-
-.footer-distributed .footer-center i {
-   background-color: #33383b;
-   color: #ffffff;
-   font-size: 25px;
-   width: 38px;
-   height: 38px;
-   border-radius: 50%;
-   text-align: center;
-   line-height: 42px;
-   margin: 10px 15px;
-   vertical-align: middle;
-}
-
-.footer-distributed .footer-center i.fa-envelope {
-   font-size: 17px;
-   line-height: 38px;
-}
-
-.footer-distributed .footer-center p {
-   display: inline-block;
-   color: #ffffff;
-   vertical-align: middle;
-   margin: 0;
-}
-
-.footer-distributed .footer-center p span {
-   display: block;
-   font-weight: normal;
-   font-size: 14px;
-   line-height: 2;
-}
-
-.footer-distributed .footer-center p a {
-   color: #e0ac1c;
-   text-decoration: none;
-   ;
+.footer-center span{
+   color: $white;
+   text-align: left;
+   line-height: 22px;
 }
 
 /* Footer Right */
@@ -149,7 +119,9 @@ footer{
 .footer-links a:hover {
    color: #3F71EA;
 }
-
+.footer_center_content{
+   width: 80%;
+}
 @media (max-width: 768px) {
 
    .footer-distributed .footer-left,
@@ -161,4 +133,8 @@ footer{
       text-align: center;
       
    }
+}
+.footer_contact{
+   display: flex;
+   justify-content: space-around;
 }

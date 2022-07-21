@@ -13,7 +13,6 @@ const LaptopByCate = ({ title }) => {
    useEffect(() => {
    }, [])
    const filter = (value) => {
-      console.log(value)
       dispatch(getLaptopByPriceAction({ name: title, value: value }))
    }
    const showProduct = () => {

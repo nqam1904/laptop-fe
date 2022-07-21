@@ -1,0 +1,1 @@
+export const sectionSelector = (state) => state?.section?.section

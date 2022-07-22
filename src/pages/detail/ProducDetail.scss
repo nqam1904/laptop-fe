@@ -11,11 +11,13 @@
     font-size: 26px;
     margin-top: 20px;
     margin-right: 10px;
+   flex: 50%;
     color: #f02d34;
 }
 .product-detail-left {
     width: 50%;
     padding: 20px;
+    flex: 50%;
 }
 .product-detail-image {
     border-radius: 16px;

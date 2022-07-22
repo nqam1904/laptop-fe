@@ -12,9 +12,9 @@ function* accessorySaga() {
       console.log(e)
    }
 }
-function* detailAccessorySaga() {
+function* detailAccessorySaga(action) {
    try {
-      const response = yield call(accessoryApi.getDetailAccessory)
+      const response = yield call(accessoryApi.getDetailAccessory, action.payload)
       yield put(getAccessoryDetailSuccess(response))
    }
    catch (e) {

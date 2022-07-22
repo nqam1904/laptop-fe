@@ -3,14 +3,14 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { getAccessoryDetailAction } from "redux/actions/accessoryAction"
-import { accessorySelector } from "redux/selector/accessorySelector"
+import { accessoryDetailSelector } from "redux/selector/accessorySelector"
 import swal from "sweetalert"
 import { API_URL } from 'utils/constant'
 import { formatNumber } from "utils/function"
 import './Accessory.scss'
 const AccessoryDetail = () => {
    const [imagesOther, setImagesOhter] = useState('')
-   const accessoryDetial = useSelector(accessorySelector)
+   const accessoryDetial = useSelector(accessoryDetailSelector)
    const dispatch = useDispatch()
    let { slug } = useParams()
    const getAccessoryDetail = () => {
@@ -23,6 +23,7 @@ const AccessoryDetail = () => {
    useEffect(() => {
       setImagesOhter(accessoryDetial?.[0]?.images?.[0]?.url);
    }, [accessoryDetial?.[0]?.images?.[0]?.url])
+   console.log(accessoryDetial, 'accessoryDetial')
    const showImageOther = () => {
       return accessoryDetial?.[0]?.images?.map((item, i) => (
          <img

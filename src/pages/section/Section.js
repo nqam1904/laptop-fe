@@ -13,8 +13,6 @@ const Section = () => {
    const section = useSelector(sectionSelector)
    const nameCate = section.map(e => e?.category?.name)
    const [products, setProducts] = useState([])
-   console.log(nameCate, 'nameCate')
-   console.log(products, 'products')
    const titleSection = () => {
       return section.map((item) => (
          <h2 className="title_cate">{item?.category?.name}</h2>

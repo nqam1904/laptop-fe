@@ -61,8 +61,10 @@ const ProductDetail = () => {
 				</div>
 				<div className="product-detail-right">
 					<h1>{detailLaptop?.[0]?.name}</h1>
-					<p className={detailLaptop?.[0]?.price_promotion > 0 ? 'product-promotion' : 'price'}>{formatNumber(detailLaptop?.[0]?.price_promotion > 0 ? detailLaptop?.[0]?.price_promotion : detailLaptop?.[0]?.price)}₫</p>
-					{detailLaptop?.[0]?.price_promotion > 0 && <p className="price">{formatNumber(detailLaptop?.[0]?.price_promotion)}₫</p>}
+					<div className='promotion_price-product'>
+						<p className={detailLaptop?.[0]?.price_promotion > 0 ? 'product-promotion' : 'price'}>{formatNumber(detailLaptop?.[0]?.price_promotion > 0 ? detailLaptop?.[0]?.price_promotion : detailLaptop?.[0]?.price)}₫</p>
+						{detailLaptop?.[0]?.price_promotion > 0 && <p className="price">{formatNumber(detailLaptop?.[0]?.price_promotion)}₫</p>}
+					</div>
 					<hr />
 					<div className='product-detail_info'>
 						<h2>Cấu hình:</h2>
@@ -111,8 +113,11 @@ const ProductDetail = () => {
 						{/* option map array  */}
 						<br />
 					</div>
-					<h3>Tình trạng:</h3>
-					<p>{detailLaptop?.[0]?.appearence || ''}</p>
+					<hr />
+					<div className='appearence'>
+						<h3 className='appearence_info-title'>Tình trạng:</h3>
+						<p className='appearence_info-sub'>{detailLaptop?.[0]?.appearence || ''}</p>
+					</div>
 					<hr />
 					<div className="util-product">
 						<h3>Chính sách:</h3>

@@ -2,12 +2,16 @@
 .product-promotion{
     text-decoration: line-through;
     font-weight: 700;
-    font-size: 26px;
-    margin-top: 20px;
+    font-size: 20px;
+    margin-top: 30px;
     margin-right: 10px;
     color: $light-color;
 }
-
+.promotion_price-product{
+    display: flex;
+    justify-content: first baseline;
+    align-items: center;
+}
 .product-detail-right h4 {
     margin-top: 10px;
 }
@@ -20,6 +24,8 @@
     margin-top: 20px;
     font-size: 24px;
     font-weight: bold;
+    text-align: center;
+    color: $error
 }
 .product-detail_info {
     margin-top: 10px;
@@ -159,7 +165,17 @@
 .product_item-promtion {
     margin: 10px 0;
 }
-
+.appearence{
+    display: flex;
+    align-items: center;
+}
+.appearence_info-title {
+    margin-right: 10px;
+}
+.appearence_info-sub {
+    margin: 10px 0px;
+    font-size: 18px;
+}
 .tabs_view-product {
     padding: 4rem;
 

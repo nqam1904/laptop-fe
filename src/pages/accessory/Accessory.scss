@@ -1,19 +1,127 @@
 // accessory
+@import 'assets/colors.scss';
 .accessory-detail-container{
    display: flex;
    flex-direction: row;
-   margin-top: 40px;
+   margin-top: 5rem;
 }
 .accessory-detail-left{
    flex: 50%;
-   padding: 20px;
+   padding: 1.5rem;
 }
 .accessory-detail-right{
    flex: 50%;
-   padding: 20px;
+   padding: 1.5rem;
 }
-@media (max-width: 768px){
-   .accessory-detail-container{
+.accessory-detail-image {
+   border-radius: 16px;
+   width: 95%;
+   height: 95%;
+   transition: 0.3s ease-in-out;
+}
+.small-images {
+   width: 90%;
+   padding: 10px;
+   margin-top: 16px;
+}
+.accessory_price{
+   margin-top: 20px;
+   font-size: 24px;
+   font-weight: bold;
+}
+.accessory_info-title {
+   margin-right: 10px;
+}
+.accessory_info-sub {
+   margin: 1rem 0px;
+   font-size: 18px;
+}
+.accessory_buttons .buy-now{
+      width: 200px;
+      padding: 10px 20px;
+      background-color: $bg;
+      color: white;
+      border: none;
+      margin-top: 40px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      transform: scale(1, 1);
+      transition: transform 0.5s ease;
+}
+.accessory_buttons .buy-now:hover {
+   transform: scale(1.1, 1.1);
+}
+.promition-detail_accessory {
+   padding: 10px;
+   margin-top: 20px;
+   border: 1px solid #324d67;
+   border-radius: 16px;
+}
+
+.title-promotion_accessory {
+   color: $black;
+   text-decoration: underline;
+   margin-bottom: 14px;
+}
+
+.promiton-body_accessory {
+   display: flex;
+   flex-direction: column;
+}
+
+.item-promtion_accessory {
+   margin: 10px 0;
+}
+.tabs_view{
+   padding: 4rem;
+   & .content_view{
+      line-height: 30px;
+   }
+}
+.util{
+   margin-top: 1rem;
+   &.util p {
+         margin: 1rem 0px;
+      }
+}
+
+.accessory_slider-image {
+   width: 600px;
+   display: flex;
+   padding: 10px;
+   align-items: center;
+   overflow-x: auto;
+}
+.multi__image {
+   width: 120px;
+   height: 120px;
+   margin-left: 10px;
+   margin-right: 10px;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.multi__image:hover {
+   transform: scale(1.1);
+   transition: 300ms;
+}
+.accessory_slider-image::-webkit-scrollbar {
+   width: 5px;
+   height: 5px;
+}
+.accessory_slider-image::-webkit-scrollbar-thumb {
+   background: $light-color;
+   border-radius: 8px;
+}
+@media (max-width: 768px) {
+   .accessory-detail-container {
       flex-direction: column;
    }
+
+   .tabs_view {
+      padding: 2rem;
+      transition: transform 0.5s ease;
+   }
+   .accessory_slider-image {
+        width: 300px;
+      }
 }

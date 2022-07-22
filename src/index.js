@@ -6,18 +6,20 @@ import { BrowserRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import configureStore, { history } from 'redux/store'
 import App from './App'
+import { PersistGate } from 'redux-persist/integration/react'
 // import css library react
 import './global.css'
 import './reset.css'
 import 'react-tabs/style/react-tabs.css'
 import 'react-toastify/dist/ReactToastify.css'
 import 'react-spring-bottom-sheet/dist/style.css'
-let { store } = configureStore()
+let { store, persistor } = configureStore()
 const container = document.getElementById('root')
 const root = createRoot(container)
 root.render(
 	<Provider store={store}>
 		<BrowserRouter>
+			<PersistGate loading={null} persistor={persistor}>
 			<App history={history} />
 			<ToastContainer
 				position="bottom-center"
@@ -30,7 +32,8 @@ root.render(
 				draggable
 				pauseOnHover
 			/>
-			<Loading ref={(refs) => Loading.setRef(refs)} />
+				<Loading ref={(refs) => Loading.setRef(refs)} />
+			</PersistGate>
 		</BrowserRouter>
 	</Provider>
 )

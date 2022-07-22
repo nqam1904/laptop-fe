@@ -9,9 +9,9 @@ $bg: #010044;
 $dark-color: #b8e9ff;
 $black: #444;
 $light-color: #666;
-$border: 0.1rem solid rgba(0, 0, 0, 0.1);
+$border: 1px solid rgba(0, 0, 0, 0.1);
 $border-hover: 0.1rem solid var($black);
-$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+$box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
 // spacing
 $spacing-md: 16px;

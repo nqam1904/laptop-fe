@@ -1,5 +1,4 @@
 
-import { images } from 'assets'
 import { Component } from 'react'
 import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from 'react-icons/fa'
 import Slider from 'react-slick'

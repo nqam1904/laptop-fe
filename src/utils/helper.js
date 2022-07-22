@@ -8,4 +8,9 @@ const queryFilterPrice = (value) => {
 const queryDetailProduct = slug => {
    return `_where[0][slug]=${slug}`
 }
-export { queryFilterCategory, queryFilterPrice, queryDetailProduct }
+
+const queryDetailAccessory = (slug) => {
+   return `_where[0][slug]=${slug}`
+}
+export { queryFilterCategory, queryFilterPrice, queryDetailProduct, queryDetailAccessory }
+

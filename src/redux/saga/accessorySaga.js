@@ -1,6 +1,6 @@
 import accessoryApi from "api/accessoryApi";
 import { call, put, takeLatest } from "redux-saga/effects";
-import { getAccessorySuccess, GET_ACCESSORY } from "redux/actions/accessoryAction";
+import { getAccessoryDetailSuccess, getAccessorySuccess, GET_ACCESSORY, GET_ACCESSORY_DETAIL } from "redux/actions/accessoryAction";
 
 
 function* accessorySaga() {
@@ -12,7 +12,17 @@ function* accessorySaga() {
       console.log(e)
    }
 }
-
+function* detailAccessorySaga() {
+   try {
+      const response = yield call(accessoryApi.getDetailAccessory)
+      yield put(getAccessoryDetailSuccess(response))
+   }
+   catch (e) {
+      console.log(e)
+   }
+}
 export default function* () {
    yield takeLatest(GET_ACCESSORY, accessorySaga)
+   yield takeLatest(GET_ACCESSORY_DETAIL, detailAccessorySaga)
+
 }

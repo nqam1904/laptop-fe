@@ -5,7 +5,6 @@ import { formatNumber } from "utils/function";
 import './index.scss';
 
 const AccessoryItem = (props) => {
-   console.log(props, 'props')
    return (
       <div>
          <Link to={`/accessory/${props?.accessory?.slug}`}>

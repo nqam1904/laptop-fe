@@ -6,7 +6,7 @@ import "./Accessory.scss";
 const Accessory = () => {
 	const accessory = useSelector(accessorySelector)
 	const showProduct = () => {
-		return accessory?.map((item, i) => <AccessoryItem key={i} product={item} />)
+		return accessory?.map((item, i) => <AccessoryItem key={i} accessory={item} />)
 	}
 	return (
 		<div className="laptop">

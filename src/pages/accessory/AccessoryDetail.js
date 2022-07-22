@@ -1,5 +1,6 @@
 import swal from '@sweetalert/with-react'
 import accessoryApi from 'api/accessoryApi'
+import { ViewMore } from 'components/'
 import { Modal } from "components/"
 import Layout from "layouts/Layout"
 import { useEffect, useState } from "react"
@@ -103,16 +104,7 @@ const AccessoryDetail = () => {
                </TabPanel>
             </Tabs>
          </div>
-         <div className="maylike-products-wrapper">
-            <h2>Bạn có thể tham khảo</h2>
-            <div className="marquee">
-               {/* <div className="maylike-products-container track">
-						{product.map((item) => (
-							<Product key={item.id} product={item} />
-						))}
-					</div> */}
-            </div>
-         </div>
+         <ViewMore />
       </Layout>
    )
 }

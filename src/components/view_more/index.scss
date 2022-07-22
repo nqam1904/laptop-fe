@@ -1,0 +1,35 @@
+.maylike-products-wrapper {
+   margin-top: 200px;
+}
+
+.maylike-products-wrapper h2 {
+   text-align: center;
+   margin: 50px;
+   color: #324d67;
+   font-size: 28px;
+}
+
+@keyframes marquee {
+   from {
+      transform: translateX(0);
+   }
+
+   to {
+      transform: translateX(-50%);
+   }
+}
+
+.maylike-products-container {
+   display: flex;
+   justify-content: center;
+   gap: 15px;
+   margin-top: 20px;
+   padding: 20px;
+}
+
+.track {
+   white-space: nowrap;
+   will-change: transform;
+   animation: marquee 15s linear infinite;
+   width: 180%;
+}

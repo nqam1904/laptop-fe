@@ -7,4 +7,5 @@ import FooterBanner from './footer/FooterBanner'
 import TableTechnique from './table/TableTechnique'
 import AccessoryItem from './accessory/AccessoryItem'
 import Modal from './modal/Modal'
-export { Header, Loading, Slider, Product, Footer, FooterBanner, TableTechnique, AccessoryItem, Modal }
+import ViewMore from './view_more/ViewMore'
+export { Header, ViewMore, Loading, Slider, Product, Footer, FooterBanner, TableTechnique, AccessoryItem, Modal }

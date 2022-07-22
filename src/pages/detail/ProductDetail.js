@@ -130,9 +130,11 @@ const ProductDetail = () => {
 						<h3>Hỗ trợ trả góp MPOS (Thẻ tín dụng)</h3>
 					</div>
 					<div className="product-button">
-						<button type="button" className="buy-now" onClick={() => swal(
-							<Modal />
-						)}>
+						<button type="button" className="buy-now" onClick={() => swal({
+							title: 'Thông báo!',
+							text: 'Bạn vui lòng liên hệ 03399895154',
+							icon: 'info',
+						})}>
 							Mua ngay
 						</button>
 					</div>

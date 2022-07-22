@@ -1,4 +1,5 @@
 import ProductApi from "api/productApi";
+import { Loading } from "components/";
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 import { getDetailLaptopSuccess, getLaptopByCateSuccess, getLaptopByPriceSuccess, getListLaptopSuccess, GET_LAPTOP_BY_PRICE, GET_DETAIL_LAPTOP, GET_LAPTOP_BY_CATE, GET_LIST_LAPTOP } from "redux/actions/laptopAction";
 
@@ -34,11 +35,15 @@ function* laptopByPriceSaga(action) {
 }
 function* laptopDetailSaga(action) {
    try {
+      Loading.show()
       const response = yield call(ProductApi.queryDetailLaptop, action.payload)
       yield put(getDetailLaptopSuccess(response))
    }
    catch (e) {
+      Loading.hide()
       console.log(e)
+   } finally {
+      Loading.hide()
    }
 }
 export default function* () {

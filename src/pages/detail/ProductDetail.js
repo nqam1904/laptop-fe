@@ -3,21 +3,33 @@ import { TableTechnique } from 'components'
 import ReactMarkdown from 'https://esm.sh/react-markdown@7'
 import Layout from 'layouts/Layout'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import { detailLaptopSelector } from 'redux/selector/laptopSelector'
 import { API_URL } from 'utils/constant'
 import { formatNumber } from 'utils/function'
 import './ProducDetail.scss'
 import ProductApi from 'api/productApi'
+import { getDetailLaptopAction } from 'redux/actions/laptopAction'
+import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
 	const [imagesOther, setImagesOhter] = useState('')
 	const detailLaptop = useSelector(detailLaptopSelector)
+	const dispatch = useDispatch()
+	let { slug } = useParams()
+	const getProductDetails = () => {
+		dispatch(getDetailLaptopAction(slug))
+	}
 	useEffect(() => {
+		getProductDetails()
 		updateView()
-		setImagesOhter(detailLaptop?.[0]?.images?.[0]?.url);
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}, []);
+
+	useEffect(() => {
+		setImagesOhter(detailLaptop?.[0]?.images?.[0]?.url);
+	}, [detailLaptop?.[0]?.images?.[0]?.url])
 	const updateView = () => {
 		let view = detailLaptop?.[0]?.view
 		ProductApi.updateViewLaptop({ id: detailLaptop?.[0]?.id, view: ++view })
@@ -34,7 +46,6 @@ const ProductDetail = () => {
 			/>
 		))
 	}
-
 	return (
 		<Layout>
 			<div className="product-detail-container">

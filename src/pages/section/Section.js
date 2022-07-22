@@ -1,33 +1,35 @@
 import ProductApi from 'api/productApi'
 import { Product } from 'components'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { laptopByCateSelector } from 'redux/selector/laptopSelector'
 import { sectionSelector } from 'redux/selector/sectionSelector'
 import { history } from 'redux/store'
+import React from 'react'
 import "./index.scss"
 
 const Section = () => {
    const dispatch = useDispatch()
    const section = useSelector(sectionSelector)
-   const nameCate = section.forEach(e => {
-   })
-   const laptop = useSelector(laptopByCateSelector)
+   const nameCate = section.map(e => e?.category?.name)
+   const [products, setProducts] = useState([])
+   console.log(nameCate, 'nameCate')
+   console.log(products, 'products')
    const titleSection = () => {
       return section.map((item) => (
          <h2 className="title_cate">{item?.category?.name}</h2>
       ))
    }
    const laptopByCate = async () => {
-      let array = []
-      const a = await section.forEach(element => { ProductApi.queryFilterCategory(element?.category?.name) });
-      array.push(...a)
+      const listPromise = await Promise.all(section.map(element => ProductApi.queryFilterCategory(element?.category?.name)))
+      setProducts(listPromise)
    }
-
+   useEffect(() => {
+      laptopByCate()
+   }, [])
    const showProduct = () => {
-      const isProd = laptop.filter((x) => x.category.name === nameCate)
-      const productShow = isProd.length > 4 ? isProd.slice(0, 4) : isProd
-      return productShow?.map((item, i) => (
+      const isProd = products.filter(i => i?.category?.name === nameCate)
+      return products?.map((item, i) => (
          <>
             <Product key={i} product={item} />
             <div className="buttons">
@@ -39,16 +41,20 @@ const Section = () => {
       )
       )
    }
+   const test = () => {
+      const category = []
+      return category.map(i =>
+         <>{i.name} {(i.products || []).map(product => <>product</>)}</>
+      )
+   }
    const show_more = () => {
       history.push(`${nameCate}`)
    }
-   useEffect(() => {
-      laptopByCate()
-   }, [])
+
    return (
       <div className="laptop">
-         {titleSection()}
-         <div className="products-container">{showProduct()}</div>
+         {test()}
+         {/* <div className="products-container">{showProduct()}</div> */}
       </div>
    )
 }

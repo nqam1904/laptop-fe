@@ -6,7 +6,6 @@ const queryFilterPrice = (value) => {
    return value < maxPrice ? `_where[0][price_lte]=${value}` : `_where[0][price_gte]=${value}`
 }
 const queryDetailProduct = slug => {
-   console.log(slug, 'slug')
    return `_where[0][slug]=${slug}`
 }
 export { queryFilterCategory, queryFilterPrice, queryDetailProduct }

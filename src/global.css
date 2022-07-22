@@ -25,11 +25,7 @@ a {
 	width: 100%;
 	padding: 1rem;
 }
-.laptop {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	text-align: center;
-}
+
 .products-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -50,25 +46,5 @@ a {
 .track:hover {
 	animation-play-state: paused;
 }
-.filter_price {
-	margin: 10px 10px;
-	padding: 5px;
-}
-.block_price {
-	display: flex;
-	width: 50%;
-	margin: 0 auto;
-	justify-content: space-evenly;
-	
-}
-.price_filter {
-	padding: 10px;
-	border-radius: 8px;
-}
-.price_filter:hover {
-	cursor: pointer;
-	background-color: #868dcc;
-	color: #ffffff;
-	transform: scale(1.1, 1.1);
-}
+
 

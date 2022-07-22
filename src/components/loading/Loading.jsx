@@ -37,7 +37,7 @@ export default class Loading extends Component {
   hide() {
     setTimeout(() => {
       this.setState({ visible: false });
-    }, 300);
+    }, 1000);
   }
   //*********************** */
   render() {

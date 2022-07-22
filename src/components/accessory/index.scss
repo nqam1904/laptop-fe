@@ -1,0 +1,30 @@
+.accessory-card {
+   cursor: pointer;
+   transform: scale(1, 1);
+   transition: transform 0.5s ease;
+   color: #324d67;
+   background-color: #ebebeb;
+   padding: 18px;
+   border-radius: 16px;
+   margin: 10px 10px;
+}
+
+.accessory-card:hover {
+   transform: scale(1.1, 1.1)
+}
+
+.accessory-image {
+   transform: scale(1, 1);
+   transition: transform 0.5s ease;
+}
+
+.accessory-name {
+   font-weight: 500;
+   font-size: 20px;
+}
+
+.accessory-price {
+   font-weight: 800;
+   margin-top: 10px;
+   color: black;
+}

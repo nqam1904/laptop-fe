@@ -1,0 +1,1 @@
+export const accessorySelector = (state) => state.accessory.accessory

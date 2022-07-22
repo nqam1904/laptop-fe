@@ -1,4 +1,4 @@
-import { Home, LaptopByCate, NotFound, ProductDetail } from 'pages'
+import { AccessoryDetail, Home, LaptopByCate, NotFound, ProductDetail } from 'pages'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
@@ -15,6 +15,7 @@ const App = ({ history }) => {
 			<Route path="/" element={<Home />} />
 			{routeLaptop()}
 			<Route path="/product/:slug" element={<ProductDetail />} />
+			<Route path="/accessory/:slug" element={<AccessoryDetail />} />
 			<Route path="*" element={<NotFound />} />
 		</Routes>
 	)

@@ -5,4 +5,5 @@ import Product from './product/Product'
 import Footer from './footer/Footer'
 import FooterBanner from './footer/FooterBanner'
 import TableTechnique from './table/TableTechnique'
-export { Header, Loading, Slider, Product, Footer, FooterBanner, TableTechnique }
+import AccessoryItem from './accessory/AccessoryItem'
+export { Header, Loading, Slider, Product, Footer, FooterBanner, TableTechnique, AccessoryItem }

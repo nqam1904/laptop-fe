@@ -1,5 +1,5 @@
 import swal from '@sweetalert/with-react'
-import { TableTechnique } from 'components'
+import { Modal, TableTechnique } from 'components'
 import ReactMarkdown from 'https://esm.sh/react-markdown@7'
 import Layout from 'layouts/Layout'
 import { useEffect, useState } from 'react'
@@ -41,7 +41,7 @@ const ProductDetail = () => {
 				key={i}
 				src={`${API_URL}` + item?.url}
 				alt={item?.name}
-				className={i === imagesOther ? 'small-image' : 'small-image'}
+				className="product-small_images"
 				onClick={() => setImagesOhter(item?.url)}
 			/>
 		))
@@ -50,18 +50,19 @@ const ProductDetail = () => {
 		<Layout>
 			<div className="product-detail-container">
 				<div className='product-detail-left'>
-					<div className="image-container">
+					<div>
 						<img
-							src={`${API_URL}` + imagesOther || detailLaptop?.[0]?.images?.url}
+							src={`${API_URL}` + imagesOther}
 							className="product-detail-image"
 						/>
+						<div className="product_slider-image">{showImageOther()}</div>
 					</div>
-					<div className="small-images-container">{showImageOther()}</div>
+
 				</div>
 				<div className="product-detail-right">
 					<h1>{detailLaptop?.[0]?.name}</h1>
-					<span className={detailLaptop?.[0]?.price_promotion > 0 ? 'product-promotion' : 'price'}>{formatNumber(detailLaptop?.[0]?.price_promotion > 0 ? detailLaptop?.[0]?.price_promotion : detailLaptop?.[0]?.price)}₫</span>
-					{detailLaptop?.[0]?.price_promotion > 0 && <span className="price">{formatNumber(detailLaptop?.[0]?.price_promotion)}₫</span>}
+					<p className={detailLaptop?.[0]?.price_promotion > 0 ? 'product-promotion' : 'price'}>{formatNumber(detailLaptop?.[0]?.price_promotion > 0 ? detailLaptop?.[0]?.price_promotion : detailLaptop?.[0]?.price)}₫</p>
+					{detailLaptop?.[0]?.price_promotion > 0 && <p className="price">{formatNumber(detailLaptop?.[0]?.price_promotion)}₫</p>}
 					<hr />
 					<div className='product-detail_info'>
 						<h2>Cấu hình:</h2>
@@ -113,65 +114,46 @@ const ProductDetail = () => {
 					<h3>Tình trạng:</h3>
 					<p>{detailLaptop?.[0]?.appearence || ''}</p>
 					<hr />
-					<div className="ulti">
+					<div className="util-product">
 						<h3>Chính sách:</h3>
-						<p> ✔ {detailLaptop?.[0]?.insurance_laptop}</p>
+						<p> ✔ {detailLaptop?.[0]?.insurance_laptop || ''}</p>
 					</div>
-					{/* <div className="promition-detail_product">
+					<div className="product-detail_promotion">
 						<h3 className="title-promotion_product">Quà tặng:</h3>
 						<div className="promiton-body_product">
-							<span className="item-promtion_product">🎁 Túi chống sốc</span>
-
-							<span className="item-promtion_product">🎁 Thú bông Lôi Điểu MSI</span>
-
 							<span className="item-promtion_product">
-								🎁 Giảm ngay 200.000đ khi mua chuột Logitech G203 kèm Laptop Gaming
+								- Chưa có khuyến mãi.
 							</span>
 						</div>
-					</div> */}
+					</div>
 					<div className='mcredit'>
 						<h3>Hỗ trợ trả góp MPOS (Thẻ tín dụng)</h3>
 					</div>
-					<div className="buttons">
+					<div className="product-button">
 						<button type="button" className="buy-now" onClick={() => swal(
-							<div>
-								<h1>Thông báo</h1>
-								<p>
-									Tính đang phát triển!
-								</p>
-							</div>
+							<Modal />
 						)}>
 							Mua ngay
 						</button>
 					</div>
 				</div>
 			</div>
-
-			<Tabs>
-				<TabList>
-					<Tab>Mô tả</Tab>
-					<Tab>Thông số</Tab>
-				</TabList>
-				<TabPanel style={{ padding: 20 }}>
-					<ReactMarkdown>{detailLaptop?.[0]?.description || ''}</ReactMarkdown>
-				</TabPanel>
-				<TabPanel style={{ paddingLeft: 20, marginTop: 20 }}>
-					<h1 style={{ marginBottom: 20 }}>Thông tin kỹ thuật</h1>
-					<TableTechnique configuration={detailLaptop} />
-				</TabPanel>
-			</Tabs>
-
-			<div className="maylike-products-wrapper">
-				<h2>Bạn có thể tham khảo</h2>
-				<div className="marquee">
-					{/* <div className="maylike-products-container track">
-						{product.map((item) => (
-							<Product key={item.id} product={item} />
-						))}
-					</div> */}
-				</div>
+			<div className="tabs_view">
+				<Tabs>
+					<TabList>
+						<Tab>Mô tả</Tab>
+						<Tab>Thông số</Tab>
+					</TabList>
+					<TabPanel style={{ padding: 20 }}>
+						<p className="content_view">{detailLaptop?.[0]?.description || ''}</p>
+					</TabPanel>
+					<TabPanel style={{ paddingLeft: 20, marginTop: 20 }}>
+						<h1 style={{ marginBottom: 20 }}>Thông tin kỹ thuật</h1>
+						<TableTechnique configuration={detailLaptop} />
+					</TabPanel>
+				</Tabs>
 			</div>
-
+			{/* <ViewMore/> */}
 		</Layout>
 	)
 }

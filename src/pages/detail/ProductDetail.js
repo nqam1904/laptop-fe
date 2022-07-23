@@ -1,6 +1,5 @@
 import swal from '@sweetalert/with-react'
-import { Modal, TableTechnique } from 'components'
-import ReactMarkdown from 'https://esm.sh/react-markdown@7'
+import { Modal, TableTechnique, ViewMore } from 'components'
 import Layout from 'layouts/Layout'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,7 +9,7 @@ import { API_URL } from 'utils/constant'
 import { formatNumber } from 'utils/function'
 import './ProducDetail.scss'
 import ProductApi from 'api/productApi'
-import { getDetailLaptopAction } from 'redux/actions/laptopAction'
+import { getDetailLaptopAction, getProdcutViewAction } from 'redux/actions/laptopAction'
 import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
@@ -24,6 +23,7 @@ const ProductDetail = () => {
 	useEffect(() => {
 		getProductDetails()
 		updateView()
+		dispatch(getProdcutViewAction(detailLaptop))
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}, []);
 
@@ -160,7 +160,7 @@ const ProductDetail = () => {
 					</TabPanel>
 				</Tabs>
 			</div>
-			{/* <ViewMore/> */}
+			<ViewMore />
 		</Layout>
 	)
 }

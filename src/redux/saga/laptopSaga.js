@@ -1,7 +1,7 @@
 import ProductApi from "api/productApi";
 import { Loading } from "components/";
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
-import { getDetailLaptopSuccess, getLaptopByCateSuccess, getLaptopByPriceSuccess, getListLaptopSuccess, GET_LAPTOP_BY_PRICE, GET_DETAIL_LAPTOP, GET_LAPTOP_BY_CATE, GET_LIST_LAPTOP } from "redux/actions/laptopAction";
+import { getDetailLaptopSuccess, getLaptopByCateSuccess, getLaptopByPriceSuccess, getListLaptopSuccess, GET_LAPTOP_BY_PRICE, GET_DETAIL_LAPTOP, GET_LAPTOP_BY_CATE, GET_LIST_LAPTOP, getProdcutViewSuccess, GET_PRODUCT_VIEW } from "redux/actions/laptopAction";
 
 
 function* laptopSaga() {
@@ -46,9 +46,18 @@ function* laptopDetailSaga(action) {
       Loading.hide()
    }
 }
+function* storageProductSaga(action) {
+   try {
+      yield put(getProdcutViewSuccess(action.payload))
+   }
+   catch (e) {
+      console.log(e)
+   }
+}
 export default function* () {
    yield takeEvery(GET_LAPTOP_BY_CATE, laptopByCateSaga)
    yield takeLatest(GET_LIST_LAPTOP, laptopSaga)
    yield takeLatest(GET_LAPTOP_BY_PRICE, laptopByPriceSaga)
    yield takeLatest(GET_DETAIL_LAPTOP, laptopDetailSaga)
+   yield takeLatest(GET_PRODUCT_VIEW, storageProductSaga)
 }

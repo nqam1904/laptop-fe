@@ -1,35 +1,33 @@
-.maylike-products-wrapper {
-   margin-top: 200px;
+@import 'assets/colors.scss';
+.wapper{
+   text-align: center;
+   padding: 20px;
 }
-
+.maylike-products-wrapper {
+   padding: 20px;
+   align-items: center;
+   overflow-x: auto;
+}
 .maylike-products-wrapper h2 {
    text-align: center;
-   margin: 50px;
    color: #324d67;
    font-size: 28px;
 }
 
-@keyframes marquee {
-   from {
-      transform: translateX(0);
-   }
-
-   to {
-      transform: translateX(-50%);
-   }
-}
-
 .maylike-products-container {
    display: flex;
+   flex:50%;
    justify-content: center;
    gap: 15px;
    margin-top: 20px;
    padding: 20px;
 }
+.maylike-products-wrapper::-webkit-scrollbar {
+   width: 5px;
+   height: 5px;
+}
 
-.track {
-   white-space: nowrap;
-   will-change: transform;
-   animation: marquee 15s linear infinite;
-   width: 180%;
+.maylike-products-wrapper::-webkit-scrollbar-thumb {
+   background: $light-color;
+   border-radius: 8px;
 }

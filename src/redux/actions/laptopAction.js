@@ -23,3 +23,8 @@ export const GET_DETAIL_LAPTOP = 'GET_DETAIL_LAPTOP'
 export const GET_DETAIL_LAPTOP_SUCCESS = 'GET_DETAIL_LAPTOP_SUCCESS'
 export const getDetailLaptopAction = createAction(GET_DETAIL_LAPTOP)
 export const getDetailLaptopSuccess = createAction(GET_DETAIL_LAPTOP_SUCCESS)
+
+export const GET_PRODUCT_VIEW = 'GET_PRODUCT_VIEW'
+export const GET_PRODUCT_VIEW_SUCCESS = 'GET_PRODUCT_VIEW_SUCCESS'
+export const getProdcutViewAction = createAction(GET_PRODUCT_VIEW)
+export const getProdcutViewSuccess = createAction(GET_PRODUCT_VIEW_SUCCESS)

@@ -23,28 +23,11 @@ a {
 	max-width: 1400px;
 	margin: auto;
 	width: 100%;
-	padding: 1rem;
 }
-
-.products-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 15px;
-	margin-top: 20px;
-	width: 100%;
-}
-.small-image {
-	border-radius: 8px;
-	background-color: #ebebeb;
-	width: 120px;
-	height: 120px;
-	cursor: pointer;
-	margin-left: 10px;
-	margin-right: 10px;
-}
-.track:hover {
-	animation-play-state: paused;
+@media (max-width: 768px) {
+	.main-container {
+			padding: 1rem
+		}
 }
 
 

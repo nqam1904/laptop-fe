@@ -1,9 +1,20 @@
-import { Link } from "react-router-dom";
 import { API_URL } from 'utils/constant';
 import { formatNumber } from "utils/function";
+import { Link } from "react-router-dom";
 import './styles.scss';
-
+import { useDispatch } from 'react-redux';
+import { getDetailLaptopAction } from "redux/actions/laptopAction";
+import { useEffect } from 'react';
 const Product = (props) => {
+   const dispatch = useDispatch()
+   // const getProductStore = () => {
+   //    if (props.storage === true) {
+   //       dispatch(getDetailLaptopAction(props?.product?.slug))
+   //    } else {
+   //       return
+   //    }
+   // }
+   // useEffect(() => { getProductStore() }, [])
    return (
       <div>
          <Link to={`/product/${props?.product?.slug}`}>

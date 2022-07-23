@@ -10,8 +10,8 @@ const Header = () => {
    const header = useSelector(headerSelector)
    const [menuOpen, setMenuOpen] = useState(false);
    const [size, setSize] = useState({
-      width: undefined,
-      height: undefined,
+      width: window.screen.width,
+      height: window.screen.height,
    });
    const dataHeader = () => {
       const isShow = header.filter((is) => is.show === true)
@@ -24,8 +24,6 @@ const Header = () => {
       ))
       return showHeader
    }
-
-
 
    useEffect(() => {
       const handleResize = () => {

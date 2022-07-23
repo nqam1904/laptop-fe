@@ -7,17 +7,17 @@ import { getDetailLaptopAction } from "redux/actions/laptopAction";
 import { useEffect } from 'react';
 const Product = (props) => {
    const dispatch = useDispatch()
-   // const getProductStore = () => {
-   //    if (props.storage === true) {
-   //       dispatch(getDetailLaptopAction(props?.product?.slug))
-   //    } else {
-   //       return
-   //    }
-   // }
-   // useEffect(() => { getProductStore() }, [])
+   const getProductStore = () => {
+      if (props.storage === true) {
+         window.scrollTo({ top: 0, behavior: 'smooth' });
+         dispatch(getDetailLaptopAction(props?.product?.slug))
+      } else {
+         return
+      }
+   }
    return (
       <div>
-         <Link to={`/product/${props?.product?.slug}`}>
+         <Link to={`/product/${props?.product?.slug}`} onClick={getProductStore}>
             <div className="product-card">
                <img src={`${API_URL}` + props?.product?.images?.[0]?.url} width={250} height={250} className="product-image" alt={props?.name} />
                <p className="product-name">{props?.product?.name}</p>

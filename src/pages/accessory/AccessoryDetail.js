@@ -1,13 +1,11 @@
 import swal from '@sweetalert/with-react'
 import accessoryApi from 'api/accessoryApi'
-import { ViewMore } from 'components/'
 import Layout from "layouts/Layout"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs"
 import { getAccessoryDetailAction } from "redux/actions/accessoryAction"
-import { getProdcutViewAction } from 'redux/actions/laptopAction'
 import { accessoryDetailSelector } from "redux/selector/accessorySelector"
 import { API_URL } from 'utils/constant'
 import { formatNumber } from "utils/function"
@@ -30,7 +28,6 @@ const AccessoryDetail = () => {
    useEffect(() => {
       getAccessoryDetail()
       updateViewAccessory()
-      dispatch(getProdcutViewAction(accessoryDetial))
       window.scrollTo({ top: 0, behavior: 'smooth' });
    }, [])
 
@@ -107,7 +104,6 @@ const AccessoryDetail = () => {
                </TabPanel>
             </Tabs>
          </div>
-         <ViewMore />
       </Layout>
    )
 }

@@ -190,22 +190,22 @@ export const product = [
 export const filterPice = [
 	{
 		id: 0,
-		title: '10tr - 15tr',
+		title: 'Từ 10 triệu',
 		value: '10000000',
 	},
 	{
 		id: 1,
-		title: '15tr - 20tr',
+		title: 'Từ 15 triệu',
 		value: '15000000',
 	},
 	{
 		id: 2,
-		title: '20tr - 25tr',
+		title: 'Từ 20 triệu',
 		value: '20000000',
 	},
 	{
 		id: 3,
-		title: 'Trên 25tr',
+		title: 'Trên 25 triệu',
 		value: '25000000',
 	},
 ]

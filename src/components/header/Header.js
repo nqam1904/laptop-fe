@@ -1,5 +1,6 @@
 import { images } from 'assets'
 import React, { useState, useEffect } from 'react'
+import { FaSearch } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getLaptopByCateAction } from 'redux/actions/laptopAction'
@@ -13,12 +14,20 @@ const Header = () => {
       width: window.screen.width,
       height: window.screen.height,
    });
+   const turnOffMenu = () => {
+      if (menuOpen) {
+         setMenuOpen((p) => !p);
+      }
+   }
    const dataHeader = () => {
       const isShow = header.filter((is) => is.show === true)
       const showHeader = isShow.map((header, item) => (
          <li key={item}>
             <Link
-               onClick={() => dispatch(getLaptopByCateAction(header?.categories?.[0]?.name))}
+               onClick={() => {
+                  turnOffMenu()
+                  dispatch(getLaptopByCateAction(header?.categories?.[0]?.name))
+               }}
                to={`${header.url}`}>{header?.categories?.[0]?.name}</Link>
          </li>
       ))
@@ -58,6 +67,10 @@ const Header = () => {
             >
                <ul>
                   {dataHeader()}
+                  <li className={classes.header__search}>
+                     <Link
+                        to='/search'><FaSearch /></Link>
+                  </li>
                </ul>
             </nav>
             <div className={classes.header__content__toggle}>

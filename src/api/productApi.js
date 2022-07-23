@@ -1,4 +1,4 @@
-import { queryDetailProduct, queryFilterCategory, queryFilterPrice } from "utils/helper"
+import { queryDetailProduct, queryFilterCategory, queryFilterPrice, querySearchProduct } from "utils/helper"
 import axiosClient from "./axiosClient"
 import _ from 'lodash'
 const ProductApi = {
@@ -25,6 +25,11 @@ const ProductApi = {
    updateViewLaptop(body) {
       const url = `/products/${body?.id}`
       return axiosClient.put(url, body)
+   },
+   searchProduct(name) {
+      const query = querySearchProduct(name)
+      const url = `/products?${query}`
+      return axiosClient.get(url)
    }
 }
 

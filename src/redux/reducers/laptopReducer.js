@@ -4,6 +4,7 @@ const initialState = {
 	listLaptop: [],
 	laptopByCategory: [],
 	detailLaptop: [],
+	searchProduct: [],
 	storageProduct: []
 }
 
@@ -29,6 +30,11 @@ export const laptopReducer = (state = initialState, action) => {
 			return {
 				...state,
 				detailLaptop: action.payload
+			}
+		case Action.SEARCH_PRODUCT_SUCCESS:
+			return {
+				...state,
+				searchProduct: action.payload
 			}
 		case Action.GET_PRODUCT_VIEW_SUCCESS:
 			const arr = [...action.payload]

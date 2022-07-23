@@ -28,3 +28,9 @@ export const GET_PRODUCT_VIEW = 'GET_PRODUCT_VIEW'
 export const GET_PRODUCT_VIEW_SUCCESS = 'GET_PRODUCT_VIEW_SUCCESS'
 export const getProdcutViewAction = createAction(GET_PRODUCT_VIEW)
 export const getProdcutViewSuccess = createAction(GET_PRODUCT_VIEW_SUCCESS)
+
+// SEARCH PRODUCT
+export const SEARCH_PRODUCT = 'SEARCH_PRODUCT'
+export const SEARCH_PRODUCT_SUCCESS = 'SEARCH_PRODUCT_SUCCESS'
+export const searchProdcutAction = createAction(SEARCH_PRODUCT)
+export const searchProdcutSuccess = createAction(SEARCH_PRODUCT_SUCCESS)

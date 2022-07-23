@@ -1,7 +1,7 @@
 import ProductApi from "api/productApi";
 import { Loading } from "components/";
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
-import { getDetailLaptopSuccess, getLaptopByCateSuccess, getLaptopByPriceSuccess, getListLaptopSuccess, GET_LAPTOP_BY_PRICE, GET_DETAIL_LAPTOP, GET_LAPTOP_BY_CATE, GET_LIST_LAPTOP, getProdcutViewSuccess, GET_PRODUCT_VIEW } from "redux/actions/laptopAction";
+import { getDetailLaptopSuccess, getLaptopByCateSuccess, getLaptopByPriceSuccess, getListLaptopSuccess, GET_LAPTOP_BY_PRICE, GET_DETAIL_LAPTOP, GET_LAPTOP_BY_CATE, GET_LIST_LAPTOP, getProdcutViewSuccess, GET_PRODUCT_VIEW, searchProdcutSuccess, SEARCH_PRODUCT } from "redux/actions/laptopAction";
 
 
 function* laptopSaga() {
@@ -11,6 +11,18 @@ function* laptopSaga() {
    }
    catch (e) {
       console.log(e)
+   }
+}
+function* searchLaptopSaga(action) {
+   try {
+      Loading.show()
+      const response = yield call(ProductApi.searchProduct, action.payload)
+      yield put(searchProdcutSuccess(response))
+   }
+   catch (e) {
+      console.log(e)
+   } finally {
+      Loading.hide()
    }
 }
 function* laptopByCateSaga(action) {
@@ -53,6 +65,7 @@ function* storageProductSaga(action) {
    catch (e) {
       console.log(e)
    }
+
 }
 export default function* () {
    yield takeEvery(GET_LAPTOP_BY_CATE, laptopByCateSaga)
@@ -60,4 +73,5 @@ export default function* () {
    yield takeLatest(GET_LAPTOP_BY_PRICE, laptopByPriceSaga)
    yield takeLatest(GET_DETAIL_LAPTOP, laptopDetailSaga)
    yield takeLatest(GET_PRODUCT_VIEW, storageProductSaga)
+   yield takeLatest(SEARCH_PRODUCT, searchLaptopSaga)
 }

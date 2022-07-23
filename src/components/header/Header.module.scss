@@ -44,8 +44,9 @@
          justify-content: center;
          align-items: center;
          text-align: center;
-         background: rgba($bg, 0.9);
-         backdrop-filter: blur(2px);
+         font-size: 20px;
+         background: #00000036;
+         backdrop-filter: blur(8px);
          transform: translate(0);
          transition: 0.3s ease transform;
 
@@ -147,5 +148,11 @@
             display: none;
          }
       }
+   }
+   &__search{
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
    }
 }

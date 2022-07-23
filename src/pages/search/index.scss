@@ -1,0 +1,33 @@
+@import 'assets/colors.scss';
+.search_page{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 4.5rem;
+   & .title_search{
+      margin-top: 20px;
+   }
+   & .search_result{
+      text-align: center;
+   }
+   & .search_product-result{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      width: 100%;
+   }
+}
+@media (max-width: 768px) {
+   .search_result{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+   .search_product-result {
+         display: flex;
+         flex-direction: column;
+         text-align: center;
+      }
+}

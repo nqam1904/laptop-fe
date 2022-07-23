@@ -13,6 +13,7 @@ export const history = createBrowserHistory()
 const persistConfig = {
 	key: 'root',
 	storage,
+	throttle: 500,
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer(history))
 export default function configureStore() {

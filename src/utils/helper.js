@@ -12,5 +12,8 @@ const queryDetailProduct = slug => {
 const queryDetailAccessory = (slug) => {
    return `_where[0][slug]=${slug}`
 }
-export { queryFilterCategory, queryFilterPrice, queryDetailProduct, queryDetailAccessory }
+const querySearchProduct = (name) => {
+   return `_q=${name}`
+}
+export { queryFilterCategory, querySearchProduct, queryFilterPrice, queryDetailProduct, queryDetailAccessory }
 

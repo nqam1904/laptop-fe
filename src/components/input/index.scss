@@ -1,0 +1,29 @@
+@import 'assets/colors.scss';
+.search{
+   background-color: $white;
+   padding: 2rem;
+   width: 50%;
+   justify-content: center;
+   display: flex;
+   font-size: 1.4rem;
+   & .search-input{
+      padding: 1rem;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      flex-grow: 1;
+   }
+   & .search-btn{
+      padding: 1rem 2rem;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      color: $white;
+      background-color: $primary;
+      border: 0;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: max-content;
+      flex-shrink: 0;
+      margin-left: 10px;
+   }
+}

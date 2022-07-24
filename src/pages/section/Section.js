@@ -7,7 +7,7 @@ import { sectionSelector } from 'redux/selector/sectionSelector'
 import { history } from 'redux/store'
 import React from 'react'
 import "./index.scss"
-
+import _ from 'lodash'
 const Section = () => {
    const dispatch = useDispatch()
    const section = useSelector(sectionSelector)
@@ -19,31 +19,23 @@ const Section = () => {
       ))
    }
    const laptopByCate = async () => {
+      let listSection = []
       const listPromise = await Promise.all(section.map(element => ProductApi.queryFilterCategory(element?.category?.name)))
-      setProducts(listPromise)
+      await listPromise.forEach(x => listSection.push(...x))
+      setProducts(listSection)
    }
    useEffect(() => {
       laptopByCate()
    }, [])
    const showProduct = () => {
-      const isProd = products.filter(i => i?.category?.name === nameCate)
-      return products?.map((item, i) => (
-         <>
-            <Product key={i} product={item} />
-            <div className="buttons">
-               <button type="button" className="show_more" onClick={show_more}>
-                  Xem thêm
-               </button>
-            </div>
-         </>
-      )
-      )
-   }
-   const test = () => {
-      const category = []
-      return category.map(i =>
-         <>{i.name} {(i.products || []).map(product => <>product</>)}</>
-      )
+      console.log(products?.filter(category => category?.category?.name === nameCate?.forEach(x => x)), 'asdas')
+      console.log(products.filter(category => category?.category?.name === nameCate?.forEach(x => x)))
+      return products.filter(category => category?.category?.name === nameCate?.forEach(x => x))
+         .map((product, index) => {
+            console.log(product)
+         }
+         )
+
    }
    const show_more = () => {
       history.push(`${nameCate}`)
@@ -51,8 +43,8 @@ const Section = () => {
 
    return (
       <div className="laptop">
-         {test()}
-         {/* <div className="products-container">{showProduct()}</div> */}
+         {/* {titleSection()} */}
+         <div className="products-container">{showProduct()}</div>
       </div>
    )
 }

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { getLaptopByCateAction } from 'redux/actions/laptopAction'
 import { headerSelector } from 'redux/selector/headerSeletor'
 import classes from "./Header.module.scss";
+import _ from 'lodash'
 const Header = () => {
    const dispatch = useDispatch()
    const header = useSelector(headerSelector)
@@ -20,8 +21,8 @@ const Header = () => {
       }
    }
    const dataHeader = () => {
-      const isShow = header.filter((is) => is.show === true)
-      const showHeader = isShow.map((header, item) => (
+      const isShow = header?.filter((is) => is.show === true)
+      const showHeader = isShow?.map((header, item) => (
          <li key={item}>
             <Link
                onClick={() => {
@@ -66,7 +67,7 @@ const Header = () => {
                   }`}
             >
                <ul>
-                  {dataHeader()}
+                  {!_.isEmpty(header) && dataHeader()}
                   <li className={classes.header__search}>
                      <Link
                         to='/search'><FaSearch /></Link>

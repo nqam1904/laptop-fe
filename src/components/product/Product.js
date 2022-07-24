@@ -1,10 +1,10 @@
+import { useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
+import { getDetailLaptopAction } from "redux/actions/laptopAction";
 import { API_URL } from 'utils/constant';
 import { formatNumber } from "utils/function";
-import { Link } from "react-router-dom";
 import './styles.scss';
-import { useDispatch } from 'react-redux';
-import { getDetailLaptopAction } from "redux/actions/laptopAction";
-import { useEffect } from 'react';
+
 const Product = (props) => {
    const dispatch = useDispatch()
    const getProductStore = () => {

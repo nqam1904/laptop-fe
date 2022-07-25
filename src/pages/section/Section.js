@@ -1,29 +1,37 @@
 import { Product } from 'components'
-import { useDispatch, useSelector } from 'react-redux'
-import { categorySelector, laptopSelector } from 'redux/selector/laptopSelector'
-import { history } from 'redux/store'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { getLaptopByCateAction } from 'redux/actions/laptopAction'
 import "./index.scss"
-const Section = (props) => {
-   const dispatch = useDispatch()
-   const laptop = useSelector(laptopSelector)
-   const category = useSelector(categorySelector)
 
+const Section = (props) => {
+   const { data } = props || []
+   const dispatch = useDispatch()
    const showProduct = () => {
-      const isProd = laptop.filter(i => i?.category?.section_show === true).filter(x => x?.category?.name === category?.[0]?.name).map(x => (
-         <Product key={x.id} product={x} />
-      ))
-      return isProd
+      return data.map((item, index) => {
+         return (
+            <>
+               <h2 className="title_cate" key={index}>{item.nameSec}</h2>
+               <div className='section_container-product'>
+                  {item?.dataFilter?.map(i => (
+                     <Product isHeader key={i.id} product={i} />
+                  ))}
+               </div>
+               <Link to={`/${item.nameSec}`} onClick={() => dispatch(getLaptopByCateAction(item.nameSec))}>
+                  <button type="button" className="section_btn">
+                     Xem thêm
+                  </button>
+               </Link>
+            </>
+         )
+      })
    }
-   const showMore = () => {
-   }
+
 
    return (
       <div className="laptop">
-         <h2 className="title_cate">{category?.[0]?.name}</h2>
-         <div className="products-container">{showProduct()}</div>
-         <button type="button" className="section_btn" onClick={showMore}>
-            Xem thêm
-         </button>
+         <div className="section_container">{showProduct()}</div>
+
       </div>
    )
 }

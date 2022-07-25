@@ -1,4 +1,14 @@
 @import 'assets/colors.scss';
+.section_container{
+   
+}
+.section_container-product{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 15px;
+   width: 100%;
+}
 .section_btn {
    width: 200px;
    padding: 0px 20px;

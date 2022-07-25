@@ -28,13 +28,20 @@ const Home = () => {
 		dispatch(getAccessoryAction())
 		dispatch(getCategoryAction())
 	}, []);
+
+	const dataSection = category?.map((item) => {
+		const dataFilter = laptop.filter(itemLaptop => itemLaptop?.category?.name === item?.name)
+		return {
+			dataFilter,
+			nameSec: item?.name
+		}
+	})
 	return (
 		<Layout>
 			<Slider data={banners} />
 			<Laptop />
-			<Section />
+			<Section data={dataSection} />
 			<Accessory />
-			{/* <FooterBanner /> */}
 		</Layout>
 	)
 }

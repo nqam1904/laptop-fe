@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { searchProdcutAction } from 'redux/actions/laptopAction'
+import { searchProductAction } from 'redux/actions/laptopAction'
 import './index.scss'
-const  Input = () => {
+const Input = () => {
    const dispatch = useDispatch()
    const [text, setText] = useState('')
    const onClick = () => {
-      dispatch(searchProdcutAction(text))
+      dispatch(searchProductAction(text))
    }
    const onchange = (text) => {
       text.preventDefault()
@@ -14,7 +14,7 @@ const  Input = () => {
    }
    const _handleKeyDown = (e) => {
       if (e.key === 'Enter') {
-         dispatch(searchProdcutAction(text))
+         dispatch(searchProductAction(text))
       }
    }
    return (

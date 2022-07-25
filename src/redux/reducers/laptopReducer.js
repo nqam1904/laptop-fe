@@ -5,7 +5,8 @@ const initialState = {
 	laptopByCategory: [],
 	detailLaptop: [],
 	searchProduct: [],
-	storageProduct: []
+	storageProduct: [],
+	category: []
 }
 
 export const laptopReducer = (state = initialState, action) => {
@@ -35,6 +36,11 @@ export const laptopReducer = (state = initialState, action) => {
 			return {
 				...state,
 				searchProduct: action.payload
+			}
+		case Action.GET_CATEGORY_SUCCESS:
+			return {
+				...state,
+				category: action.payload
 			}
 		case Action.GET_PRODUCT_VIEW_SUCCESS:
 			const arr = [...action.payload]

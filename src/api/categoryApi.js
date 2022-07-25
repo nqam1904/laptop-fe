@@ -4,7 +4,7 @@ const categoryAPi = {
 	/**
 	 * Get all category
 	 */
-	getAll() {
+	getCategory() {
 		const url = '/categories'
 		return axiosClient.get(url)
 	},

@@ -32,5 +32,11 @@ export const getProdcutViewSuccess = createAction(GET_PRODUCT_VIEW_SUCCESS)
 // SEARCH PRODUCT
 export const SEARCH_PRODUCT = 'SEARCH_PRODUCT'
 export const SEARCH_PRODUCT_SUCCESS = 'SEARCH_PRODUCT_SUCCESS'
-export const searchProdcutAction = createAction(SEARCH_PRODUCT)
-export const searchProdcutSuccess = createAction(SEARCH_PRODUCT_SUCCESS)
+export const searchProductAction = createAction(SEARCH_PRODUCT)
+export const searchProductSuccess = createAction(SEARCH_PRODUCT_SUCCESS)
+
+// GET CATEGORY
+export const GET_CATEGORY = 'GET_CATEGORY'
+export const GET_CATEGORY_SUCCESS = 'GET_CATEGORY_SUCCESS'
+export const getCategoryAction = createAction(GET_CATEGORY)
+export const getCategorySuccess = createAction(GET_CATEGORY_SUCCESS)

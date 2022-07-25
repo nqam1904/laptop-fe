@@ -1,5 +1,5 @@
 import swal from '@sweetalert/with-react'
-import { Modal, TableTechnique, ViewMore } from 'components'
+import { Breadcrumb, Modal, TableTechnique, ViewMore } from 'components'
 import Layout from 'layouts/Layout'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -48,6 +48,7 @@ const ProductDetail = () => {
 	}
 	return (
 		<Layout>
+			<Breadcrumb style={{ marginTop: '5rem' }} product={detailLaptop?.[0]?.name} category={detailLaptop?.[0]?.category?.name} />
 			<div className="product-detail-container">
 				<div className='product-detail-left'>
 					<div>

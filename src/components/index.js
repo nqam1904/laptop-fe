@@ -9,4 +9,5 @@ import AccessoryItem from './accessory/AccessoryItem'
 import Modal from './modal/Modal'
 import ViewMore from './view_more/ViewMore'
 import Input from './input/Input'
-export { Header, ViewMore, Loading, Slider, Input, Product, Footer, FooterBanner, TableTechnique, AccessoryItem, Modal }
+import Breadcrumb from './breadcrumb/Breadcrumb'
+export { Header, ViewMore, Loading, Breadcrumb, Slider, Input, Product, Footer, FooterBanner, TableTechnique, AccessoryItem, Modal }

@@ -1,108 +1,4 @@
 @import 'assets/colors.scss';
-.product-promotion{
-    text-decoration: line-through;
-    font-weight: 700;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-right: 10px;
-    color: $light-color;
-}
-.promotion_price-product{
-    display: flex;
-    justify-content: first baseline;
-    align-items: center;
-}
-.product-detail-right h4 {
-    margin-top: 10px;
-}
-
-.product-detail-right p {
-    margin-top: 10px;
-}
-
-.product-detail-right .price {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    color: $error
-}
-.product-detail_info {
-    margin-top: 10px;
-}
-.product-detail_option {
-    margin-top: 10px ;
-}
-.configuration {
-    display: flex;
-    align-items: center;
-}
-.title-option {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.item-option {
-    margin-left: 10px;
-    border-radius: 10px;
-    padding: 6px;
-    border: 2px solid #324d67;
-}
-.item-option:hover {
-    border: 2px solid #FFFFFF;
-    color: white;
-    background-color: #324d67;
-}
-.util-product {
-    padding: 10px;
-    margin-top: 20px;
-    border: 1px solid #324d67;
-    border-radius: 16px;
-}
-.product-detail_promotion {
-    padding: 10px;
-    margin-top: 20px;
-    border: 1px solid #324d67;
-    border-radius: 16px;
-}
-
-.title-promotion_product {
-    color: $black;
-    text-decoration: underline;
-    margin-bottom: 14px;
-}
-
-.promiton-body_product{
-    display: flex;
-    flex-direction: column;
-}
-.item-promtion_product {
-    margin: 10px 0;
-}
-.mcredit {
-    margin-top: 20px;
-    color: #f02d34;
-}
-.product-button .buy-now {
-    width: 200px;
-    padding: 10px 20px;
-    background-color: $bg;
-    color: white;
-    border: none;
-    margin-top: 40px;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    transform: scale(1, 1);
-    transition: transform 0.5s ease;
-}
-
-.product-button .buy-now:hover {
-    transform: scale(1.1, 1.1);
-}
-
-
-
 .product-detail-container {
     display: flex;
     flex-direction: row;
@@ -150,7 +46,119 @@
     border: 1px solid #324d67;
     border-radius: 16px;
 }
+.product-detail-right h4 {
+    margin-top: 10px;
+}
 
+.product-detail-right p {
+    margin-top: 10px;
+}
+
+.product-detail-right .price {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: $error
+}
+
+.product-detail_info {
+    margin-top: 10px;
+}
+
+.product-detail_option {
+    margin-top: 10px;
+}
+
+.configuration {
+    display: flex;
+    align-items: center;
+}
+
+.title-option {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.item-option {
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 6px;
+    border: 2px solid #324d67;
+}
+
+.item-option:hover {
+    border: 2px solid #FFFFFF;
+    color: white;
+    background-color: #324d67;
+}
+
+.util-product {
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #324d67;
+    border-radius: 16px;
+}
+
+.product-promotion {
+    text-decoration: line-through;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-right: 10px;
+    color: $light-color;
+}
+
+.promotion_price-product {
+    display: flex;
+    justify-content: first baseline;
+    align-items: center;
+}
+
+.product-detail_promotion {
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #324d67;
+    border-radius: 16px;
+}
+
+.title-promotion_product {
+    color: $black;
+    text-decoration: underline;
+    margin-bottom: 14px;
+}
+
+.promiton-body_product {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-promtion_product {
+    margin: 10px 0;
+}
+
+.mcredit {
+    margin-top: 20px;
+    color: #f02d34;
+}
+
+.product-button .buy-now {
+    width: 200px;
+    padding: 10px 20px;
+    background-color: $bg;
+    color: white;
+    border: none;
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transform: scale(1, 1);
+    transition: transform 0.5s ease;
+}
+
+.product-button .buy-now:hover {
+    transform: scale(1.1, 1.1);
+}
 .product_title_promotion {
     color: $black;
     text-decoration: underline;

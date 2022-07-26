@@ -1,3 +1,4 @@
+import { images } from 'assets';
 import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import { getDetailLaptopAction } from "redux/actions/laptopAction";
@@ -19,7 +20,12 @@ const Product = (props) => {
       <div>
          <Link to={`/product/${props?.product?.slug}`} onClick={getProductStore}>
             <div className="product-card">
-               <img src={`${API_URL}` + props?.product?.images?.[0]?.url} width={240} height={240} className="product-image" alt={props?.name} />
+               <img src={`${API_URL}` + props?.product?.images?.[0]?.url} width={240} height={240}
+                  onError={({ currentTarget }) => {
+                     currentTarget.onerror = null; // prevents looping
+                     currentTarget.src = images.no_image;
+                  }}
+                  className="product-image" alt={props?.name} />
                <p className="product-name">{props?.product?.name}</p>
                <p className="product-card_price">{formatNumber(props?.product?.price)}₫</p>
             </div>

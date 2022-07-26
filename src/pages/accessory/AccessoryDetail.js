@@ -1,5 +1,6 @@
 import swal from '@sweetalert/with-react'
 import accessoryApi from 'api/accessoryApi'
+import { images } from 'assets'
 import { Breadcrumb } from 'components/'
 import Layout from "layouts/Layout"
 import { useEffect, useState } from "react"
@@ -41,6 +42,10 @@ const AccessoryDetail = () => {
          <img
             onClick={() => setImagesOhter(item.url)}
             key={index}
+            onError={({ currentTarget }) => {
+               currentTarget.onerror = null; // prevents looping
+               currentTarget.src = images.no_image;
+            }}
             className='multi__image'
             src={API_URL + item.url}
             alt={item?.name}
@@ -55,6 +60,10 @@ const AccessoryDetail = () => {
                <div className='accessory_detail-left-image'>
                   <img
                      src={`${API_URL}` + imagesOther || accessoryDetial?.[0]?.images?.url}
+                     onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; // prevents looping
+                        currentTarget.src = images.no_image;
+                     }}
                      className="accessory-detail-image"
                   />
                   <div className="accessory_slider-image">
@@ -78,14 +87,6 @@ const AccessoryDetail = () => {
                   </span>
                </div>
                <hr />
-               {/* <div className="promition-detail_accessory">
-                  <h3 className="title-promotion_accessory">Quà tặng:</h3>
-                  <div className="promiton-body_accessory">
-                     <span className="item-promtion_accessory">
-                        - Chưa có khuyến mãi.
-                     </span>
-                  </div>
-               </div> */}
                <div className='mcredit'>
                   <h3>Hỗ trợ trả góp MPOS (Thẻ tín dụng)</h3>
                </div>

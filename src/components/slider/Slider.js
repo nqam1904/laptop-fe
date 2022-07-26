@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import { API_URL } from 'utils/constant'
 import './styles.scss'
 import _ from 'lodash'
+import { images } from 'assets'
 const SimpleSlider = (props) => {
 	const PreviousBtn = ({ currentSlide, slideCount, ...props }) => {
 		return (
@@ -49,6 +50,10 @@ const SimpleSlider = (props) => {
 							src={`${API_URL}` + item?.images[0]?.url}
 							alt={item?.images[0]?.name}
 							className={"image_slider"}
+							onError={({ currentTarget }) => {
+								currentTarget.onerror = null; // prevents looping
+								currentTarget.src = images.no_image_slider;
+							}}
 						/>
 					</div>
 				))}

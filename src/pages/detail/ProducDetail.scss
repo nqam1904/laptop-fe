@@ -187,6 +187,8 @@
 }
 .appearence_info-title {
     margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
 }
 .appearence_info-sub {
     margin: 10px 0px;
@@ -243,6 +245,14 @@
 .product-small_images:hover {
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+@media (max-width:   1024px) {
+    .product-detail-left {
+            flex: 40%;
+        }
+        .product-detail-right {
+            flex: 60%;
+        }
 }
 @media (max-width: 768px) {
     .product-detail-container {

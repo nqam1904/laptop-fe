@@ -1,10 +1,18 @@
+@import 'assets/colors.scss';
+.block_table{
+	// display: flex;
+	// justify-content: center;
+	// align-items: center;
+	// margin: 0 auto;
+}
 .table {
 	border: 1px solid #ccc;
 	border-style: solid;
 	border-collapse: collapse;
+	background-color: $white;
 }
 .table_lable {
-	background-color: #f7f7f7 !important;
+	background-color: $white;
 	border-color: #eeeeee;
 	border-style: solid;
 	border-width: 1px;

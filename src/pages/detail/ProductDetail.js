@@ -11,6 +11,8 @@ import './ProducDetail.scss'
 import ProductApi from 'api/productApi'
 import { getDetailLaptopAction, getProdcutViewAction } from 'redux/actions/laptopAction'
 import { useParams } from "react-router-dom";
+import { images } from 'assets';
+import ReactMarkdown from "react-markdown";
 
 const ProductDetail = () => {
 	const [imagesOther, setImagesOhter] = useState('')
@@ -42,6 +44,10 @@ const ProductDetail = () => {
 				src={`${API_URL}` + item?.url}
 				alt={item?.name}
 				className="product-small_images"
+				onError={({ currentTarget }) => {
+					currentTarget.onerror = null; // prevents looping
+					currentTarget.src = images.no_image;
+				}}
 				onClick={() => setImagesOhter(item?.url)}
 			/>
 		))
@@ -55,6 +61,10 @@ const ProductDetail = () => {
 						<img
 							src={`${API_URL}` + imagesOther}
 							className="product-detail-image"
+							onError={({ currentTarget }) => {
+								currentTarget.onerror = null; // prevents looping
+								currentTarget.src = images.no_image;
+							}}
 						/>
 						<div className="product_slider-image">{showImageOther()}</div>
 					</div>
@@ -114,9 +124,9 @@ const ProductDetail = () => {
 						{/* option map array  */}
 						<br />
 					</div>
-					<hr />
 					<div className='appearence'>
-						<h3 className='appearence_info-title'>Tình trạng:</h3>
+						<span className='appearence_info-title'>Tình trạng:</span>
+						{/* <h3 className='appearence_info-title'>Tình trạng:</h3> */}
 						<p className='appearence_info-sub'>{detailLaptop?.[0]?.appearence || ''}</p>
 					</div>
 					<hr />

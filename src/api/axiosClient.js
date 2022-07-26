@@ -10,7 +10,6 @@ const axiosClient = axios.create({
 		'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
 		'Access-Control-Allow-Credentials': true
 	},
-	withCredentials: true
 })
 
 // Add a request interceptor

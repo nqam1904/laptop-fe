@@ -44,7 +44,7 @@ const SimpleSlider = (props) => {
 	return (
 		<div className="slider">
 			<Slider {...settings}>
-				{!_.isEmpty(props?.data) && props?.data?.map((item, index) => (
+				{!_.isEmpty(props?.data) ? props?.data?.map((item, index) => (
 					<div className="slider_item" key={index}>
 						<img
 							src={`${API_URL}` + item?.images[0]?.url}
@@ -56,7 +56,7 @@ const SimpleSlider = (props) => {
 							}}
 						/>
 					</div>
-				))}
+				)) : []}
 			</Slider>
 		</div>
 	)

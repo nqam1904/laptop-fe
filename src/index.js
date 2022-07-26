@@ -8,7 +8,7 @@ import configureStore, { history } from 'redux/store'
 import App from './App'
 import { PersistGate } from 'redux-persist/integration/react'
 // import css library react
-import './global.css'
+import './global.scss'
 import './reset.css'
 import 'react-tabs/style/react-tabs.css'
 import 'react-toastify/dist/ReactToastify.css'
@@ -20,18 +20,18 @@ root.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<PersistGate loading={null} persistor={persistor}>
-			<App history={history} />
-			<ToastContainer
-				position="bottom-center"
-				autoClose={3000}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-			/>
+				<App history={history} />
+				<ToastContainer
+					position="bottom-center"
+					autoClose={3000}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+				/>
 				<Loading ref={(refs) => Loading.setRef(refs)} />
 			</PersistGate>
 		</BrowserRouter>

@@ -19,9 +19,9 @@ const Product = (props) => {
       <div>
          <Link to={`/product/${props?.product?.slug}`} onClick={getProductStore}>
             <div className="product-card">
-               <img src={`${API_URL}` + props?.product?.images?.[0]?.url} width={250} height={250} className="product-image" alt={props?.name} />
+               <img src={`${API_URL}` + props?.product?.images?.[0]?.url} width={240} height={240} className="product-image" alt={props?.name} />
                <p className="product-name">{props?.product?.name}</p>
-               <p className="product-price">Giá: {formatNumber(props?.product?.price)}₫</p>
+               <p className="product-card_price">{formatNumber(props?.product?.price)}₫</p>
             </div>
          </Link>
       </div>

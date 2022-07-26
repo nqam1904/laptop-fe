@@ -81,10 +81,12 @@
     text-transform: uppercase;
     color: #3eb8ea;
     font-size: 66px;
-    font-family: HelveticaNeueW10-35Thin;
+    font-family: Arial,
+		Helvetica,
+		Verdana,
+		sans-serif;;
     letter-spacing: 1px;
     white-space: nowrap;
-    // border: solid 1px red;
 
     @include mobile {
       font-size: 31px;
@@ -93,7 +95,10 @@
 
   >.description_404 {
     margin-top: 19px;
-    font-family: HelveticaNeueW10-35Thin;
+    font-family: Arial,
+		Helvetica,
+		Verdana,
+		sans-serif;;
     letter-spacing: 1px;
     font-size: 20px;
     line-height: 39px;
@@ -117,7 +122,10 @@
     font-size: 22px;
     text-align: center;
     border-radius: 28px;
-    font-family: HelveticaNeueW10-35Thin;
+    font-family: Arial,
+		Helvetica,
+		Verdana,
+		sans-serif;;
     cursor: pointer;
     border: solid 2px #3eb8ea;
     background-color: #fff;

@@ -1,11 +1,16 @@
+@import 'assets/colors.scss';
 *{
 	box-sizing: border-box;
 }
 body {
-	font-family: 'Roboto', sans-serif;
-	width: 100%;
+	font-family: Arial,
+		Helvetica,
+		Verdana,
+		sans-serif;
+	 width: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-color: $layout;
 }
 ::-webkit-scrollbar {
 	width: 0px;
@@ -18,15 +23,17 @@ a {
 	flex-direction: column;
 	height: 100vh;
 	margin: 0;
+	background-color: $layout;
 }
 .main-container {
-	max-width: 1400px;
 	margin: auto;
 	width: 100%;
+	background-color: $layout;
 }
 @media (max-width: 768px) {
 	.main-container {
-			padding: 1rem
+			padding: 1rem;
+			background-color: $layout;
 		}
 }
 

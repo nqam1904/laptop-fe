@@ -6,7 +6,6 @@ import { getBannerAction } from 'redux/actions/bannerAction'
 import { getFooterAction } from 'redux/actions/footerAction'
 import { getHeaderAction } from 'redux/actions/headerAction'
 import { getCategoryAction, getListLaptopAction } from 'redux/actions/laptopAction'
-import { getSectionAction } from 'redux/actions/sectionAction'
 import { bannerSelector } from 'redux/selector/bannerSelector'
 import { categorySelector, laptopSelector } from 'redux/selector/laptopSelector'
 import { getAccessoryAction } from '../redux/actions/accessoryAction'
@@ -24,7 +23,6 @@ const Home = () => {
 		dispatch(getHeaderAction())
 		dispatch(getListLaptopAction())
 		dispatch(getFooterAction())
-		dispatch(getSectionAction())
 		dispatch(getAccessoryAction())
 		dispatch(getCategoryAction())
 	}, []);

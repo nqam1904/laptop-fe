@@ -5,14 +5,12 @@ import { bannerReducer } from './bannerReducer'
 import { footerReducer } from './footerReducer'
 import { headerReducer } from './headerReducer'
 import { laptopReducer } from './laptopReducer'
-import { sectionReducer } from './sectionReducer'
 const rootReducer = (history) =>
 	combineReducers({
 		laptop: laptopReducer,
 		banner: bannerReducer,
 		header: headerReducer,
 		footer: footerReducer,
-		section: sectionReducer,
 		accessory: accessoryReducer,
 		router: connectRouter(history),
 	})

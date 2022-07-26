@@ -1,5 +1,6 @@
 import swal from '@sweetalert/with-react'
 import accessoryApi from 'api/accessoryApi'
+import { Breadcrumb } from 'components/'
 import Layout from "layouts/Layout"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
@@ -48,9 +49,10 @@ const AccessoryDetail = () => {
    }
    return (
       <Layout>
+         <Breadcrumb style={{ marginTop: '5rem' }} product={accessoryDetial?.[0]?.name} category="Phụ kiện" />
          <div className="accessory-detail-container">
             <div className='accessory-detail-left'>
-               <div>
+               <div className='accessory_detail-left-image'>
                   <img
                      src={`${API_URL}` + imagesOther || accessoryDetial?.[0]?.images?.url}
                      className="accessory-detail-image"
@@ -67,19 +69,23 @@ const AccessoryDetail = () => {
                <h3 className="accessory_info-title">Tình trạng:</h3>
                <p className="accessory_info-sub">{accessoryDetial?.[0]?.appearence || ''}</p>
                <hr />
-               <div className="util">
+               <div className="util_accessory">
                   <h3>Chính sách:</h3>
-                  <p> ✔ {accessoryDetial?.[0]?.insurance}</p>
+                  <p>{accessoryDetial?.[0]?.insurance || ''}</p>
+                  <br />
+                  <span className="item-promtion_accessory">
+                     {accessoryDetial?.[0]?.promotion_content || 'Chưa có khuyến mãi.'}
+                  </span>
                </div>
                <hr />
-               <div className="promition-detail_accessory">
+               {/* <div className="promition-detail_accessory">
                   <h3 className="title-promotion_accessory">Quà tặng:</h3>
                   <div className="promiton-body_accessory">
                      <span className="item-promtion_accessory">
                         - Chưa có khuyến mãi.
                      </span>
                   </div>
-               </div>
+               </div> */}
                <div className='mcredit'>
                   <h3>Hỗ trợ trả góp MPOS (Thẻ tín dụng)</h3>
                </div>

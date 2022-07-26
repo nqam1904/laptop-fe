@@ -51,7 +51,7 @@ const ProductDetail = () => {
 			<Breadcrumb style={{ marginTop: '5rem' }} product={detailLaptop?.[0]?.name} category={detailLaptop?.[0]?.category?.name} />
 			<div className="product-detail-container">
 				<div className='product-detail-left'>
-					<div>
+					<div className='product_detail-left-image'>
 						<img
 							src={`${API_URL}` + imagesOther}
 							className="product-detail-image"
@@ -63,7 +63,7 @@ const ProductDetail = () => {
 				<div className="product-detail-right">
 					<h1>{detailLaptop?.[0]?.name}</h1>
 					<div className='promotion_price-product'>
-						<p className={detailLaptop?.[0]?.price_promotion > 0 ? 'product-promotion' : 'price'}>{formatNumber(detailLaptop?.[0]?.price_promotion > 0 ? detailLaptop?.[0]?.price_promotion : detailLaptop?.[0]?.price)}₫</p>
+						<span className={detailLaptop?.[0]?.price_promotion > 0 ? 'product-promotion' : 'price'}>{formatNumber(detailLaptop?.[0]?.price)}₫</span>
 						{detailLaptop?.[0]?.price_promotion > 0 && <p className="price">{formatNumber(detailLaptop?.[0]?.price_promotion)}₫</p>}
 					</div>
 					<hr />
@@ -122,15 +122,11 @@ const ProductDetail = () => {
 					<hr />
 					<div className="util-product">
 						<h3>Chính sách:</h3>
-						<p> ✔ {detailLaptop?.[0]?.insurance_laptop || ''}</p>
-					</div>
-					<div className="product-detail_promotion">
-						<h3 className="title-promotion_product">Quà tặng:</h3>
-						<div className="promiton-body_product">
-							<span className="item-promtion_product">
-								- Chưa có khuyến mãi.
-							</span>
-						</div>
+						<p> {detailLaptop?.[0]?.insurance_laptop || ''}</p>
+						<br />
+						<span className="item-promtion_product">
+							{detailLaptop?.[0]?.promotion || 'Chưa có khuyến mãi.'}
+						</span>
 					</div>
 					<div className='mcredit'>
 						<h3>Hỗ trợ trả góp MPOS (Thẻ tín dụng)</h3>

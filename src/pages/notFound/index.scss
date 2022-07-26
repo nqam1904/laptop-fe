@@ -8,10 +8,14 @@
 .page_404 {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 .container {
   margin-top: 17.22vh; //164px;
-  
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   
   @include mobile {
     margin-top: 64px;
@@ -75,24 +79,6 @@
       fill: #e9eff2;
     }
   }
-
-  >.not-found {
-    margin-top: 62px;
-    text-transform: uppercase;
-    color: #3eb8ea;
-    font-size: 66px;
-    font-family: Arial,
-		Helvetica,
-		Verdana,
-		sans-serif;;
-    letter-spacing: 1px;
-    white-space: nowrap;
-
-    @include mobile {
-      font-size: 31px;
-    }
-  }
-
   >.description_404 {
     margin-top: 19px;
     font-family: Arial,
@@ -146,5 +132,26 @@
       background-color: #3eb8ea;
       color: #fff;
     }
+  }
+}
+.not-found {
+  margin-top: 62px;
+  text-transform: uppercase;
+  color: #3eb8ea;
+  font-size: 40px;
+  font-family: Arial,
+    Helvetica,
+    Verdana,
+    sans-serif;
+  ;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .container{
+    max-width: 400px;
+  }
+  .not-found{
+    font-size: 26px;
   }
 }

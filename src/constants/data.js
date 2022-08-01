@@ -3,21 +3,25 @@
 export const filterPice = [
 	{
 		id: 0,
+		title: 'Tất cả',
+	},
+	{
+		id: 1,
 		title: 'Từ 10 triệu',
 		value: '10000000',
 	},
 	{
-		id: 1,
+		id: 2,
 		title: 'Từ 15 triệu',
 		value: '15000000',
 	},
 	{
-		id: 2,
+		id: 3,
 		title: 'Từ 20 triệu',
 		value: '20000000',
 	},
 	{
-		id: 3,
+		id: 4,
 		title: 'Trên 25 triệu',
 		value: '25000000',
 	},

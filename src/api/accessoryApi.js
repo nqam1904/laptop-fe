@@ -1,6 +1,6 @@
-import { queryDetailAccessory } from "utils/helper";
+import { queryDetailAccessory, queryFilterCategory, queryFilterPrice } from "utils/helper";
 import axiosClient from "./axiosClient";
-
+import _ from 'lodash'
 const accessoryApi = {
 
    getAccessory() {
@@ -10,6 +10,12 @@ const accessoryApi = {
    getDetailAccessory(slug) {
       const nameSlug = queryDetailAccessory(slug)
       const url = `/accessories?${nameSlug}`
+      return axiosClient.get(url)
+   },
+   queryFilterCategoryPrice({ name, value }) {
+      const category = queryFilterCategory(name)
+      const price = !_.isEmpty(value) ? queryFilterPrice(value) : ''
+      const url = `/accessories?${category}&${price}`
       return axiosClient.get(url)
    },
    updateView(body) {

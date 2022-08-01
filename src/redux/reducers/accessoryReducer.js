@@ -1,7 +1,9 @@
 import * as Action from 'redux/actions/accessoryAction'
 const initialState = {
    accessory: [],
-   accessoryDetail: []
+   accessoryDetail: [],
+   accessoryByPrice: [],
+
 }
 
 export const accessoryReducer = (state = initialState, action) => {
@@ -10,6 +12,11 @@ export const accessoryReducer = (state = initialState, action) => {
          return {
             ...state,
             accessory: action.payload,
+         }
+      case Action.GET_ACCESSORY_BY_PRICE_SUCCESS:
+         return {
+            ...state,
+            accessoryByPrice: action.payload,
          }
       case Action.GET_ACCESSORY_DETAIL_SUCCESS:
          return {

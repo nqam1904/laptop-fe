@@ -1,14 +1,18 @@
 import { images } from "assets";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { getAccessoryDetailAction } from "redux/actions/accessoryAction";
 import { API_URL } from 'utils/constant';
 import { formatNumber } from "utils/function";
 import './index.scss';
 
 const AccessoryItem = (props) => {
+   const dispatch = useDispatch()
+
    return (
       <div>
-         <Link to={`/accessory/${props?.accessory?.slug}`}>
+         <Link to={`/accessory/${props?.accessory?.slug}`} >
             <div className="accessory-card">
                <img src={`${API_URL}` + props?.accessory?.images?.[0]?.url}
                   onError={({ currentTarget }) => {

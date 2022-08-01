@@ -159,6 +159,7 @@ const ProductDetail = () => {
 						<Tab>Thông số</Tab>
 					</TabList>
 					<TabPanel style={{ padding: 20 }}>
+						{/* <ReactMarkdown children={detailLaptop?.[0]?.description} /> */}
 						<p className="content_view">{detailLaptop?.[0]?.description || ''}</p>
 					</TabPanel>
 					<TabPanel style={{ paddingLeft: 20, marginTop: 20 }}>

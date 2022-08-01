@@ -7,4 +7,5 @@ import NotFound from './notFound/NotFound'
 import LaptopByCate from './category/LaptopByCate'
 import AccessoryDetail from './accessory/AccessoryDetail'
 import SearchProduct from './search/SearchProduct'
-export { Home, Laptop, ProductDetail, NotFound, Accessory, Section, LaptopByCate, AccessoryDetail, SearchProduct }
+import AccessoryByCate from './category/AccessoryByCate'
+export { Home, Laptop, ProductDetail, NotFound, Accessory, Section, LaptopByCate, AccessoryDetail, SearchProduct, AccessoryByCate }

@@ -7,6 +7,7 @@ import { getLaptopByCateAction } from 'redux/actions/laptopAction'
 import { headerSelector } from 'redux/selector/headerSeletor'
 import classes from "./Header.module.scss";
 import _ from 'lodash'
+import { getAccessoryByPriceAction } from 'redux/actions/accessoryAction'
 const Header = () => {
    const dispatch = useDispatch()
    const header = useSelector(headerSelector)
@@ -75,7 +76,11 @@ const Header = () => {
                   {!_.isEmpty(header) && dataHeader()}
                   <li className={classes.header__search}>
                      <Link
-                        to='/accessory'>Phụ kiện</Link>
+                        to='/accessory'
+                        onClick={() => {
+                           turnOffMenu()
+                           dispatch(getAccessoryByPriceAction(header?.categories?.find(x => x.name === 'Accessory')))
+                        }}>Phụ kiện</Link>
                   </li>
                   <li className={classes.header__search}>
                      <Link

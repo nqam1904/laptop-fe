@@ -1,4 +1,4 @@
-import { AccessoryDetail, Home, LaptopByCate, NotFound, ProductDetail, SearchProduct } from 'pages'
+import { AccessoryByCate, AccessoryDetail, Home, LaptopByCate, NotFound, ProductDetail, SearchProduct } from 'pages'
 import PropTypes from 'prop-types'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
@@ -8,9 +8,10 @@ import storage from 'redux-persist/lib/storage';
 const App = ({ history }) => {
 	const header = useSelector(headerSelector)
 	const routeLaptop = () => {
-		return header.map((item, index) => (
+		const listHeader = header?.map((item, index) => (
 			<Route key={index} path={item?.url} element={<LaptopByCate title={item.categories[0]?.name} />} />
 		))
+		return listHeader || []
 	}
 	useEffect(() => {
 		return () => {
@@ -24,6 +25,7 @@ const App = ({ history }) => {
 			<Route path="/product/:slug" element={<ProductDetail />} />
 			<Route path="/accessory/:slug" element={<AccessoryDetail />} />
 			<Route path="/search" element={<SearchProduct />} />
+			<Route path="/accessory" element={<AccessoryByCate title="Accessory" />} />
 			<Route path="*" element={<NotFound />} />
 		</Routes>
 	)

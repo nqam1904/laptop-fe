@@ -8,10 +8,9 @@ import storage from 'redux-persist/lib/storage';
 const App = ({ history }) => {
 	const header = useSelector(headerSelector)
 	const routeLaptop = () => {
-		const headers = header?.map((item, index) => (
+		return header.map((item, index) => (
 			<Route key={index} path={item?.url} element={<LaptopByCate title={item.categories[0]?.name} />} />
 		))
-		return headers || []
 	}
 	useEffect(() => {
 		return () => {

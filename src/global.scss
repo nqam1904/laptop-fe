@@ -11,9 +11,16 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background-color: $layout;
+	overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-	width: 0px;
+	overflow-y: scroll;
+	width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-thumb{
+	background: $light-color;
+	border-radius: 8px;
 }
 a {
 	text-decoration: none;

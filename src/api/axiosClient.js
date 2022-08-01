@@ -5,8 +5,7 @@ const axiosClient = axios.create({
 	baseURL: API_URL,
 	timeout: 30000,
 	headers: {
-		'Content-Type': 'application/json',
-		"Access-Control-Allow-Origin": "*"
+		'Content-Type': 'application/json'
 	},
 })
 

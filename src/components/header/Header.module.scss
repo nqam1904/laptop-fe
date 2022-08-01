@@ -76,7 +76,6 @@
             li {
                &:not(:last-child) {
                   margin-bottom: $spacing-lg;
-
                   @include breakpoint(md) {
                      margin-bottom: 0;
                      margin-right: $spacing-md;
@@ -93,7 +92,6 @@
                   &:hover {
                      background: rgba($white, 0.1);
                   }
-
                   &:active {
                      border-radius: calc(#{$borderRadius} + 6px);
                      background: linear-gradient(rgba($white, 0.1), rgba($white, 0.2));

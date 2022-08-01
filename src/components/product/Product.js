@@ -20,7 +20,7 @@ const Product = (props) => {
       <div>
          <Link to={`/product/${props?.product?.slug}`} onClick={getProductStore}>
             <div className="product-card">
-               <img src={`${API_URL}` + props?.product?.images?.[0]?.url} width={240} height={240}
+               <img src={`${API_URL}` + props?.product?.images?.[0]?.url} width={"100%"} height={240}
                   onError={({ currentTarget }) => {
                      currentTarget.onerror = null; // prevents looping
                      currentTarget.src = images.no_image;

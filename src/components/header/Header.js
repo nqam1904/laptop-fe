@@ -2,7 +2,7 @@ import { images } from 'assets'
 import React, { useState, useEffect } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { getLaptopByCateAction } from 'redux/actions/laptopAction'
 import { headerSelector } from 'redux/selector/headerSeletor'
 import classes from "./Header.module.scss";
@@ -20,16 +20,22 @@ const Header = () => {
          setMenuOpen((p) => !p);
       }
    }
+   let activeStyle = {
+      background: "rgba(255, 255, 255, 0.1)"
+   };
    const dataHeader = () => {
       const isShow = header?.filter((is) => is.show === true)
       const showHeader = isShow?.map((header, item) => (
          <li key={item}>
-            <Link
+            <NavLink
+               style={({ isActive }) =>
+                  isActive ? activeStyle : undefined
+               }
                onClick={() => {
                   turnOffMenu()
                   dispatch(getLaptopByCateAction(header?.categories?.[0]?.name))
                }}
-               to={`${header.url}`}>{header?.categories?.[0]?.name}</Link>
+               to={`${header.url}`}>{header?.categories?.[0]?.name}</NavLink>
          </li>
       ))
       return showHeader
@@ -59,15 +65,18 @@ const Header = () => {
    return (
       <header className={classes.header}>
          <div className={classes.header__content}>
-            <Link to="/" className={classes.header__content__logo}>
+            <Link to="/" className={classes.header__content__logo} onClick={() => window.reload()}>
                Laptop Thinh
             </Link>
             <nav
                className={`${classes.header__content__nav} ${menuOpen && size.width < 768 ? classes.isMenu : ""
-                  }`}
-            >
+                  }`}>
                <ul>
                   {!_.isEmpty(header) && dataHeader()}
+                  <li className={classes.header__search}>
+                     <Link
+                        to='/accessory'>Phụ kiện</Link>
+                  </li>
                   <li className={classes.header__search}>
                      <Link
                         to='/search'><FaSearch /></Link>

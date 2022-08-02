@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import { headerSelector } from 'redux/selector/headerSeletor'
 import storage from 'redux-persist/lib/storage';
+import { getConfigWeb } from 'constants/common'
 const App = ({ history }) => {
 	const header = useSelector(headerSelector)
 	const routeLaptop = () => {
@@ -14,6 +15,7 @@ const App = ({ history }) => {
 		return listHeader || []
 	}
 	useEffect(() => {
+		getConfigWeb()
 		return () => {
 			storage.removeItem('persist:root')
 		}

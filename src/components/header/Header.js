@@ -8,9 +8,12 @@ import { headerSelector } from 'redux/selector/headerSeletor'
 import classes from "./Header.module.scss";
 import _ from 'lodash'
 import { getAccessoryByPriceAction } from 'redux/actions/accessoryAction'
+import { categorySelector } from 'redux/selector/laptopSelector'
+import { title_website } from 'constants/common'
 const Header = () => {
    const dispatch = useDispatch()
    const header = useSelector(headerSelector)
+   const accesory = useSelector(categorySelector)
    const [menuOpen, setMenuOpen] = useState(false);
    const [size, setSize] = useState({
       width: window.screen.width,
@@ -24,6 +27,7 @@ const Header = () => {
    let activeStyle = {
       background: "rgba(255, 255, 255, 0.1)"
    };
+
    const dataHeader = () => {
       const isShow = header?.filter((is) => is.show === true)
       const showHeader = isShow?.map((header, item) => (
@@ -53,7 +57,6 @@ const Header = () => {
 
       return () => window.removeEventListener("resize", handleResize);
    }, []);
-
    useEffect(() => {
       if (size.width > 768 && menuOpen) {
          setMenuOpen(false);
@@ -66,8 +69,15 @@ const Header = () => {
    return (
       <header className={classes.header}>
          <div className={classes.header__content}>
+            <div className={classes.header__content__toggle}>
+               {!menuOpen ? (
+                  <img src={images.ic_menu} alt="ic_menu" width={25} height={25} onClick={menuToggleHandler} />
+               ) : (
+                  <img src={images.ic_menu_x} alt="ic_menu" width={25} height={25} onClick={menuToggleHandler} />
+               )}
+            </div>
             <Link to="/" className={classes.header__content__logo} onClick={() => window.reload()}>
-               Laptop Thinh
+               {title_website || 'Lap4all'}
             </Link>
             <nav
                className={`${classes.header__content__nav} ${menuOpen && size.width < 768 ? classes.isMenu : ""
@@ -79,7 +89,7 @@ const Header = () => {
                         to='/accessory'
                         onClick={() => {
                            turnOffMenu()
-                           dispatch(getAccessoryByPriceAction(header?.categories?.find(x => x.name === 'Accessory')))
+                           dispatch(getAccessoryByPriceAction(accesory?.find(x => x.name === 'Accessory')))
                         }}>Phụ kiện</Link>
                   </li>
                   <li className={classes.header__search}>
@@ -88,13 +98,7 @@ const Header = () => {
                   </li>
                </ul>
             </nav>
-            <div className={classes.header__content__toggle}>
-               {!menuOpen ? (
-                  <img src={images.ic_menu} alt="ic_menu" width={25} height={25} onClick={menuToggleHandler} />
-               ) : (
-                  <img src={images.ic_menu_x} alt="ic_menu" width={25} height={25} onClick={menuToggleHandler} />
-               )}
-            </div>
+
          </div>
       </header>
    );

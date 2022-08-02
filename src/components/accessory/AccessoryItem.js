@@ -8,8 +8,6 @@ import { formatNumber } from "utils/function";
 import './index.scss';
 
 const AccessoryItem = (props) => {
-   const dispatch = useDispatch()
-
    return (
       <div>
          <Link to={`/accessory/${props?.accessory?.slug}`} >
@@ -19,7 +17,7 @@ const AccessoryItem = (props) => {
                      currentTarget.onerror = null; // prevents looping
                      currentTarget.src = images.no_image;
                   }}
-                  width={250} height={250} className="accessory-image" alt={props?.name} />
+                  width={'100%'} height={250} className="accessory-image" alt={props?.name} />
                <p className="accessory-name">{props?.accessory?.name}</p>
                <p className="accessory-price">Giá: {formatNumber(props?.accessory?.price)}₫</p>
             </div>

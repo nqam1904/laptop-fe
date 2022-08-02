@@ -5,15 +5,12 @@ const queryFilterPrice = (value) => {
    const maxPrice = 25000000;
    return value < maxPrice ? `_where[0][price_lte]=${value}` : `_where[0][price_gte]=${value}`
 }
-const queryDetailProduct = slug => {
+const queryDetail = slug => {
    return `_where[0][slug]=${slug}`
 }
 
-const queryDetailAccessory = (slug) => {
-   return `_where[0][slug]=${slug}`
-}
 const querySearchProduct = (name) => {
    return `_q=${name}`
 }
-export { queryFilterCategory, querySearchProduct, queryFilterPrice, queryDetailProduct, queryDetailAccessory }
+export { queryFilterCategory, querySearchProduct, queryFilterPrice, queryDetail }
 

@@ -33,7 +33,7 @@ const AccessoryByCate = ({ title }) => {
    return (
       <Layout>
          <Slider data={banners} />
-         <div className={!_.isEmpty(accessory) ? "laptop" : "laptop_non-product"}>
+         <div className={!_.isEmpty(accessory) ? "accessory_by-price" : "laptop_non-product"}>
             <h1 className="title_category">Phụ kiện</h1>
             <div className="filter_price">
                <div className="block_price">

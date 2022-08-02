@@ -9,6 +9,12 @@
    gap: 15px;
    width: 100%;
 }
+@media (max-width: 768px) {
+   .section_container-product {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+   }
+}
 .section_btn {
    width: 200px;
    padding: 0px 20px;

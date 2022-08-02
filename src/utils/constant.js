@@ -1,4 +1,5 @@
-const API_URL = process.env.REACT_APP_URL
+const API_URL = process.env.REACT_APP_URL;
+const dev = process.env.ENVIROMENT;
 const screen = {
    mobile: 768,
    minTablet: 768,
@@ -6,4 +7,4 @@ const screen = {
    desktop: 1024,
 };
 
-export { API_URL, screen }
+export { API_URL, screen, dev }

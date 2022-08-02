@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { footerSelector } from "redux/selector/footerSelector";
 import './styles.scss';
 import { FaFacebookF, FaMapMarkedAlt, FaPhoneAlt, FaRegEnvelope } from "react-icons/fa";
+import { title_website } from "constants/common";
 const Footer = () => {
    const footer = useSelector(footerSelector)
    const setting = [
@@ -34,7 +35,7 @@ const Footer = () => {
       <footer className="footer-distributed">
 
          <div className="footer-left">
-            <h3>Thinh <span>Laptop</span></h3>
+            <h3>{title_website}</h3>
             <br />
             <p className="footer-company-name">{footer[0]?.copy_right}</p>
          </div>

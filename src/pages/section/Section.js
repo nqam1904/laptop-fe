@@ -31,7 +31,6 @@ const Section = (props) => {
    return (
       <div className="laptop">
          <div className="section_container">{showProduct()}</div>
-
       </div>
    )
 }

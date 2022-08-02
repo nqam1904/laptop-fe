@@ -1,4 +1,4 @@
-import { queryDetailProduct, queryFilterCategory, queryFilterPrice, querySearchProduct } from "utils/helper"
+import { queryDetail, queryFilterCategory, queryFilterPrice, querySearchProduct } from "utils/helper"
 import axiosClient from "./axiosClient"
 import _ from 'lodash'
 const ProductApi = {
@@ -18,7 +18,7 @@ const ProductApi = {
       return axiosClient.get(url)
    },
    queryDetailLaptop(slug) {
-      const nameSlug = queryDetailProduct(slug)
+      const nameSlug = queryDetail(slug)
       const url = `/products?${nameSlug}`
       return axiosClient.get(url)
    },

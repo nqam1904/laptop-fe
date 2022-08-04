@@ -10,7 +10,7 @@ import { getProdcutViewAction } from 'redux/actions/laptopAction'
 import { footerSelector } from 'redux/selector/footerSelector'
 import { detailLaptopSelector } from 'redux/selector/laptopSelector'
 import { API_URL } from 'utils/constant'
-import { formatNumber } from 'utils/function'
+import { formatChar, formatNumber } from 'utils/function'
 import './ProducDetail.scss'
 
 const ProductDetail = () => {
@@ -81,7 +81,7 @@ const ProductDetail = () => {
 								<div className="configuration">
 									<span className='title-option'>CPU:</span>
 									<label className='item-option'>
-										<span>{detailLaptop?.cpu}</span>
+										<span>{formatChar(detailLaptop?.cpu_lap)}</span>
 									</label>
 								</div>
 							</div>

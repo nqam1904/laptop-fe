@@ -18,7 +18,7 @@ const ProductDetail = () => {
 	const detailLaptop = useSelector(detailLaptopSelector)
 	const footer = useSelector(footerSelector)
 	const dispatch = useDispatch()
-
+	console.log(detailLaptop, 'DETAIL')
 	useEffect(() => {
 		updateView()
 		dispatch(getProdcutViewAction(detailLaptop))
@@ -164,7 +164,6 @@ const ProductDetail = () => {
 					</Tabs>
 				</div>
 			</div>
-			{/* <ViewMore /> */}
 		</Layout>
 	)
 }

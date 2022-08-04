@@ -1,4 +1,5 @@
 import React from 'react'
+import { formatChar } from 'utils/function'
 import './styles.scss'
 
 const TableTechnique = ({ configuration }) => {
@@ -8,7 +9,7 @@ const TableTechnique = ({ configuration }) => {
 				<tbody>
 					<tr>
 						<th className="table_lable">CPU</th>
-						<td className="table_value">{configuration?.cpu || "_"}</td>
+						<td className="table_value">{formatChar(configuration?.cpu_lap) || "_"}</td>
 					</tr>
 					<tr>
 						<th className="table_lable">RAM</th>
@@ -27,20 +28,12 @@ const TableTechnique = ({ configuration }) => {
 						<td className="table_value">{configuration?.display || "_"}</td>
 					</tr>
 					<tr>
-						<th className="table_lable">Âm thanh</th>
-						<td className="table_value">{configuration?.audio || "_"}</td>
-					</tr>
-					<tr>
-						<th className="table_lable">Chuẩn LAN</th>
-						<td className="table_value">{configuration?.lan || "_"}</td>
-					</tr>
-					<tr>
 						<th className="table_lable">Chuẩn wifi</th>
 						<td className="table_value">{configuration?.wifi || "_"}</td>
 					</tr>
 					<tr>
 						<th className="table_lable">Hệ điều hành</th>
-						<td className="table_value">{configuration?.os || "_"}</td>
+						<td className="table_value">{formatChar(configuration?.operating_system) || "_"}</td>
 					</tr>
 					<tr>
 						<th className="table_lable">Pin</th>

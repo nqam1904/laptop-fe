@@ -6,11 +6,18 @@ import { getAccessoryDetailAction } from "redux/actions/accessoryAction";
 import { API_URL } from 'utils/constant';
 import { formatNumber } from "utils/function";
 import './index.scss';
+import slugify from 'react-slugify';
 
 const AccessoryItem = (props) => {
+   const dispatch = useDispatch()
+   // const getProductStore = () => {
+   //    dispatch(getDetailLaptopAction(props?.product?.id))
+   // }
+   // const price = props?.product?.price_promotion > 0 ? props?.product?.price_promotion : props?.product?.price
+   const slug = slugify(props?.accessory?.slug);
    return (
       <div>
-         <Link to={`/accessory/${props?.accessory?.slug}`} >
+         <Link to={`/accessory/${slug}`} onClick={() => dispatch(getAccessoryDetailAction(props?.accessory?.id))}>
             <div className="accessory-card">
                <img src={`${API_URL}` + props?.accessory?.images?.[0]?.url}
                   onError={({ currentTarget }) => {

@@ -14,7 +14,7 @@ function* accessorySaga() {
 }
 function* detailAccessorySaga(action) {
    try {
-      const response = yield call(accessoryApi.getDetailAccessory, action.payload)
+      const response = yield call(accessoryApi.getDetailAccessoryById, action.payload)
       yield put(getAccessoryDetailSuccess(response))
    }
    catch (e) {

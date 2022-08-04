@@ -5,21 +5,21 @@ import { getDetailLaptopAction } from "redux/actions/laptopAction";
 import { API_URL } from 'utils/constant';
 import { formatNumber } from "utils/function";
 import './styles.scss';
-
+import slugify from 'react-slugify';
 const Product = (props) => {
    const dispatch = useDispatch()
    const getProductStore = () => {
-      if (props.storage === true) {
-         window.scrollTo({ top: 0, behavior: 'smooth' });
-         dispatch(getDetailLaptopAction(props?.product?.slug))
-      } else {
-         return
-      }
+      dispatch(getDetailLaptopAction(props?.product?.id))
    }
    const price = props?.product?.price_promotion > 0 ? props?.product?.price_promotion : props?.product?.price
+   const slug = slugify(props?.product?.slug, {
+      delimiter: '_',
+      prefix: 'laptop',
+   });
+
    return (
       <div>
-         <Link to={`/product/${props?.product?.slug}`} onClick={getProductStore}>
+         <Link to={`/product/${slug}`} onClick={getProductStore}>
             <div className="product-card">
                <img src={`${API_URL}` + props?.product?.images?.[0]?.url} width={"100%"} height={240}
                   onError={({ currentTarget }) => {
@@ -28,6 +28,7 @@ const Product = (props) => {
                   }}
                   className="product-image" alt={props?.name} />
                <p className="product-name">{props?.product?.name}</p>
+               <p className='product-short_config'>{props?.product?.short_config}</p>
                <p className="product-card_price">{formatNumber(price)}₫</p>
             </div>
          </Link>

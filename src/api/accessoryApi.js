@@ -12,6 +12,10 @@ const accessoryApi = {
       const url = `/accessories?${nameSlug}`
       return axiosClient.get(url)
    },
+   getDetailAccessoryById(id) {
+      const url = `/accessories/${id}`
+      return axiosClient.get(url)
+   },
    queryFilterCategoryPrice({ name, value }) {
       const category = queryFilterCategory(name)
       const price = !_.isEmpty(value) ? queryFilterPrice(value) : ''

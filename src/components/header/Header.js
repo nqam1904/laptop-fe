@@ -80,11 +80,12 @@ const Header = () => {
                {title_website || 'Lap4all'}
             </Link>
             <nav
+               onClick={() => setMenuOpen((p) => !p)}
                className={`${classes.header__content__nav} ${menuOpen && size.width < 768 ? classes.isMenu : ""
                   }`}>
                <ul>
                   {!_.isEmpty(header) && dataHeader()}
-                  <li className={classes.header__search}>
+                  <li>
                      <Link
                         to='/accessory'
                         onClick={() => {

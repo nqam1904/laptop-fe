@@ -1,5 +1,6 @@
 @import 'assets/colors.scss';
 @import '../../reponsive.scss';
+
 .header {
    background: $bg;
    width: 100%;
@@ -8,9 +9,11 @@
    position: fixed;
    top: 0;
    z-index: 100;
+
    @include breakpoint(md) {
       padding: 0 3rem;
    }
+
    transition: 0.3s ease all;
 
    &__content {
@@ -30,14 +33,6 @@
          font-weight: bold;
          text-decoration: none;
          color: $white;
-         @include breakpoint(md) {
-                  // position: absolute;
-                  // margin-left: auto;
-                  // margin-right: auto;
-                  // left: 0;
-                  // right: 0;
-                  // text-align: center;
-            }
       }
 
       &__nav {
@@ -49,9 +44,6 @@
          position: fixed;
          display: flex;
          flex-direction: column;
-         justify-content: center;
-         align-items: center;
-         text-align: center;
          font-size: 20px;
          background: #00000036;
          backdrop-filter: blur(8px);
@@ -69,10 +61,9 @@
 
          ul {
             list-style: none;
-            padding: 0;
             display: flex;
             flex-direction: column;
-            margin-bottom: $spacing-lg;
+            padding: 40px;
 
             @include breakpoint(md) {
                flex-direction: row;
@@ -84,6 +75,7 @@
             li {
                &:not(:last-child) {
                   margin-bottom: $spacing-lg;
+
                   @include breakpoint(md) {
                      margin-bottom: 0;
                      margin-right: $spacing-md;
@@ -100,6 +92,7 @@
                   &:hover {
                      background: rgba($white, 0.1);
                   }
+
                   &:active {
                      border-radius: calc(#{$borderRadius} + 6px);
                      background: linear-gradient(rgba($white, 0.1), rgba($white, 0.2));
@@ -144,7 +137,6 @@
          align-items: center;
          font-size: 2rem;
          transition: 0.3s ease all;
-         position: relative;
 
          &:hover {
             color: $primary;
@@ -155,10 +147,23 @@
          }
       }
    }
-   &__search{
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+
+}
+
+@media (max-width: 768px) {
+   ul {
+      width: 60%;
+      height: inherit;
+      flex-direction: column;
+      background-color: $white;
+      color: $black;
+   }
+
+   .header__search {
+      font-size: 22px;
+      position: absolute;
+      top: 10px;
+      right: calc(100% - 60%);
    }
 }

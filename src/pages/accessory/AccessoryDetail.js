@@ -48,62 +48,64 @@ const AccessoryDetail = () => {
    return (
       <Layout>
          <Breadcrumb style={{ marginTop: '5rem' }} product={accessoryDetial?.name} category="Phụ kiện" />
-         <div className="accessory-detail-container">
-            <div className='accessory-detail-left'>
-               <div className='accessory_detail-left-image'>
-                  <img
-                     src={`${API_URL}` + imagesOther || accessoryDetial?.images?.url}
-                     onError={({ currentTarget }) => {
-                        currentTarget.onerror = null; // prevents looping
-                        currentTarget.src = images.no_image;
-                     }}
-                     className="accessory-detail-image"
-                  />
-                  <div className="accessory_slider-image">
-                     {showImageOther()}
+         <div className='accessory_layout'>
+            <div className="accessory-detail-container">
+               <div className='accessory-detail-left'>
+                  <div className='accessory_detail-left-image'>
+                     <img
+                        src={`${API_URL}` + imagesOther || accessoryDetial?.images?.url}
+                        onError={({ currentTarget }) => {
+                           currentTarget.onerror = null; // prevents looping
+                           currentTarget.src = images.no_image;
+                        }}
+                        className="accessory-detail-image"
+                     />
+                     <div className="accessory_slider-image">
+                        {showImageOther()}
+                     </div>
+                  </div>
+               </div>
+               <div className="accessory-detail-right">
+                  <h1>{accessoryDetial?.name}</h1>
+                  <p className='accessory_price'>{formatNumber(accessoryDetial?.price)}₫</p>
+                  <hr />
+                  <h3 className="accessory_info-title">Tình trạng:</h3>
+                  <p className="accessory_info-sub">{accessoryDetial?.appearence || ''}</p>
+                  <hr />
+                  <div className="util_accessory">
+                     <h3>Chính sách:</h3>
+                     <p>{accessoryDetial?.insurance || ''}</p>
+                     <br />
+                     <span className="item-promtion_accessory">
+                        {accessoryDetial?.promotion_content || ''}
+                     </span>
+                  </div>
+                  <hr />
+                  <div className='mcredit'>
+                     <h3>Hỗ trợ trả góp MPOS (Thẻ tín dụng)</h3>
+                  </div>
+                  <div className="accessory_buttons">
+                     <button type="button" className="buy-now" onClick={() => swal({
+                        title: 'Thông báo!',
+                        text: `Bạn vui lòng liên hệ ${footer?.[0]?.phone}`,
+                        icon: 'info',
+                     })}>
+                        Mua ngay
+                     </button>
                   </div>
                </div>
             </div>
-            <div className="accessory-detail-right">
-               <h1>{accessoryDetial?.name}</h1>
-               <p className='accessory_price'>{formatNumber(accessoryDetial?.price)}₫</p>
-               <hr />
-               <h3 className="accessory_info-title">Tình trạng:</h3>
-               <p className="accessory_info-sub">{accessoryDetial?.appearence || ''}</p>
-               <hr />
-               <div className="util_accessory">
-                  <h3>Chính sách:</h3>
-                  <p>{accessoryDetial?.insurance || ''}</p>
-                  <br />
-                  <span className="item-promtion_accessory">
-                     {accessoryDetial?.promotion_content || ''}
-                  </span>
-               </div>
-               <hr />
-               <div className='mcredit'>
-                  <h3>Hỗ trợ trả góp MPOS (Thẻ tín dụng)</h3>
-               </div>
-               <div className="accessory_buttons">
-                  <button type="button" className="buy-now" onClick={() => swal({
-                     title: 'Thông báo!',
-                     text: `Bạn vui lòng liên hệ ${footer?.[0]?.phone}`,
-                     icon: 'info',
-                  })}>
-                     Mua ngay
-                  </button>
-               </div>
+            <div className="tabs_view">
+               <Tabs>
+                  <TabList>
+                     <Tab>Mô tả</Tab>
+                  </TabList>
+                  <TabPanel style={{ padding: 20 }}>
+                     <p className="content_view">{accessoryDetial?.content || ''}</p>
+                  </TabPanel>
+               </Tabs>
             </div>
-         </div>
-         <div className="tabs_view">
-            <Tabs>
-               <TabList>
-                  <Tab>Mô tả</Tab>
-               </TabList>
-               <TabPanel style={{ padding: 20 }}>
-                  <p className="content_view">{accessoryDetial?.content || ''}</p>
-               </TabPanel>
-            </Tabs>
-         </div>
+        </div>
       </Layout >
    )
 }

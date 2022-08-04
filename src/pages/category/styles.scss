@@ -1,40 +1,49 @@
 @import 'assets/colors.scss';
+
 .laptop {
    margin-top: 2rem;
    margin-bottom: 20px;
    text-align: center;
    background-color: $layout;
 }
-.accessory_by-price{
+
+.accessory_by-price {
    margin-top: 2rem;
    margin-bottom: 20px;
    text-align: center;
    background-color: $layout;
 }
-.accessory_non-product{
+
+.accessory_non-product {
    margin-bottom: 0px;
    text-align: center;
 }
+
 .accessory_by-price h2 {
    margin-bottom: 2rem;
 }
+
 .laptop h2 {
    margin-bottom: 2rem;
 }
+
 .laptop_non-product {
    margin-bottom: 0px;
    text-align: center;
 }
+
 .filter_price {
    margin: 10px 10px;
    padding: 5px;
 }
-.title_category{
+
+.title_category {
    margin: 20px 0;
 }
+
 .block_price {
    display: flex;
-   width: 50%;
+   width: 35%;
    margin: 0 auto;
    justify-content: space-around;
 }
@@ -43,31 +52,40 @@
    padding: 10px;
    border-radius: 8px;
 }
-.block_filter{
+
+.block_filter {
    background-color: $white;
    border: $border;
    border-radius: 8px;
    margin: 0 10px;
    box-shadow: $box-shadow;
 }
+
 .price_filter:hover {
    cursor: pointer;
    background-color: #868dcc;
    color: #ffffff;
    height: 100%;
 }
-@media (max-width: 768px){
+
+@media (max-width: 768px) {
    .laptop_non-product {
       margin-top: 4.6rem;
    }
+
    .filter_price {
       margin: unset;
       padding: unset;
       margin-bottom: 20px;
       margin-top: 20px;
    }
-   .block_price{
+
+   .block_price {
       display: flex;
       width: unset;
    }
+}
+
+.not_found-product {
+   margin: 20px auto;
 }

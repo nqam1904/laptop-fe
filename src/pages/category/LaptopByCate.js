@@ -45,7 +45,7 @@ const LaptopByCate = ({ title }) => {
                   ))}
                </div>
             </div>
-            <div className="products-container">{showProduct()}</div>
+            <div className={!_.isEmpty(laptopData) ? "products-container" :  "products-container-non" }>{showProduct()}</div>
          </div>
       </Layout>
    )

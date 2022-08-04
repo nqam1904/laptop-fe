@@ -7,9 +7,9 @@
 }
 .accessory_by-price{
    margin-top: 2rem;
-      margin-bottom: 20px;
-      text-align: center;
-      background-color: $layout;
+   margin-bottom: 20px;
+   text-align: center;
+   background-color: $layout;
 }
 .accessory_non-product{
    margin-bottom: 0px;
@@ -54,7 +54,7 @@
    cursor: pointer;
    background-color: #868dcc;
    color: #ffffff;
-   transform: scale(1.1, 1.1);
+   height: 100%;
 }
 @media (max-width: 768px){
    .laptop_non-product {
@@ -69,6 +69,5 @@
    .block_price{
       display: flex;
       width: unset;
-      margin: 0 auto;
    }
 }

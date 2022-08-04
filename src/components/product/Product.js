@@ -16,6 +16,7 @@ const Product = (props) => {
          return
       }
    }
+   const price = props?.product?.price_promotion > 0 ? props?.product?.price_promotion : props?.product?.price
    return (
       <div>
          <Link to={`/product/${props?.product?.slug}`} onClick={getProductStore}>
@@ -27,7 +28,7 @@ const Product = (props) => {
                   }}
                   className="product-image" alt={props?.name} />
                <p className="product-name">{props?.product?.name}</p>
-               <p className="product-card_price">{formatNumber(props?.product?.price)}₫</p>
+               <p className="product-card_price">{formatNumber(price)}₫</p>
             </div>
          </Link>
       </div>

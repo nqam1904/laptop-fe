@@ -1,39 +1,33 @@
 @import 'assets/colors.scss';
 
-footer{
- margin-top: auto;
+footer {
+   margin-top: auto;
 }
+
 .footer-distributed {
    background-color: $bg;
    box-sizing: border-box;
    width: 100%;
    text-align: left;
-   padding: 50px 50px 60px 50px;
-}
-
-.footer-distributed .footer-left,
-.footer-distributed .footer-center,
-.footer-distributed .footer-right {
-   display: inline-block;
-   vertical-align: top;
+   padding: 50px 50px 100px 100px;
+   display: flex;
+   flex: 1;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
 }
 
 /* Footer left */
 
 .footer-distributed .footer-left {
-   width: 30%;
+   width: 20%;
+   text-align: center;
 }
 
 .footer-distributed h3 {
    color: $white;
    font-size: 36px;
-   // font: normal 36px 'Cookie', cursive;
    margin: 0;
-}
-
-
-.footer-distributed h3 span {
-   // color: #e0ac1c;
 }
 
 /* Footer links */
@@ -60,11 +54,14 @@ footer{
 /* Footer Center */
 
 .footer-center {
-   width: 35%;
+   width: 30%;
    display: flex;
    justify-content: center;
+   align-items: center;
+   text-align: center;
 }
-.footer-center span{
+
+.footer-center span {
    color: $white;
    text-align: left;
    line-height: 22px;
@@ -73,7 +70,8 @@ footer{
 /* Footer Right */
 
 .footer-distributed .footer-right {
-   width: 30%;
+   width: 20%;
+   text-align: center;
 }
 
 .footer-distributed .footer-company-about {
@@ -118,10 +116,17 @@ footer{
 .footer-links a:hover {
    color: #3F71EA;
 }
-.footer_center_content{
+
+.footer_center_content {
    width: 80%;
 }
+
 @media (max-width: 768px) {
+   .footer-distributed {
+      display: flex;
+      flex-direction: column;
+   }
+
    .footer-distributed .footer-left,
    .footer-distributed .footer-center,
    .footer-distributed .footer-right {
@@ -129,13 +134,15 @@ footer{
       width: 100%;
       margin-bottom: 40px;
       text-align: center;
-      
+
    }
-   .footer_center_content{
-         width: unset;
+
+   .footer_center_content {
+      width: unset;
    }
 }
-.footer_contact{
+
+.footer_contact {
    display: flex;
    justify-content: space-around;
 }

@@ -33,9 +33,8 @@ const Footer = () => {
    ]
    return (
       <footer className="footer-distributed">
-
          <div className="footer-left">
-            <h3>{title_website}</h3>
+            <h3>{title_website || 'Lap4all'}</h3>
             <br />
             <p className="footer-company-name">{footer[0]?.copy_right}</p>
          </div>

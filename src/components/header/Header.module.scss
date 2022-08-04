@@ -24,7 +24,7 @@
       height: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       position: relative;
       z-index: 100;
 
@@ -137,6 +137,8 @@
          align-items: center;
          font-size: 2rem;
          transition: 0.3s ease all;
+         position: absolute;
+         left: 10px;
 
          &:hover {
             color: $primary;

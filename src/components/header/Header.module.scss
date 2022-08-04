@@ -63,7 +63,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            padding: 40px;
+            margin-left: 10px;
 
             @include breakpoint(md) {
                flex-direction: row;
@@ -160,6 +160,8 @@
       flex-direction: column;
       background-color: $white;
       color: $black;
+      padding: 40px !important;
+      margin-left: unset !important;
    }
 
    .header__search {

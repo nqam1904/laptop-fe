@@ -89,7 +89,7 @@ const ProductDetail = () => {
 								<div className="configuration">
 									<span className='title-option'>RAM:</span>
 									<label className='item-option'>
-										<span>{detailLaptop?.ram}</span>
+										<span>{formatChar(detailLaptop?.ram_lap)}</span>
 									</label>
 								</div>
 							</div>

@@ -1,26 +1,26 @@
 @import 'assets/colors.scss';
-.section_container{
-   
-}
-.section_container-product{
+
+.section_container {}
+
+.section_container-product {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
    gap: 15px;
    width: 100%;
 }
+
 @media (max-width: 768px) {
    .section_container-product {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
    }
 }
+
 .section_btn {
    width: 200px;
    padding: 0px 20px;
-   background-color: $bg;
-   color: white;
-   border: none;
+   color: $white;
    font-size: 18px;
    font-weight: 500;
    cursor: pointer;
@@ -28,13 +28,18 @@
    transition: transform 0.5s ease;
    padding: 12px;
    border-radius: 8px;
-   margin:20px 0;
+   background-color: $bg;
+   border: none;
+   // border: 1px solid $primary;
+   background-color: $primary;
+   margin: 20px 0;
 }
 
 .section_btn:hover {
    // transform: scale(1.1, 1.1);
    box-shadow: $box-shadow;
 }
-.title_cate{
+
+.title_cate {
    margin-top: 40px,
 }

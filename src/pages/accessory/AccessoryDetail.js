@@ -47,7 +47,7 @@ const AccessoryDetail = () => {
    }
    return (
       <Layout>
-         <Breadcrumb style={{ marginTop: '5rem' }} product={accessoryDetial?.name} category="Phụ kiện" />
+         <Breadcrumb product={accessoryDetial?.name} category="Phụ kiện" />
          <div className='accessory_layout'>
             <div className="accessory-detail-container">
                <div className='accessory-detail-left'>
@@ -105,7 +105,7 @@ const AccessoryDetail = () => {
                   </TabPanel>
                </Tabs>
             </div>
-        </div>
+         </div>
       </Layout >
    )
 }

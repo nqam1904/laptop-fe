@@ -6,7 +6,9 @@ import "./Accessory.scss";
 const Accessory = () => {
 	const accessory = useSelector(accessorySelector)
 	const showProduct = () => {
-		return accessory?.map((item, i) => <AccessoryItem key={i} accessory={item} />)
+		const isShowAccessory = accessory.filter((is) => is.show === true)
+		const accessoryShow = isShowAccessory.length > 4 ? isShowAccessory.slice(0, 4) : isShowAccessory
+		return accessoryShow?.map((item, i) => <AccessoryItem key={i} accessory={item} />)
 	}
 	return (
 		<div className="laptop">

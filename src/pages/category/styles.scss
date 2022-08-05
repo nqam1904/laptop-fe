@@ -5,6 +5,9 @@
    margin-bottom: 20px;
    text-align: center;
    background-color: $layout;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 }
 
 .accessory_by-price {

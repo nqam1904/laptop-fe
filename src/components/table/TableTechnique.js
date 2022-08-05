@@ -1,8 +1,9 @@
 import React from 'react'
-import { formatChar } from 'utils/function'
+import { formatChar, formatSizeDisplay } from 'utils/function'
 import './styles.scss'
 
 const TableTechnique = ({ configuration }) => {
+	const display = formatSizeDisplay(configuration?.size_display) + " " + formatChar(configuration?.pixel_display) + " " + formatChar(configuration?.hz_display) + " " + configuration?.display || "_"
 	return (
 		<div className='block_table'>
 			<table className="table">
@@ -21,11 +22,11 @@ const TableTechnique = ({ configuration }) => {
 					</tr>
 					<tr>
 						<th className="table_lable">VGA</th>
-						<td className="table_value">{configuration?.vga || "_"}</td>
+						<td className="table_value">{formatChar(configuration?.vga_lap) || "_"}</td>
 					</tr>
 					<tr>
 						<th className="table_lable">Màn hình</th>
-						<td className="table_value">{configuration?.display || "_"}</td>
+						<td className="table_value">{display}</td>
 					</tr>
 					<tr>
 						<th className="table_lable">Chuẩn wifi</th>

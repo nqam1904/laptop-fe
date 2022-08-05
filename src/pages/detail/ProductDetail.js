@@ -10,7 +10,7 @@ import { getProdcutViewAction } from 'redux/actions/laptopAction'
 import { footerSelector } from 'redux/selector/footerSelector'
 import { detailLaptopSelector } from 'redux/selector/laptopSelector'
 import { API_URL } from 'utils/constant'
-import { formatChar, formatNumber } from 'utils/function'
+import { formatChar, formatNumber, formatSizeDisplay } from 'utils/function'
 import './ProducDetail.scss'
 
 const ProductDetail = () => {
@@ -18,6 +18,7 @@ const ProductDetail = () => {
 	const detailLaptop = useSelector(detailLaptopSelector)
 	const footer = useSelector(footerSelector)
 	const dispatch = useDispatch()
+	const display = formatSizeDisplay(detailLaptop?.size_display) + " " + formatChar(detailLaptop?.pixel_display) + " " + formatChar(detailLaptop?.hz_display) + " " + detailLaptop?.display || "_"
 	console.log(detailLaptop, 'DETAIL')
 	useEffect(() => {
 		updateView()
@@ -81,7 +82,7 @@ const ProductDetail = () => {
 								<div className="configuration">
 									<span className='title-option'>CPU:</span>
 									<label className='item-option'>
-										<span>{formatChar(detailLaptop?.cpu_lap)}</span>
+										<span>{formatChar(detailLaptop?.cpu_lap) || ""}</span>
 									</label>
 								</div>
 							</div>
@@ -89,7 +90,7 @@ const ProductDetail = () => {
 								<div className="configuration">
 									<span className='title-option'>RAM:</span>
 									<label className='item-option'>
-										<span>{formatChar(detailLaptop?.ram_lap)}</span>
+										<span>{formatChar(detailLaptop?.ram_lap) || ""}</span>
 									</label>
 								</div>
 							</div>
@@ -97,7 +98,7 @@ const ProductDetail = () => {
 								<div className="configuration">
 									<span className='title-option'>Ổ cứng:</span>
 									<label className='item-option'>
-										<span>{formatChar(detailLaptop?.ssd_lap) + ' + ' + formatChar(detailLaptop?.hdd_lap)}</span>
+										<span>{formatChar(detailLaptop?.ssd_lap) + ' + ' + formatChar(detailLaptop?.hdd_lap) || ""}</span>
 									</label>
 								</div>
 							</div>
@@ -105,7 +106,7 @@ const ProductDetail = () => {
 								<div className="configuration">
 									<span className='title-option'>Màn hình:</span>
 									<label className='item-option'>
-										<span>{detailLaptop?.display}</span>
+										<span>{display}</span>
 									</label>
 								</div>
 							</div>
@@ -113,7 +114,7 @@ const ProductDetail = () => {
 								<div className="configuration">
 									<span className='title-option'>VGA:</span>
 									<label className='item-option'>
-										<span>{detailLaptop?.vga}</span>
+										<span>{formatChar(detailLaptop?.vga_lap) || ""}</span>
 									</label>
 								</div>
 							</div>

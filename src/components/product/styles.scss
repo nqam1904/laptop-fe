@@ -1,4 +1,5 @@
 @import 'assets/colors.scss';
+
 .product-card {
    cursor: pointer;
    display: flex;
@@ -17,15 +18,18 @@
    max-width: 242px;
    flex: 1;
 }
+
 .product-card:hover {
    box-shadow: $box-shadow;
 }
+
 .product-image {
    transform: scale(1, 1);
    transition: transform 0.5s ease;
    object-fit: contain;
    flex-shrink: 0;
 }
+
 .product-name {
    color: $black;
    font-size: 18px;
@@ -38,6 +42,7 @@
    text-overflow: ellipsis;
    flex: 1;
 }
+
 .product-short_config {
    color: $light-color;
    font-size: 14px;
@@ -49,6 +54,7 @@
    text-overflow: ellipsis;
    flex: 1;
 }
+
 .product-card_price {
    font-weight: normal;
    color: $error;
@@ -58,4 +64,10 @@
    left: 0;
    right: 0;
    bottom: 0;
+}
+
+@media (max-width: 768px) {
+   .product-card {
+      max-width: unset;
+   }
 }

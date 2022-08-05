@@ -8,11 +8,14 @@ import { Product, Slider } from 'components';
 import { getLaptopByPriceAction } from 'redux/actions/laptopAction';
 import _ from 'lodash'
 import { bannerSelector } from 'redux/selector/bannerSelector';
+import { screenHeight, screenWidth } from 'utils/constant';
 const LaptopByCate = ({ title }) => {
    const dispatch = useDispatch()
    const laptopData = useSelector(laptopByCateSelector)
    const banners = useSelector(bannerSelector)
    useEffect(() => {
+      window.scrollTo(screenWidth / 2,
+         screenHeight / 2, { behavior: 'smooth' });
    }, [])
    const filter = (value) => {
       dispatch(getLaptopByPriceAction({ name: title, value: value }))
@@ -45,7 +48,7 @@ const LaptopByCate = ({ title }) => {
                   ))}
                </div>
             </div>
-            <div className={!_.isEmpty(laptopData) ? "products-container" :  "products-container-non" }>{showProduct()}</div>
+            <div className={!_.isEmpty(laptopData) ? "products-container" : "products-container-non"}>{showProduct()}</div>
          </div>
       </Layout>
    )

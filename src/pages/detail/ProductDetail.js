@@ -74,7 +74,7 @@ const ProductDetail = () => {
 						</div>
 						<hr />
 						<div className='product-detail_info'>
-							<h2>Cấu hình:</h2>
+							<h2>Cấu hình</h2>
 							<br />
 							{/* option map array  */}
 							<div className='product-detail_option'>

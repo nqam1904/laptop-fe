@@ -121,10 +121,11 @@ footer {
    width: 80%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
    .footer-distributed {
       display: flex;
       flex-direction: column;
+      padding: 20px 30px;
    }
 
    .footer-distributed .footer-left,

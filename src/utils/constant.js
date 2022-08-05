@@ -6,5 +6,7 @@ const screen = {
    maxTablet: 1024,
    desktop: 1024,
 };
+const screenWidth = window.screen.width
+const screenHeight = window.screen.height
 
-export { API_URL, screen, dev }
+export { API_URL, screen, dev, screenWidth, screenHeight }

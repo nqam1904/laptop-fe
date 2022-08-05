@@ -10,14 +10,15 @@ import _ from 'lodash'
 import { getAccessoryByPriceAction } from 'redux/actions/accessoryAction'
 import { categorySelector } from 'redux/selector/laptopSelector'
 import { title_website } from 'constants/common'
+import { screenHeight, screenWidth } from 'utils/constant'
 const Header = () => {
    const dispatch = useDispatch()
    const header = useSelector(headerSelector)
    const accesory = useSelector(categorySelector)
    const [menuOpen, setMenuOpen] = useState(false);
    const [size, setSize] = useState({
-      width: window.screen.width,
-      height: window.screen.height,
+      width: screenWidth,
+      height: screenHeight,
    });
    const turnOffMenu = () => {
       if (menuOpen) {
@@ -58,7 +59,8 @@ const Header = () => {
       return () => window.removeEventListener("resize", handleResize);
    }, []);
    useEffect(() => {
-      if (size.width > 768 && menuOpen) {
+      if (size.width > 1024 && menuOpen) {
+         console.log(menuOpen)
          setMenuOpen(false);
       }
    }, [size.width, menuOpen]);
@@ -81,7 +83,7 @@ const Header = () => {
             </Link>
             <nav
                onClick={() => setMenuOpen((p) => !p)}
-               className={`${classes.header__content__nav} ${menuOpen && size.width < 768 ? classes.isMenu : ""
+               className={`${classes.header__content__nav} ${menuOpen && size.width < 1024 ? classes.isMenu : ""
                   }`}>
                <ul>
                   {!_.isEmpty(header) && dataHeader()}

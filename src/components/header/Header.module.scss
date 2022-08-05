@@ -154,14 +154,18 @@
 }
 
 @media (max-width: 768px) {
-   ul {
+   .header {
+      height: unset;
+   }
+
+   .header ul {
       width: 60%;
-      height: inherit;
       flex-direction: column;
       background-color: $white;
       color: $black;
       padding: 40px !important;
       margin-left: unset !important;
+      height: inherit;
    }
 
    .header__search {
@@ -169,5 +173,21 @@
       position: absolute;
       top: 10px;
       right: calc(100% - 60%);
+   }
+}
+
+@media (max-width: 1023px) {
+   .header {
+      height: unset;
+   }
+
+   .header ul {
+      width: 60%;
+      flex-direction: column;
+      background-color: $white;
+      color: $black;
+      padding: 40px !important;
+      margin-left: unset !important;
+      height: inherit;
    }
 }

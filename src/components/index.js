@@ -10,4 +10,5 @@ import Modal from './modal/Modal'
 import ViewMore from './view_more/ViewMore'
 import Input from './input/Input'
 import Breadcrumb from './breadcrumb/Breadcrumb'
-export { Header, ViewMore, Loading, Breadcrumb, Slider, Input, Product, Footer, FooterBanner, TableTechnique, AccessoryItem, Modal }
+import SliderSyncing from './slider/SliderSyncing'
+export { Header, ViewMore, Loading, Breadcrumb, Slider, Input, Product, Footer, FooterBanner, TableTechnique, AccessoryItem, Modal, SliderSyncing }

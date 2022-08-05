@@ -97,7 +97,7 @@ const ProductDetail = () => {
 								<div className="configuration">
 									<span className='title-option'>Ổ cứng:</span>
 									<label className='item-option'>
-										<span>{detailLaptop?.disk}</span>
+										<span>{formatChar(detailLaptop?.ssd_lap) + ' + ' + formatChar(detailLaptop?.hdd_lap)}</span>
 									</label>
 								</div>
 							</div>

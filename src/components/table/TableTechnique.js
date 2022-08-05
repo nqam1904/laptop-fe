@@ -13,11 +13,11 @@ const TableTechnique = ({ configuration }) => {
 					</tr>
 					<tr>
 						<th className="table_lable">RAM</th>
-						<td className="table_value">{configuration?.ram || "_"}</td>
+						<td className="table_value">{formatChar(configuration?.ram_lap) || "_"}</td>
 					</tr>
 					<tr>
 						<th className="table_lable">Ổ cứng</th>
-						<td className="table_value">{configuration?.disk || "_"}</td>
+						<td className="table_value">{formatChar(configuration?.ssd_lap) + formatChar(configuration?.hdd_lap) || "_"}</td>
 					</tr>
 					<tr>
 						<th className="table_lable">VGA</th>

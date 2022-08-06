@@ -3,7 +3,7 @@ import ProductApi from 'api/productApi'
 import { images } from 'assets'
 import { Breadcrumb, TableTechnique } from 'components'
 import Layout from 'layouts/Layout'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import { getProdcutViewAction } from 'redux/actions/laptopAction'
@@ -18,8 +18,8 @@ const ProductDetail = () => {
 	const detailLaptop = useSelector(detailLaptopSelector)
 	const footer = useSelector(footerSelector)
 	const dispatch = useDispatch()
+	const imageRef = useRef();
 	const display = formatSizeDisplay(detailLaptop?.size_display) + " " + formatChar(detailLaptop?.pixel_display) + " " + formatChar(detailLaptop?.hz_display) + " " + detailLaptop?.display || "_"
-	console.log(detailLaptop, 'DETAIL')
 	useEffect(() => {
 		updateView()
 		dispatch(getProdcutViewAction(detailLaptop))
@@ -33,9 +33,11 @@ const ProductDetail = () => {
 		let view = detailLaptop?.view
 		ProductApi.updateViewLaptop({ id: detailLaptop?.id, view: ++view })
 	}
+	console.log(imageRef, 'REF')
 	const showImageOther = () => {
 		return detailLaptop?.images?.map((item, i) => (
 			<img
+				ref={imageRef}
 				key={i}
 				src={`${API_URL}` + item?.url}
 				alt={item?.name}
@@ -44,7 +46,10 @@ const ProductDetail = () => {
 					currentTarget.onerror = null; // prevents looping
 					currentTarget.src = images.no_image;
 				}}
-				onClick={() => setImagesOhter(item?.url)}
+				onClick={() => {
+					setImagesOhter(item?.url)
+					imageRef?.current.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" })
+				}}
 			/>
 		))
 	}

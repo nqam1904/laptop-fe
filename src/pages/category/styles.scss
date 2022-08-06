@@ -9,6 +9,17 @@
    justify-content: center;
 }
 
+.products-category {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 15px;
+   margin: 0 auto;
+   width: 75%;
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+
 .accessory_by-price {
    margin-top: 2rem;
    margin-bottom: 20px;
@@ -77,6 +88,18 @@
 
    .block_price {
       display: flex;
+   }
+
+   .products-category {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+   }
+
+   .products-category-non {
+      display: flex;
+      justify-content: center;
+      align-items: center;
    }
 }
 

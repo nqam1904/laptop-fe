@@ -47,39 +47,50 @@
    text-align: center;
 }
 
-.filter_price {
-   margin: 10px 10px;
-   padding: 5px;
-}
-
 .title_category {
    margin: 20px 0;
 }
 
+
+.filter_price {
+   margin: 10px 10px;
+   padding: unset;
+}
+
 .block_price {
    display: flex;
-   margin: 0 auto;
-   justify-content: center;
+   justify-content: space-around;
+   align-items: center;
+   overflow-x: auto;
+}
+
+.block_price::-webkit-scrollbar {
+   width: 0;
+   height: 0;
 }
 
 .price_filter {
    padding: 10px;
-   border-radius: 8px;
+   flex: 1;
+   display: flex;
+   white-space: nowrap;
 }
 
 .block_filter {
    background-color: $white;
    border-radius: 8px;
    margin: 0 10px;
+   min-width: auto;
+   padding: 10px;
    text-align: center;
-   box-shadow: $box-shadow;
+   color: $black;
+   margin-right: 10px;
 }
 
-.price_filter:hover {
+.block_filter:hover {
+   background-color: blue;
    cursor: pointer;
-   background-color: #868dcc;
-   color: #ffffff;
-   height: 100%;
+   color: $white;
 }
 
 @media (max-width: 768px) {
@@ -89,7 +100,7 @@
    }
 
    .block_price {
-      display: flex;
+      justify-content: space-between;
    }
 
    .products-category {

@@ -28,8 +28,8 @@
 
 .accessory-detail-image {
    border-radius: 8px;
-   width: 80%;
-   height: 80%;
+   width: 90%;
+   height: 90%;
    background-color: $white;
    transition: 0.3s ease-in-out;
 }
@@ -141,8 +141,8 @@
 }
 
 .multi__image:hover {
-   transform: scale(1.1);
-   transition: 300ms;
+   cursor: pointer;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .accessory_slider-image::-webkit-scrollbar {

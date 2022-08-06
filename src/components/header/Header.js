@@ -1,5 +1,5 @@
 import { images } from 'assets'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
@@ -66,8 +66,8 @@ const Header = () => {
       setMenuOpen(true);
    };
    return (
-      <>
-         <header className={classes.header}>
+      <div>
+         <header className={classes.header} >
             <div className={classes.header__content}>
                <div className={classes.header__content__toggle}>
                   {!menuOpen ? (
@@ -106,8 +106,9 @@ const Header = () => {
                </div>
             </div>
          </header>
-         {/* <SliderHeader /> */}
-      </>
+         <SliderHeader />
+      </div>
+
 
    );
 };

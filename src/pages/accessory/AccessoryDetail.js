@@ -16,7 +16,6 @@ const AccessoryDetail = () => {
    const accessoryDetial = useSelector(accessoryDetailSelector)
    const footer = useSelector(footerSelector)
    const dispatch = useDispatch()
-   console.log(accessoryDetial, 'accessoryDetial')
    let view = accessoryDetial?.view
    const updateViewAccessory = () => {
       accessoryApi.updateView({ id: accessoryDetial?.id, view: ++view })
@@ -48,29 +47,29 @@ const AccessoryDetail = () => {
    return (
       <Layout>
          <Breadcrumb product={accessoryDetial?.name} category="Phụ kiện" />
-         <div className='accessory_layout'>
-            <div className="accessory-detail-container">
-               <div className='accessory-detail-left'>
-                  <div className='accessory_detail-left-image'>
+         <div className='detail_container'>
+            <div className="product-detail-container">
+               <div className='product-detail-right'>
+                  <div className='product_detail-left-image'>
                      <img
                         src={`${API_URL}` + imagesOther || accessoryDetial?.images?.url}
                         onError={({ currentTarget }) => {
                            currentTarget.onerror = null; // prevents looping
                            currentTarget.src = images.no_image;
                         }}
-                        className="accessory-detail-image"
+                        className="product-detail-image"
                      />
-                     <div className="accessory_slider-image">
+                     <div className="product_slider-image">
                         {showImageOther()}
                      </div>
                   </div>
                </div>
-               <div className="accessory-detail-right">
+               <div className="product-detail-left">
                   <h1>{accessoryDetial?.name}</h1>
-                  <p className='accessory_price'>{formatNumber(accessoryDetial?.price)}₫</p>
+                  <p className='product-price '>{formatNumber(accessoryDetial?.price)}₫</p>
                   <hr />
-                  <h3 className="accessory_info-title">Tình trạng:</h3>
-                  <p className="accessory_info-sub">{accessoryDetial?.appearence || ''}</p>
+                  <h3 className="product_info-title">Tình trạng:</h3>
+                  <p className="product_info-sub">{accessoryDetial?.appearence || ''}</p>
                   <hr />
                   <div className="util_accessory">
                      <h3>Chính sách:</h3>

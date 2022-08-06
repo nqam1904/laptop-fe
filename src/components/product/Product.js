@@ -17,7 +17,6 @@ const Product = (props) => {
       delimiter: '_',
       prefix: 'laptop',
    });
-   console.log(props?.product?.short_config, 'props?.product?.short_config')
    return (
       <div>
          <Link to={`/product/${slug}`} onClick={getProductStore}>

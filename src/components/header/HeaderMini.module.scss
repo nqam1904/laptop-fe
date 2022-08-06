@@ -1,0 +1,38 @@
+@import 'assets/colors.scss';
+
+.wapper_header {
+   display: none;
+}
+
+@media (max-width: 1023px) {
+   .wapper_header {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      align-items: center;
+      overflow-x: auto;
+      margin-top: 56px;
+      padding: 10px;
+      background: $white;
+
+      &__item {
+         min-width: auto;
+         padding: 10px;
+         text-align: center;
+         color: $black;
+         margin-right: 10px;
+      }
+   }
+
+   .wapper_header::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+   }
+}
+
+@media (max-width: 768px) {
+   .wapper_header {
+      display: flex;
+      justify-content: space-between;
+   }
+}

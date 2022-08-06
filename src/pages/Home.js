@@ -27,7 +27,7 @@ const Home = () => {
 		dispatch(getCategoryAction())
 	}, []);
 
-	const dataSection = category?.map((item) => {
+	const dataSection = category?.filter(i => i.show === true)?.map((item) => {
 		const dataFilter = laptop.filter(itemLaptop => itemLaptop?.category?.name === item?.name)
 		return {
 			dataFilter,

@@ -47,8 +47,8 @@
          font-size: 20px;
          background: #00000036;
          backdrop-filter: blur(8px);
-         transform: translate(0);
-         transition: 0.3s ease transform;
+         // transform: translate(0);
+         // transition: 0.3s ease transform;
 
          @include breakpoint(md) {
             transform: none;
@@ -171,9 +171,14 @@
    .header__search {
       font-size: 22px;
       position: absolute;
-      top: 10px;
-      right: calc(100% - 60%);
+      top: 0px;
+      right: 10px;
    }
+}
+
+.header__search {
+   font-size: 22px;
+   color: $white;
 }
 
 @media (max-width: 1023px) {
@@ -189,5 +194,12 @@
       padding: 40px !important;
       margin-left: unset !important;
       height: inherit;
+   }
+
+   .header__search {
+      font-size: 22px;
+      position: absolute;
+      top: 0px;
+      right: 10px;
    }
 }

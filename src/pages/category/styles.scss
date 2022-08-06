@@ -1,7 +1,6 @@
 @import 'assets/colors.scss';
 
 .laptop {
-   margin-top: 2rem;
    margin-bottom: 20px;
    text-align: center;
    background-color: $layout;
@@ -46,9 +45,8 @@
 
 .block_price {
    display: flex;
-   width: 35%;
    margin: 0 auto;
-   justify-content: space-around;
+   justify-content: center;
 }
 
 .price_filter {
@@ -58,9 +56,9 @@
 
 .block_filter {
    background-color: $white;
-   border: $border;
    border-radius: 8px;
    margin: 0 10px;
+   text-align: center;
    box-shadow: $box-shadow;
 }
 
@@ -72,20 +70,13 @@
 }
 
 @media (max-width: 768px) {
-   .laptop_non-product {
-      margin-top: 4.6rem;
-   }
-
    .filter_price {
       margin: unset;
       padding: unset;
-      margin-bottom: 20px;
-      margin-top: 20px;
    }
 
    .block_price {
       display: flex;
-      width: unset;
    }
 }
 

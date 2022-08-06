@@ -20,10 +20,11 @@ const Header = () => {
       width: screenWidth,
       height: screenHeight,
    });
+   console.log(menuOpen)
    const turnOffMenu = () => {
-      if (menuOpen) {
-         setMenuOpen((p) => !p);
-      }
+      console.log('mouting')
+
+
    }
    let activeStyle = {
       background: "rgba(255, 255, 255, 0.1)"
@@ -38,7 +39,9 @@ const Header = () => {
                   isActive ? activeStyle : undefined
                }
                onClick={() => {
-                  turnOffMenu()
+                  setTimeout(() => {
+                     setMenuOpen(false);
+                  }, 500)
                   dispatch(getLaptopByCateAction(header?.categories?.[0]?.name))
                }}
                to={`${header.url}`}>{header?.categories?.[0]?.name}</NavLink>
@@ -60,13 +63,11 @@ const Header = () => {
    }, []);
    useEffect(() => {
       if (size.width > 1024 && menuOpen) {
-         console.log(menuOpen)
          setMenuOpen(false);
       }
    }, [size.width, menuOpen]);
-
    const menuToggleHandler = () => {
-      setMenuOpen((p) => !p);
+      setMenuOpen(true);
    };
    return (
       <header className={classes.header}>
@@ -88,20 +89,22 @@ const Header = () => {
                <ul>
                   {!_.isEmpty(header) && dataHeader()}
                   <li>
-                     <Link
+                     <NavLink
                         to='/accessory'
+                        style={({ isActive }) =>
+                           isActive ? activeStyle : undefined
+                        }
                         onClick={() => {
                            turnOffMenu()
                            dispatch(getAccessoryByPriceAction(accesory?.find(x => x.name === 'Accessory')))
-                        }}>Phụ kiện</Link>
-                  </li>
-                  <li className={classes.header__search}>
-                     <Link
-                        to='/search'><FaSearch /></Link>
+                        }}>Phụ kiện</NavLink>
                   </li>
                </ul>
             </nav>
-
+            <div className={classes.header__search}>
+               <Link
+                  to='/search'><FaSearch color='white' /></Link>
+            </div>
          </div>
       </header>
    );

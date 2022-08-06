@@ -159,7 +159,6 @@ const ProductDetail = () => {
 							<p className="content_view">{detailLaptop?.description || ''}</p>
 						</TabPanel>
 						<TabPanel style={{ paddingLeft: 20, marginTop: 20 }}>
-							<h1 style={{ marginBottom: 20 }}>Thông tin kỹ thuật</h1>
 							<TableTechnique configuration={detailLaptop} />
 						</TabPanel>
 					</Tabs>

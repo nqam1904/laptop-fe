@@ -11,6 +11,7 @@ import { getAccessoryByPriceAction } from 'redux/actions/accessoryAction'
 import { categorySelector } from 'redux/selector/laptopSelector'
 import { title_website } from 'constants/common'
 import { screenHeight, screenWidth } from 'utils/constant'
+import SliderHeader from './SliderHeader'
 const Header = () => {
    const dispatch = useDispatch()
    const header = useSelector(headerSelector)
@@ -20,12 +21,7 @@ const Header = () => {
       width: screenWidth,
       height: screenHeight,
    });
-   console.log(menuOpen)
-   const turnOffMenu = () => {
-      console.log('mouting')
 
-
-   }
    let activeStyle = {
       background: "rgba(255, 255, 255, 0.1)"
    };
@@ -70,43 +66,49 @@ const Header = () => {
       setMenuOpen(true);
    };
    return (
-      <header className={classes.header}>
-         <div className={classes.header__content}>
-            <div className={classes.header__content__toggle}>
-               {!menuOpen ? (
-                  <img src={images.ic_menu} alt="ic_menu" width={25} height={25} onClick={menuToggleHandler} />
-               ) : (
-                  <img src={images.ic_menu_x} alt="ic_menu" width={25} height={25} onClick={menuToggleHandler} />
-               )}
+      <>
+         <header className={classes.header}>
+            <div className={classes.header__content}>
+               <div className={classes.header__content__toggle}>
+                  {!menuOpen ? (
+                     <img src={images.ic_menu} alt="ic_menu" width={25} height={25} onClick={menuToggleHandler} />
+                  ) : (
+                     <img src={images.ic_menu_x} alt="ic_menu" width={25} height={25} onClick={menuToggleHandler} />
+                  )}
+               </div>
+               <Link to="/" className={classes.header__content__logo} onClick={() => window.reload()}>
+                  {title_website || 'Lap4all'}
+               </Link>
+               <nav
+                  onClick={() => setMenuOpen((p) => !p)}
+                  className={`${classes.header__content__nav} ${menuOpen && size.width < 1024 ? classes.isMenu : ""
+                     }`}>
+                  <ul>
+                     {!_.isEmpty(header) && dataHeader()}
+                     <li>
+                        <NavLink
+                           to='/accessory'
+                           style={({ isActive }) =>
+                              isActive ? activeStyle : undefined
+                           }
+                           onClick={() => {
+                              setTimeout(() => {
+                                 setMenuOpen(false);
+                              }, 500)
+                              dispatch(getAccessoryByPriceAction(accesory?.find(x => x.name === 'Accessory')))
+                           }}>Phụ kiện</NavLink>
+                     </li>
+                  </ul>
+               </nav>
+               <div className={classes.header__search}>
+                  <Link
+                     to='/search'><FaSearch color='white' /></Link>
+               </div>
             </div>
-            <Link to="/" className={classes.header__content__logo} onClick={() => window.reload()}>
-               {title_website || 'Lap4all'}
-            </Link>
-            <nav
-               onClick={() => setMenuOpen((p) => !p)}
-               className={`${classes.header__content__nav} ${menuOpen && size.width < 1024 ? classes.isMenu : ""
-                  }`}>
-               <ul>
-                  {!_.isEmpty(header) && dataHeader()}
-                  <li>
-                     <NavLink
-                        to='/accessory'
-                        style={({ isActive }) =>
-                           isActive ? activeStyle : undefined
-                        }
-                        onClick={() => {
-                           turnOffMenu()
-                           dispatch(getAccessoryByPriceAction(accesory?.find(x => x.name === 'Accessory')))
-                        }}>Phụ kiện</NavLink>
-                  </li>
-               </ul>
-            </nav>
-            <div className={classes.header__search}>
-               <Link
-                  to='/search'><FaSearch color='white' /></Link>
-            </div>
-         </div>
-      </header>
+         </header>
+         <SliderHeader />
+      </>
+
    );
 };
 

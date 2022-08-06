@@ -13,10 +13,7 @@ const LaptopByCate = ({ title }) => {
    const dispatch = useDispatch()
    const laptopData = useSelector(laptopByCateSelector)
    const banners = useSelector(bannerSelector)
-   useEffect(() => {
-      window.scrollTo(screenWidth / 2,
-         screenHeight / 2, { behavior: 'smooth' });
-   }, [])
+
    const filter = (value) => {
       dispatch(getLaptopByPriceAction({ name: title, value: value }))
    }

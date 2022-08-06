@@ -53,10 +53,16 @@
 	display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
 	.slider {
 		width: 100vw;
 		padding: 25px;
+	}
+
+	.slider {
+		margin-top: unset;
+		margin-bottom: unset;
+
 	}
 
 	.image_slider {
@@ -67,7 +73,8 @@
 
 @media (max-width: 768px) {
 	.slider {
-		margin-top: 2.5rem;
+		margin-top: unset;
+		margin-bottom: unset;
 		width: 100vw;
 		padding: 25px;
 		left: calc(-50vw + 50%);

@@ -1,7 +1,8 @@
 @import 'assets/colors.scss';
 @import '../../reponsive.scss';
+
 .slider {
-	margin-top: 3.5rem;
+	margin-top: 3.2rem;
 	margin-bottom: 4rem;
 	position: relative;
 }
@@ -71,14 +72,15 @@
 		padding: 25px;
 		left: calc(-50vw + 50%);
 	}
+
 	.image_slider {
 		width: 100%;
 		height: auto;
 	}
+
 	.slick-arrow.slick-prev,
 	.slick-arrow.slick-next {
 		width: 30px;
 		height: 60px;
 	}
 }
-

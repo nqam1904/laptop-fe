@@ -3,7 +3,8 @@ import { formatChar, formatSizeDisplay } from 'utils/function'
 import './styles.scss'
 
 const TableTechnique = ({ configuration }) => {
-	const display = formatSizeDisplay(configuration?.size_display) + " " + formatChar(configuration?.pixel_display) + " " + formatChar(configuration?.hz_display) + " " + configuration?.display || "_"
+	const display = formatSizeDisplay(configuration?.size_display) + " " + formatChar(configuration?.pixel_display) + " " + formatChar(configuration?.hz_display) + " " + configuration?.display || "_";
+	console.log(display, 'display')
 	return (
 		<div className='block_table'>
 			<table className="table">

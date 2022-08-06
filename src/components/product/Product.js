@@ -6,6 +6,7 @@ import { API_URL } from 'utils/constant';
 import { formatNumber } from "utils/function";
 import './styles.scss';
 import slugify from 'react-slugify';
+import _ from 'lodash'
 const Product = (props) => {
    const dispatch = useDispatch()
    const getProductStore = () => {
@@ -16,7 +17,7 @@ const Product = (props) => {
       delimiter: '_',
       prefix: 'laptop',
    });
-
+   console.log(props?.product?.short_config, 'props?.product?.short_config')
    return (
       <div>
          <Link to={`/product/${slug}`} onClick={getProductStore}>
@@ -28,7 +29,7 @@ const Product = (props) => {
                   }}
                   className="product-image" alt={props?.name} />
                <p className="product-name">{props?.product?.name}</p>
-               <p className='product-short_config'>{props?.product?.short_config}</p>
+               {!_.isNil(props?.product?.short_config) && <p className='product-short_config'>{props?.product?.short_config || ''}</p>}
                <p className="product-card_price">{formatNumber(price)}₫</p>
             </div>
          </Link>

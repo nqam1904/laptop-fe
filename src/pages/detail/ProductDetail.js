@@ -48,7 +48,7 @@ const ProductDetail = () => {
 				}}
 				onClick={() => {
 					setImagesOhter(item?.url)
-					imageRef?.current.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" })
+					// imageRef?.current.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" })
 				}}
 			/>
 		))

@@ -10,7 +10,9 @@
 }
 
 .products-category {
-   display: flex;
+   display: inline-grid;
+   grid-template-rows: auto auto auto auto;
+   grid-template-columns: auto auto auto auto;
    flex-wrap: wrap;
    justify-content: center;
    gap: 15px;

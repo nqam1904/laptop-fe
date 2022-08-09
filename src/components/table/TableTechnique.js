@@ -1,10 +1,11 @@
 import React from 'react'
 import { formatChar, formatSizeDisplay } from 'utils/function'
 import './styles.scss'
+import _ from 'lodash'
 
 const TableTechnique = ({ configuration }) => {
 	const display = formatSizeDisplay(configuration?.size_display) + " " + formatChar(configuration?.pixel_display) + " " + formatChar(configuration?.hz_display) + " " + configuration?.display || "_";
-	console.log(display, 'display')
+	const disk = !_.isEmpty(configuration?.hdd_lap) ? formatChar(configuration?.ssd_lap) + ' + ' + formatChar(configuration?.hdd_lap) : formatChar(configuration?.ssd_lap)
 	return (
 		<div className='block_table'>
 			<table className="table">
@@ -19,7 +20,7 @@ const TableTechnique = ({ configuration }) => {
 					</tr>
 					<tr>
 						<th className="table_lable">Ổ cứng</th>
-						<td className="table_value">{formatChar(configuration?.ssd_lap) + ' + ' + formatChar(configuration?.hdd_lap) || "_"}</td>
+						<td className="table_value">{disk || "_"}</td>
 					</tr>
 					<tr>
 						<th className="table_lable">VGA</th>

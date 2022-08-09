@@ -186,7 +186,7 @@
 
 @media (max-width: 1023px) {
    .header {
-      height: unset;
+      // height: unset;
    }
 
    .header ul {
@@ -202,7 +202,6 @@
    .header__search {
       font-size: 22px;
       position: absolute;
-      top: 0px;
       right: 10px;
    }
 }

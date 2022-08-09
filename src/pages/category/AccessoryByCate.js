@@ -51,7 +51,7 @@ const AccessoryByCate = ({ title }) => {
                   ))}
                </div>
             </div>
-            <div className="products-container">{showProduct()}</div>
+            <div className={!_.isEmpty(accessory) ? "products-category" : "products-category-non"}>{showProduct()}</div>
          </div>
       </Layout>
    )

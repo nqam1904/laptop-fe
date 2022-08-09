@@ -10,11 +10,8 @@
    width: 100%;
 }
 
-@media (max-width: 768px) {
-   .section_container-product {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-   }
+.btn_link {
+   display: block;
 }
 
 .section_btn {
@@ -42,4 +39,18 @@
 
 .title_cate {
    margin-top: 40px,
+}
+
+@media (max-width: 1023px) {
+   .section_container-product {
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1015px
+   }
+}
+
+@media (max-width: 768px) {
+   .section_container-product {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+   }
 }

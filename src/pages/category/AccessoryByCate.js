@@ -2,7 +2,7 @@ import { AccessoryItem, Slider } from 'components';
 import { filterPice } from 'constants/data';
 import Layout from 'layouts/Layout';
 import _ from 'lodash';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAccessoryByPriceAction } from 'redux/actions/accessoryAction';
 import { accessoryByPriceSelectory } from 'redux/selector/accessorySelector';
@@ -11,9 +11,11 @@ import "./styles.scss";
 const AccessoryByCate = ({ title }) => {
    const dispatch = useDispatch()
    const accessory = useSelector(accessoryByPriceSelectory)
+   const [active, setActive] = useState();
 
    const banners = useSelector(bannerSelector)
    useEffect(() => {
+      setActive(0)
    }, [])
    const filter = (value) => {
       dispatch(getAccessoryByPriceAction({ name: title, value: value }))
@@ -30,6 +32,9 @@ const AccessoryByCate = ({ title }) => {
          return accessory?.map((item, i) => <AccessoryItem key={i} accessory={item} />)
       }
    }
+   const onActive = (id) => {
+      setActive(id)
+   }
    return (
       <Layout>
          <Slider data={banners} />
@@ -38,7 +43,7 @@ const AccessoryByCate = ({ title }) => {
             <div className="filter_price">
                <div className="block_price">
                   {filterPice.map((item, i) => (
-                     <div className='block_filter' key={i}>
+                     <div className={item?.id === active ? 'block_filter_active' : 'block_filter'} key={i} onClick={() => onActive(item?.id)}>
                         <p className="price_filter" onClick={() => filter(item.value)}>
                            {item.title}
                         </p>

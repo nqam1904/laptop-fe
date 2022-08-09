@@ -18,7 +18,7 @@ const Section = (props) => {
                      <Product isHeader key={i?.id} product={i} />
                   ))}
                </div>
-               <Link to={`/${item.nameSec}`} onClick={() => dispatch(getLaptopByCateAction(item.nameSec))}>
+               <Link to={`/${item.nameSec}`} onClick={() => dispatch(getLaptopByCateAction(item.nameSec))} className="btn_link">
                   <button type="button" className="section_btn">
                      Xem thêm
                   </button>

@@ -190,6 +190,20 @@
    }
 
    .header ul {
+      color: $white;
+      height: inherit;
+      margin-left: 0 !important;
+   }
+
+   .header__search {
+      font-size: 22px;
+      position: absolute;
+      right: 10px;
+   }
+}
+
+@media (max-width: 768px) {
+   .header ul {
       width: 60%;
       flex-direction: column;
       background-color: $white;
@@ -197,11 +211,5 @@
       padding: 40px !important;
       margin-left: unset !important;
       height: inherit;
-   }
-
-   .header__search {
-      font-size: 22px;
-      position: absolute;
-      right: 10px;
    }
 }

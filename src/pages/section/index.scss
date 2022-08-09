@@ -3,11 +3,10 @@
 .section_container-product {
    display: inline-grid;
    grid-template-rows: auto auto auto auto;
-   grid-template-columns: auto auto auto auto;
+   grid-template-columns: repeat(4, 1fr);
    flex-wrap: wrap;
    justify-content: center;
    gap: 15px;
-   width: 100%;
 }
 
 @media (max-width: 768px) {

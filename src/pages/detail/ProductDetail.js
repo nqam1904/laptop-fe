@@ -20,7 +20,7 @@ const ProductDetail = () => {
 	const footer = useSelector(footerSelector)
 	const dispatch = useDispatch()
 	const imageRef = useRef();
-	const display = formatSizeDisplay(detailLaptop?.size_display) + " " + formatChar(detailLaptop?.pixel_display) + " " + formatChar(detailLaptop?.hz_display) + " " + detailLaptop?.display || "_"
+	const display = formatSizeDisplay(detailLaptop?.size_display) + " " + formatChar(detailLaptop?.panel_display) + " " + formatChar(detailLaptop?.pixel_display) + " " + formatChar(detailLaptop?.hz_display) + " " + detailLaptop?.display || "_"
 	useEffect(() => {
 		updateView()
 		dispatch(getProdcutViewAction(detailLaptop))
@@ -34,7 +34,7 @@ const ProductDetail = () => {
 		let view = detailLaptop?.view
 		ProductApi.updateViewLaptop({ id: detailLaptop?.id, view: ++view })
 	}
-	const vga = !_.isEmpty(detailLaptop?.watt) ? formatChar(detailLaptop?.vga_lap) + " " + formatChar(detailLaptop?.watt) : formatChar(detailLaptop?.vga_lap) || "_"
+	const vga = !_.isEmpty(detailLaptop?.watt) ? formatChar(detailLaptop?.vga_lap) + " " + `(${formatChar(detailLaptop?.watt).trim()})` : formatChar(detailLaptop?.vga_lap) || "_"
 
 	const disk = !_.isEmpty(detailLaptop?.hdd_lap) ? formatChar(detailLaptop?.ssd_lap) + ' + ' + formatChar(detailLaptop?.hdd_lap) : formatChar(detailLaptop?.ssd_lap)
 	const showImageOther = () => {

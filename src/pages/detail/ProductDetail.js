@@ -20,7 +20,7 @@ const ProductDetail = () => {
 	const footer = useSelector(footerSelector)
 	const dispatch = useDispatch()
 	const imageRef = useRef();
-	const display = formatSizeDisplay(detailLaptop?.size_display) + " " + formatChar(detailLaptop?.panel_display) + " " + formatChar(detailLaptop?.pixel_display) + " " + formatChar(detailLaptop?.hz_display) + " " + detailLaptop?.display || "_"
+	const display = formatSizeDisplay(detailLaptop?.size_display) + "" + formatChar(detailLaptop?.pixel_display) + " " + formatChar(detailLaptop?.panel_display) + " " + formatChar(detailLaptop?.hz_display) + " " + detailLaptop?.display || "_"
 	useEffect(() => {
 		updateView()
 		dispatch(getProdcutViewAction(detailLaptop))
@@ -83,8 +83,6 @@ const ProductDetail = () => {
 						</div>
 						<hr />
 						<div className='product-detail_info'>
-							<h2>Cấu hình</h2>
-							<br />
 							{/* option map array  */}
 							<div className='product-detail_option'>
 								<div className="configuration">

@@ -81,25 +81,26 @@
    border-radius: 8px;
    margin: 0 10px;
    min-width: auto;
-   padding: 10px;
+   padding: 2px;
    text-align: center;
    color: $black;
    margin-right: 10px;
 }
 
 .block_filter:hover {
-   background-color: blue;
+   box-shadow: 0 0 0 1px $primary;
    cursor: pointer;
-   color: $white;
+   color: $black;
 }
 
 .block_filter_active {
-   background-color: blue;
-   color: $white;
+   box-shadow: 0 0 0 1px $primary;
+   background-color: $white;
+   color: $black;
    border-radius: 8px;
    margin: 0 10px;
    min-width: auto;
-   padding: 10px;
+   padding: 2px;
    text-align: center;
    margin-right: 10px;
 }

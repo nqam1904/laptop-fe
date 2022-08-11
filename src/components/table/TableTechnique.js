@@ -4,7 +4,7 @@ import './styles.scss'
 import _ from 'lodash'
 
 const TableTechnique = ({ configuration }) => {
-	const display = formatSizeDisplay(configuration?.size_display) + " " + formatChar(configuration?.panel_display) + " " + formatChar(configuration?.pixel_display) + " " + formatChar(configuration?.hz_display) + " " + configuration?.display || "_";
+	const display = formatSizeDisplay(configuration?.size_display) + " " + formatChar(configuration?.pixel_display) + " " + formatChar(configuration?.panel_display) + " " + formatChar(configuration?.hz_display) + " " + configuration?.display || "_";
 	const disk = !_.isEmpty(configuration?.hdd_lap) ? formatChar(configuration?.ssd_lap) + ' + ' + formatChar(configuration?.hdd_lap) : formatChar(configuration?.ssd_lap);
 	const vga = !_.isEmpty(configuration?.watt) ? formatChar(configuration?.vga_lap) + " " + `(${formatChar(configuration?.watt).trim()})` : formatChar(configuration?.vga_lap) || "_"
 	return (

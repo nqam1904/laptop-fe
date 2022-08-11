@@ -11,6 +11,7 @@ import { footerSelector } from 'redux/selector/footerSelector'
 import { detailLaptopSelector } from 'redux/selector/laptopSelector'
 import { API_URL } from 'utils/constant'
 import { formatChar, formatNumber, formatSizeDisplay } from 'utils/function'
+import _ from 'lodash'
 import './ProducDetail.scss'
 
 const ProductDetail = () => {
@@ -33,7 +34,9 @@ const ProductDetail = () => {
 		let view = detailLaptop?.view
 		ProductApi.updateViewLaptop({ id: detailLaptop?.id, view: ++view })
 	}
-	console.log(imageRef, 'REF')
+	const vga = !_.isEmpty(detailLaptop?.watt) ? formatChar(detailLaptop?.vga_lap) + " " + formatChar(detailLaptop?.watt) : formatChar(detailLaptop?.vga_lap) || "_"
+
+	const disk = !_.isEmpty(detailLaptop?.hdd_lap) ? formatChar(detailLaptop?.ssd_lap) + ' + ' + formatChar(detailLaptop?.hdd_lap) : formatChar(detailLaptop?.ssd_lap)
 	const showImageOther = () => {
 		return detailLaptop?.images?.map((item, i) => (
 			<img
@@ -103,7 +106,7 @@ const ProductDetail = () => {
 								<div className="configuration">
 									<span className='title-option'>Ổ cứng:</span>
 									<label className='item-option'>
-										<span>{formatChar(detailLaptop?.ssd_lap) + ' + ' + formatChar(detailLaptop?.hdd_lap) || ""}</span>
+										<span>{disk}</span>
 									</label>
 								</div>
 							</div>
@@ -119,7 +122,7 @@ const ProductDetail = () => {
 								<div className="configuration">
 									<span className='title-option'>VGA:</span>
 									<label className='item-option'>
-										<span>{formatChar(detailLaptop?.vga_lap) || ""}</span>
+										<span>{vga}</span>
 									</label>
 								</div>
 							</div>

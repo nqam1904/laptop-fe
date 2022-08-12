@@ -28,7 +28,7 @@ export const filterPice = [
 	{
 		id: 5,
 		title: 'Trên 40 triệu',
-		value: '90000000',
+		value: '41000000',
 	},
 ]
 

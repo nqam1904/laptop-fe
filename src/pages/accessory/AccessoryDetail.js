@@ -2,6 +2,7 @@ import swal from '@sweetalert/with-react'
 import accessoryApi from 'api/accessoryApi'
 import { images } from 'assets'
 import { Breadcrumb } from 'components/'
+import { SliderSyncing } from 'components/index'
 import Layout from "layouts/Layout"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
@@ -12,11 +13,11 @@ import { API_URL } from 'utils/constant'
 import { formatNumber } from "utils/function"
 import './Accessory.scss'
 const AccessoryDetail = () => {
-   const [imagesOther, setImagesOhter] = useState('')
    const accessoryDetial = useSelector(accessoryDetailSelector)
    const footer = useSelector(footerSelector)
    const dispatch = useDispatch()
    let view = accessoryDetial?.view
+   console.log(view, 'view')
    const updateViewAccessory = () => {
       accessoryApi.updateView({ id: accessoryDetial?.id, view: ++view })
    }
@@ -25,25 +26,7 @@ const AccessoryDetail = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
    }, [])
 
-   useEffect(() => {
-      setImagesOhter(accessoryDetial?.images?.[0]?.url);
-   }, [accessoryDetial?.images?.[0]?.url])
 
-   const showImageOther = () => {
-      return accessoryDetial?.images.map((item, index) => (
-         <img
-            onClick={() => setImagesOhter(item.url)}
-            key={index}
-            onError={({ currentTarget }) => {
-               currentTarget.onerror = null; // prevents looping
-               currentTarget.src = images.no_image;
-            }}
-            className='multi__image'
-            src={API_URL + item.url}
-            alt={item?.name}
-         />
-      ))
-   }
    return (
       <Layout>
          <Breadcrumb product={accessoryDetial?.name} category="Phụ kiện" />
@@ -51,17 +34,13 @@ const AccessoryDetail = () => {
             <div className="product-detail-container">
                <div className='product-detail-right'>
                   <div className='product_detail-left-image'>
-                     <img
-                        src={`${API_URL}` + imagesOther || accessoryDetial?.images?.url}
-                        onError={({ currentTarget }) => {
-                           currentTarget.onerror = null; // prevents looping
-                           currentTarget.src = images.no_image;
-                        }}
-                        className="product-detail-image"
+                     <SliderSyncing
+                        images={accessoryDetial?.images}
+                        thumbnail={accessoryDetial?.images}
+                        classNameImage="product-detail-image"
+                        classNameThumbnail="product-small_images"
+                        noImage={images.no_image}
                      />
-                     <div className="product_slider-image">
-                        {showImageOther()}
-                     </div>
                   </div>
                </div>
                <div className="product-detail-left">

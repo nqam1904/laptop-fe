@@ -1,7 +1,7 @@
 import swal from '@sweetalert/with-react'
 import ProductApi from 'api/productApi'
 import { images } from 'assets'
-import { Breadcrumb, TableTechnique } from 'components'
+import { Breadcrumb, SliderSyncing, TableTechnique } from 'components'
 import Layout from 'layouts/Layout'
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,11 +15,9 @@ import _ from 'lodash'
 import './ProducDetail.scss'
 
 const ProductDetail = () => {
-	const [imagesOther, setImagesOhter] = useState('')
 	const detailLaptop = useSelector(detailLaptopSelector)
 	const footer = useSelector(footerSelector)
 	const dispatch = useDispatch()
-	const imageRef = useRef();
 	const display = formatSizeDisplay(detailLaptop?.size_display) + "" + formatChar(detailLaptop?.pixel_display) + " " + formatChar(detailLaptop?.panel_display) + " " + formatChar(detailLaptop?.hz_display) + " " + detailLaptop?.display || "_"
 	useEffect(() => {
 		updateView()
@@ -27,9 +25,7 @@ const ProductDetail = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}, []);
 
-	useEffect(() => {
-		setImagesOhter(detailLaptop?.images?.[0]?.url);
-	}, [detailLaptop?.images?.[0]?.url])
+
 	const updateView = () => {
 		let view = detailLaptop?.view
 		ProductApi.updateViewLaptop({ id: detailLaptop?.id, view: ++view })
@@ -37,25 +33,7 @@ const ProductDetail = () => {
 	const vga = !_.isEmpty(detailLaptop?.watt) ? formatChar(detailLaptop?.vga_lap) + " " + `(${formatChar(detailLaptop?.watt).trim()})` : formatChar(detailLaptop?.vga_lap) || "_"
 
 	const disk = !_.isEmpty(detailLaptop?.hdd_lap) ? formatChar(detailLaptop?.ssd_lap) + ' + ' + formatChar(detailLaptop?.hdd_lap) : formatChar(detailLaptop?.ssd_lap)
-	const showImageOther = () => {
-		return detailLaptop?.images?.map((item, i) => (
-			<img
-				ref={imageRef}
-				key={i}
-				src={`${API_URL}` + item?.url}
-				alt={item?.name}
-				className="product-small_images"
-				onError={({ currentTarget }) => {
-					currentTarget.onerror = null; // prevents looping
-					currentTarget.src = images.no_image;
-				}}
-				onClick={() => {
-					setImagesOhter(item?.url)
-					// imageRef?.current.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" })
-				}}
-			/>
-		))
-	}
+
 	return (
 		<Layout>
 			<div className='detail_container'>
@@ -63,16 +41,15 @@ const ProductDetail = () => {
 				<div className="product-detail-container">
 					<div className='product-detail-left'>
 						<div className='product_detail-left-image'>
-							<img
-								src={`${API_URL}` + imagesOther}
-								className="product-detail-image"
-								onError={({ currentTarget }) => {
-									currentTarget.onerror = null; // prevents looping
-									currentTarget.src = images.no_image;
-								}}
+							<SliderSyncing
+								images={detailLaptop?.images}
+								thumbnail={detailLaptop?.images}
+								classNameImage="product-detail-image"
+								classNameThumbnail="product-small_images"
+								noImage={images.no_image}
 							/>
-							<div className="product_slider-image">{showImageOther()}</div>
 						</div>
+
 
 					</div>
 					<div className="product-detail-right">

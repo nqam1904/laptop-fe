@@ -35,7 +35,7 @@
 	},
 	"scripts": {
 		"start": "react-scripts start .env.development",
-		"build": "react-scripts build .env",
+		"build": "GENERATE_SOURCEMAP=false react-scripts build .env",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},

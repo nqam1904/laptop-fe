@@ -1,5 +1,4 @@
 import * as Action from 'redux/actions/laptopAction'
-import _ from "lodash"
 const initialState = {
 	listLaptop: [],
 	laptopByCategory: [],
@@ -42,14 +41,6 @@ export const laptopReducer = (state = initialState, action) => {
 				...state,
 				category: action.payload
 			}
-		// case Action.GET_PRODUCT_VIEW_SUCCESS:
-		// 	const arr = action.payload
-		// 	return {
-		// 		...state,
-		// 		storageProduct: _.uniqBy(state.storageProduct.concat(arr), function (e) {
-		// 			return e?.slug;
-		// 		}).filter(x => x != null)
-		// 	}
 		default:
 			return state;
 	}

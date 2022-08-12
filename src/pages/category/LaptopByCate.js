@@ -4,6 +4,7 @@ import Layout from 'layouts/Layout';
 import _ from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { getLaptopByPriceAction } from 'redux/actions/laptopAction';
 import { bannerSelector } from 'redux/selector/bannerSelector';
 import { laptopByCateSelector } from 'redux/selector/laptopSelector';
@@ -13,9 +14,10 @@ const LaptopByCate = ({ title }) => {
    const laptopData = useSelector(laptopByCateSelector)
    const banners = useSelector(bannerSelector)
    const [active, setActive] = useState();
+   const { pathname } = useLocation();
    useEffect(() => {
       setActive(0)
-   }, [])
+   }, [pathname])
    const filter = (value) => {
       dispatch(getLaptopByPriceAction({ name: title, value: value }))
    }

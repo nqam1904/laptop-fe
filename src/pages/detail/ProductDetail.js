@@ -3,15 +3,14 @@ import ProductApi from 'api/productApi'
 import { images } from 'assets'
 import { Breadcrumb, SliderSyncing, TableTechnique } from 'components'
 import Layout from 'layouts/Layout'
-import { useEffect, useRef, useState } from 'react'
+import _ from 'lodash'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import { getProdcutViewAction } from 'redux/actions/laptopAction'
 import { footerSelector } from 'redux/selector/footerSelector'
 import { detailLaptopSelector } from 'redux/selector/laptopSelector'
-import { API_URL } from 'utils/constant'
 import { formatChar, formatNumber, formatSizeDisplay } from 'utils/function'
-import _ from 'lodash'
 import './ProducDetail.scss'
 
 const ProductDetail = () => {
@@ -22,7 +21,6 @@ const ProductDetail = () => {
 	useEffect(() => {
 		updateView()
 		dispatch(getProdcutViewAction(detailLaptop))
-		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}, []);
 
 

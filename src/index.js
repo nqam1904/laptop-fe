@@ -12,7 +12,6 @@ import './global.scss'
 import './reset.css'
 import 'react-tabs/style/react-tabs.css'
 import 'react-toastify/dist/ReactToastify.css'
-import 'react-spring-bottom-sheet/dist/style.css'
 let { store, persistor } = configureStore()
 const container = document.getElementById('root')
 const root = createRoot(container)

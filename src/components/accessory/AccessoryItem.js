@@ -26,7 +26,7 @@ const AccessoryItem = (props) => {
                   }}
                   width={'100%'} height={250} className="accessory-image" alt={props?.name} />
                <p className="accessory-name">{props?.accessory?.name}</p>
-               <p className="accessory-price">Giá: {formatNumber(props?.accessory?.price)}₫</p>
+               <p className="accessory-price">Giá: {formatNumber(props?.accessory?.price_promotion)}₫</p>
             </div>
          </Link>
       </div>

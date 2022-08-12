@@ -2,11 +2,20 @@ const queryFilterCategory = (name) => {
    return `_where[0][category.name]=${name}`
 }
 const queryFilterPrice = (value) => {
-
    if (value < 10000000) {
-      return `_where[0][price_promotion_lt]=${value}`
-   } else {
-      return value < 41000000 ? `_where[0][price_promotion_lte]=${value}` : `_where[0][price_promotion_gt]=${value}`
+      return `_where[1][price_promotion_lt]=${value}`
+   }
+   if (value <= 20000000) {
+      return `_where[1][price_promotion_lt]=${value}`
+   }
+   if (value <= 30000000) {
+      return `_where[1][price_promotion_gt]=${20000000}&_where[1][price_promotion_lte]=${value}`
+   }
+   if (value <= 40000000) {
+      return `_where[1][price_promotion_gt]=${30000000}&_where[1][price_promotion_lte]=${value}`
+   }
+   else {
+      return `_where[1][price_promotion_gt]=${value}`
    }
 }
 const queryDetail = slug => {

@@ -4,12 +4,11 @@ import { images } from 'assets'
 import { Breadcrumb } from 'components/'
 import { SliderSyncing } from 'components/index'
 import Layout from "layouts/Layout"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs"
 import { accessoryDetailSelector } from "redux/selector/accessorySelector"
 import { footerSelector } from 'redux/selector/footerSelector'
-import { API_URL } from 'utils/constant'
 import { formatNumber } from "utils/function"
 import './Accessory.scss'
 const AccessoryDetail = () => {
@@ -17,13 +16,11 @@ const AccessoryDetail = () => {
    const footer = useSelector(footerSelector)
    const dispatch = useDispatch()
    let view = accessoryDetial?.view
-   console.log(view, 'view')
    const updateViewAccessory = () => {
       accessoryApi.updateView({ id: accessoryDetial?.id, view: ++view })
    }
    useEffect(() => {
       updateViewAccessory()
-      window.scrollTo({ top: 0, behavior: 'smooth' });
    }, [])
 
 
@@ -45,7 +42,7 @@ const AccessoryDetail = () => {
                </div>
                <div className="product-detail-left">
                   <h1>{accessoryDetial?.name}</h1>
-                  <p className='product-price '>{formatNumber(accessoryDetial?.price)}₫</p>
+                  <p className='product-price '>{formatNumber(accessoryDetial?.price_promotion)}₫</p>
                   <hr />
                   <h3 className="product_info-title">Tình trạng:</h3>
                   <p className="product_info-sub">{accessoryDetial?.appearence || ''}</p>

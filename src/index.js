@@ -1,4 +1,4 @@
-import { Loading } from 'components'
+import { Loading, ScrollToTop } from 'components'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
@@ -20,6 +20,7 @@ root.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<PersistGate loading={null} persistor={persistor}>
+				<ScrollToTop />
 				<App history={history} />
 				<ToastContainer
 					position="bottom-center"

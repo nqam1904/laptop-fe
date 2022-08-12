@@ -12,4 +12,5 @@ import Input from './input/Input'
 import Breadcrumb from './breadcrumb/Breadcrumb'
 import SliderSyncing from './slider/SliderSyncing'
 import SliderHeader from "./header/SliderHeader"
-export { Header, SliderHeader, ViewMore, Loading, Breadcrumb, Slider, Input, Product, Footer, FooterBanner, TableTechnique, AccessoryItem, Modal, SliderSyncing, }
+import ScrollToTop from './scrollToTop/ScrollToTop'
+export { Header, SliderHeader, ViewMore, Loading, Breadcrumb, Slider, Input, Product, Footer, FooterBanner, TableTechnique, AccessoryItem, Modal, SliderSyncing, ScrollToTop }

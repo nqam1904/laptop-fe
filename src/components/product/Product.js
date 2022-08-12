@@ -12,7 +12,7 @@ const Product = (props) => {
    const getProductStore = () => {
       dispatch(getDetailLaptopAction(props?.product?.id))
    }
-   const price = props?.product?.price_promotion > 0 ? props?.product?.price_promotion : props?.product?.price
+   const price = props?.product?.price_promotion
    const slug = slugify(props?.product?.slug, {
       delimiter: '_',
       prefix: 'laptop',

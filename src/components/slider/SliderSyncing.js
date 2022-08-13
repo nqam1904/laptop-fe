@@ -1,20 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
+import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from "react-icons/fa";
 import Slider from "react-slick";
 import { API_URL } from "utils/constant";
 import './styles2.scss'
-const settings = {
-   dots: false,
-   infinite: true,
-   speed: 500,
-   slidesToShow: 1,
-   slidesToScroll: 1,
-   prevArrow: <></>,
-   nextArrow: <></>
-};
-const settings2 = {
-   prevArrow: <></>,
-   nextArrow: <></>
-}
+
 const SliderSyncing = (props) => {
    const [slider1, setSlider1] = useState(null)
    const [slider2, setSlider2] = useState(null)
@@ -25,6 +14,41 @@ const SliderSyncing = (props) => {
       setSlider1(slider1Ref)
       setSlider2(slider2Ref)
    }, [])
+   const PreviousBtn = ({ currentSlide, slideCount, ...props }) => {
+      return (
+         <FaRegArrowAltCircleLeft color='white' {...props}
+            className={
+               "slick-prev slick-arrow" +
+               (currentSlide === 0 ? " slick-disabled" : "")
+            }
+            aria-hidden="true"
+            aria-disabled={currentSlide === 0 ? true : false}
+            type="button" />
+      );
+   };
+
+   const NextBtn = ({ currentSlide, slideCount, ...props }) => {
+      return (
+         <FaRegArrowAltCircleRight color='white'
+            {...props}
+            aria-hidden="true"
+            aria-disabled={currentSlide === 0 ? true : false}
+            type="button" />
+      )
+   };
+   const settings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      prevArrow: <></>,
+      nextArrow: <></>
+   };
+   const settings2 = {
+      prevArrow: <PreviousBtn />,
+      nextArrow: <NextBtn />
+   }
    return (
       <div className="slider_container">
          <div className="slider_1">

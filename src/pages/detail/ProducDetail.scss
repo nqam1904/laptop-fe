@@ -6,6 +6,7 @@
     margin-right: auto;
     margin-left: auto;
     max-width: 1200px;
+    margin-top: 5.2rem;
 }
 
 .product-detail-container {
@@ -274,6 +275,11 @@
 }
 
 @media (max-width: 768px) {
+    .detail_container {
+
+        margin-top: 0;
+    }
+
     .product-detail-container {
         flex-direction: column;
     }

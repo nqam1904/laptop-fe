@@ -35,7 +35,7 @@ const ProductDetail = () => {
 	return (
 		<Layout>
 			<div className='detail_container'>
-				<Breadcrumb style={{ marginTop: '1.2rem' }} product={detailLaptop?.name} category={detailLaptop?.category?.name} />
+				<Breadcrumb product={detailLaptop?.name} category={detailLaptop?.category?.name} />
 				<div className="product-detail-container">
 					<div className='product-detail-left'>
 						<div className='product_detail-left-image'>
@@ -47,8 +47,6 @@ const ProductDetail = () => {
 								noImage={images.no_image}
 							/>
 						</div>
-
-
 					</div>
 					<div className="product-detail-right">
 						<h1>{detailLaptop?.name}</h1>

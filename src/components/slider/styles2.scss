@@ -20,12 +20,15 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin-top: 10px;
+      width: 350px;
    }
 }
 
 @media (max-width: 768px) {
    .slider_container {
-      height: 400px;
+      margin-top: 1rem;
+      height: 390px;
    }
 
    .slider_1 {

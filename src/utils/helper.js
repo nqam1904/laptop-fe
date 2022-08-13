@@ -9,10 +9,10 @@ const queryFilterPrice = (value) => {
       return `_where[1][price_promotion_lt]=${value}`
    }
    if (value <= 30000000) {
-      return `_where[1][price_promotion_gt]=${20000000}&_where[1][price_promotion_lte]=${value}`
+      return `_where[1][price_promotion_gt]=${20000000}&_where[2][price_promotion_lte]=${value}`
    }
    if (value <= 40000000) {
-      return `_where[1][price_promotion_gt]=${30000000}&_where[1][price_promotion_lte]=${value}`
+      return `_where[1][price_promotion_gt]=${30000000}&_where[2][price_promotion_lte]=${value}`
    }
    else {
       return `_where[1][price_promotion_gt]=${value}`

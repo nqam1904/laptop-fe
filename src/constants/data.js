@@ -8,27 +8,27 @@ export const filterPice = [
 	{
 		id: 1,
 		title: 'Dưới 10 triệu',
-		value: '10000000',
+		value: '10000',
 	},
 	{
 		id: 2,
 		title: 'Từ 10 - 20 triệu',
-		value: '20000000',
+		value: '20000',
 	},
 	{
 		id: 3,
 		title: 'Từ 20 - 30 triệu',
-		value: '30000000',
+		value: '30000',
 	},
 	{
 		id: 4,
 		title: 'Từ 30 - 40 triệu',
-		value: '40000000',
+		value: '40000',
 	},
 	{
 		id: 5,
 		title: 'Trên 40 triệu',
-		value: '41000000',
+		value: '40001',
 	},
 ]
 

@@ -13,4 +13,5 @@ import Breadcrumb from './breadcrumb/Breadcrumb'
 import SliderSyncing from './slider/SliderSyncing'
 import SliderHeader from "./header/SliderHeader"
 import ScrollToTop from './scrollToTop/ScrollToTop'
-export { Header, SliderHeader, ViewMore, Loading, Breadcrumb, Slider, Input, Product, Footer, FooterBanner, TableTechnique, AccessoryItem, Modal, SliderSyncing, ScrollToTop }
+import MessengerChat from './messenger/MessengerChat'
+export { Header, SliderHeader, MessengerChat, ViewMore, Loading, Breadcrumb, Slider, Input, Product, Footer, FooterBanner, TableTechnique, AccessoryItem, Modal, SliderSyncing, ScrollToTop }

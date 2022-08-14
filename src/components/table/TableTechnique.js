@@ -41,11 +41,7 @@ const TableTechnique = ({ configuration }) => {
 					</tr>
 					<tr>
 						<th className="table_lable">Pin</th>
-						<td className="table_value">{configuration?.bettery || "_"}</td>
-					</tr>
-					<tr>
-						<th className="table_lable">Kích thước</th>
-						<td className="table_value">{configuration?.size || "_"}</td>
+						<td className="table_value">{configuration?.battery || "_"}</td>
 					</tr>
 					<tr>
 						<th className="table_lable">Màu sắc</th>

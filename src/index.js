@@ -1,4 +1,4 @@
-import { Loading, ScrollToTop } from 'components'
+import { Loading, MessengerChat, ScrollToTop } from 'components'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
@@ -32,6 +32,7 @@ root.render(
 					draggable
 					pauseOnHover
 				/>
+				<MessengerChat />
 				<Loading ref={(refs) => Loading.setRef(refs)} />
 			</PersistGate>
 		</BrowserRouter>

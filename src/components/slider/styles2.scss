@@ -1,11 +1,11 @@
 // SLIDER SYNCING
 .slider_container {
-   width: 600px;
-   height: 600px;
+   width: 500px;
+   height: 500px;
 }
 
 .slider_1 {
-   width: 450px;
+   width: inherit;
 }
 
 .slider_2 {
@@ -21,6 +21,10 @@
       justify-content: center;
       align-items: center;
       margin-top: 10px;
+      width: 350px;
+   }
+
+   .slider_2 {
       width: 350px;
    }
 }

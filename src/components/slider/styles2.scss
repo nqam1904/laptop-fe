@@ -1,18 +1,14 @@
 // SLIDER SYNCING
-.slider_container {
-   width: 500px;
-   height: 500px;
-}
 
 .slider_1 {
    width: inherit;
 }
 
 .slider_2 {
-   width: 500px;
    margin-top: 10px;
-   height: 220px;
 }
+
+.slider_2_item{}
 
 @media (max-width: 1023px) {
    .slider_container {
@@ -21,7 +17,7 @@
       justify-content: center;
       align-items: center;
       margin-top: 10px;
-      width: 350px;
+      width: 100%;
    }
 
    .slider_2 {
@@ -32,15 +28,13 @@
 @media (max-width: 768px) {
    .slider_container {
       margin-top: 1rem;
-      height: 390px;
    }
 
    .slider_1 {
-      width: 350px;
+      width: 100%;
    }
 
    .slider_2 {
-      width: 300px;
-      height: 220px;
+      width: 100%;
    }
 }

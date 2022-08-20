@@ -75,21 +75,27 @@ const SliderSyncing = (props) => {
                {...settings2}
                asNavFor={slider1}
                ref={(slider2) => setSlider2(slider2)}
-               slidesToShow={3}
+               slidesToShow={2}
+               slidesToScroll={1}
+               infinite={true}
                swipeToSlide={true}
-               focusOnSelect={true}>
+               focusOnSelect={true}
+               arrows={false}
+               >
                {props?.thumbnail?.map((item, i) => (
                   <img
-                     key={i}
-                     src={`${API_URL}` + item?.url}
-                     alt={item?.name}
-                     className=""
-                     onError={({ currentTarget }) => {
-                        currentTarget.onerror = null; // prevents looping
-                        currentTarget.src = props?.noImage
+                        key={i}
+                        src={`${API_URL}` + item?.url}
+                        alt={item?.name}
+                        width="100%"
+                        height="100%"
+                        className="slider_2_item"
+                        onError={({ currentTarget }) => {
+                           currentTarget.onerror = null; // prevents looping
+                           currentTarget.src = props?.noImage
 
-                     }}
-                  />
+                        }}
+                     />
                ))}
             </Slider>
          </div>

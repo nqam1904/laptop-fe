@@ -12,6 +12,9 @@ import './global.scss'
 import './reset.css'
 import 'react-tabs/style/react-tabs.css'
 import 'react-toastify/dist/ReactToastify.css'
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 let { store, persistor } = configureStore()
 const container = document.getElementById('root')
 const root = createRoot(container)

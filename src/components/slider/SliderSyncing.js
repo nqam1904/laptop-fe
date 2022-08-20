@@ -55,12 +55,15 @@ const SliderSyncing = (props) => {
             <Slider
                {...settings}
                asNavFor={slider2}
+               arrows={false}
                ref={(slider1) => setSlider1(slider1)}>
                {props?.images?.map((item, i) => (
                   <img
                      key={i}
                      src={`${API_URL}` + item?.url}
                      alt={item?.name}
+                     width="100%"
+                     height="100%"
                      className={props?.classNameImage}
                      onError={({ currentTarget }) => {
                         currentTarget.onerror = null; // prevents looping
@@ -75,27 +78,26 @@ const SliderSyncing = (props) => {
                {...settings2}
                asNavFor={slider1}
                ref={(slider2) => setSlider2(slider2)}
-               slidesToShow={2}
+               slidesToShow={props?.thumbnail?.length > 2 ? 3 : 2}
                slidesToScroll={1}
                infinite={true}
                swipeToSlide={true}
                focusOnSelect={true}
-               arrows={false}
-               >
+            // arrows={false}
+            >
                {props?.thumbnail?.map((item, i) => (
                   <img
-                        key={i}
-                        src={`${API_URL}` + item?.url}
-                        alt={item?.name}
-                        width="100%"
-                        height="100%"
-                        className="slider_2_item"
-                        onError={({ currentTarget }) => {
-                           currentTarget.onerror = null; // prevents looping
-                           currentTarget.src = props?.noImage
+                     key={i}
+                     src={`${API_URL}` + item?.url}
+                     alt={item?.name}
+                     width="100%"
+                     height="100%"
+                     onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; // prevents looping
+                        currentTarget.src = props?.noImage
 
-                        }}
-                     />
+                     }}
+                  />
                ))}
             </Slider>
          </div>

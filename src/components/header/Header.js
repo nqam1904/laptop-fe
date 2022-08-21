@@ -77,7 +77,8 @@ const Header = () => {
                   )}
                </div>
                <Link to="/" className={classes.header__content__logo} onClick={() => window.reload()}>
-                  {title_website || 'Lap4all'}
+                  {/* {title_website || 'Lap4all'} */}
+                  <img src={images.logo} width={50} />
                </Link>
                <nav
                   onClick={() => setMenuOpen((p) => !p)}

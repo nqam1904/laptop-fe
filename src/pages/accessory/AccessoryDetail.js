@@ -4,6 +4,7 @@ import { images } from 'assets'
 import { Breadcrumb } from 'components/'
 import { SliderSyncing } from 'components/index'
 import Layout from "layouts/Layout"
+import Markdown from 'markdown-to-jsx'
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs"
@@ -79,7 +80,7 @@ const AccessoryDetail = () => {
                      <Tab>Mô tả</Tab>
                   </TabList>
                   <TabPanel style={{ padding: 20 }}>
-                     <p className="content_view">{accessoryDetial?.content || ''}</p>
+                     <Markdown className="content_view">{accessoryDetial?.content || ''}</Markdown>
                   </TabPanel>
                </Tabs>
             </div>

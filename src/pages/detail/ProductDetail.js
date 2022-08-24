@@ -10,6 +10,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import { getProdcutViewAction } from 'redux/actions/laptopAction'
 import { footerSelector } from 'redux/selector/footerSelector'
 import { detailLaptopSelector } from 'redux/selector/laptopSelector'
+import Markdown from 'markdown-to-jsx';
 import { formatChar, formatNumber, formatSizeDisplay } from 'utils/function'
 import './ProducDetail.scss'
 
@@ -135,7 +136,7 @@ const ProductDetail = () => {
 							<Tab>Thông số</Tab>
 						</TabList>
 						<TabPanel style={{ padding: 20 }}>
-							<p className="content_view">{detailLaptop?.description || ''}</p>
+							<Markdown className="content_view">{detailLaptop?.description || ''}</Markdown>
 						</TabPanel>
 						<TabPanel style={{ paddingLeft: 20, marginTop: 20 }}>
 							<TableTechnique configuration={detailLaptop} />

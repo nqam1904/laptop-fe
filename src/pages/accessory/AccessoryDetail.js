@@ -40,9 +40,12 @@ const AccessoryDetail = () => {
                      />
                   </div>
                </div>
-               <div className="product-detail-left">
+               <div className="product-detail-right">
                   <h1>{accessoryDetial?.name}</h1>
-                  <p className='product-price '>{formatNumber(accessoryDetial?.price_promotion)}₫</p>
+                  <div className='promotion_price-product'>
+                     <span className={accessoryDetial?.price_promotion > 0 ? 'product-promotion' : 'price'}>{formatNumber(accessoryDetial?.price)}₫</span>
+                     {accessoryDetial?.price_promotion > 0 && <p className="price">{formatNumber(accessoryDetial?.price_promotion)}₫</p>}
+                  </div>
                   <hr />
                   <h3 className="product_info-title">Tình trạng:</h3>
                   <p className="product_info-sub">{accessoryDetial?.appearence || ''}</p>

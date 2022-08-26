@@ -105,6 +105,8 @@
    padding: 4rem;
 
    & .content_view {
+      display: flex;
+      flex-direction: column;
       line-height: 30px;
    }
 }
@@ -155,6 +157,17 @@
    border-radius: 8px;
 }
 
+@media (max-width: 1024px) {
+   .content_view {
+      align-items: center;
+
+      & p {
+         display: flex;
+         justify-content: center;
+      }
+   }
+}
+
 @media (max-width: 768px) {
    .accessory-detail-container {
       flex-direction: column;
@@ -167,5 +180,14 @@
 
    .accessory_slider-image {
       width: 400px;
+   }
+
+   .content_view {
+      align-items: center;
+
+      & p {
+         display: flex;
+         justify-content: center;
+      }
    }
 }

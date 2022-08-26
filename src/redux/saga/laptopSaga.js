@@ -49,8 +49,8 @@ function* laptopByPriceSaga(action) {
 function* laptopDetailSaga(action) {
    try {
       Loading.show()
-      const response = yield call(ProductApi.getDetailLaptop, action.payload)
-      yield put(getDetailLaptopSuccess(response))
+      const response = yield call(typeof action.payload === 'number' ? ProductApi.getDetailLaptop : ProductApi.queryDetailLaptop, action.payload)
+      yield put(getDetailLaptopSuccess(response[0] || response))
    }
    catch (e) {
       Loading.hide()

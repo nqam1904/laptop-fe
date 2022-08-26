@@ -6,7 +6,7 @@ import './index.scss'
 const Breadcrumb = (props) => {
    const dispatch = useDispatch()
    return (
-      <ul class="breadcrumb" style={props.style}>
+      <ul className="breadcrumb" style={props.style}>
          <li><Link to="/">Trang chủ</Link></li>
          <li><Link to={`/${props.category}`} onClick={() => dispatch(getLaptopByCateAction(props?.category))}>{props?.category}</Link></li>
          <li>{props.product}</li>

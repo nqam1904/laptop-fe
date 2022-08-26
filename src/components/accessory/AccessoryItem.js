@@ -10,11 +10,10 @@ import slugify from 'react-slugify';
 
 const AccessoryItem = (props) => {
    const dispatch = useDispatch()
-   // const getProductStore = () => {
-   //    dispatch(getDetailLaptopAction(props?.product?.id))
-   // }
-   // const price = props?.product?.price_promotion > 0 ? props?.product?.price_promotion : props?.product?.price
-   const slug = slugify(props?.accessory?.slug);
+   const slug = slugify(props?.accessory?.slug, {
+      delimiter: '_',
+   });
+
    return (
       <div>
          <Link to={`/accessory/${slug}`} onClick={() => dispatch(getAccessoryDetailAction(props?.accessory?.id))}>

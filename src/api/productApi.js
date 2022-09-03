@@ -26,6 +26,10 @@ const ProductApi = {
       const url = `/products/${id}`
       return axiosClient.get(url)
    },
+   updateSlugLaptop(slug) {
+      const url = `/products/${slug?.id}`
+		return axiosClient.put(url, slug)
+   },
    updateViewLaptop(body) {
       const url = `/products/${body?.id}`
       return axiosClient.put(url, body)

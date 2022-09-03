@@ -25,6 +25,10 @@ const accessoryApi = {
    updateView(body) {
       const url = `/accessories/${body?.id}`
       return axiosClient.put(url, body)
+   },
+   updateSlugAccessory(body) {
+       const url = `/accessories/${body?.id}`
+      return axiosClient.put(url, body)
    }
 }
 export default accessoryApi

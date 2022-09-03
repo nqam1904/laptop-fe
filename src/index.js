@@ -25,7 +25,7 @@ root.render(
 				<ScrollToTop />
 				<App history={history} />
 				<ToastContainer
-					position="bottom-center"
+					position="top-right"
 					autoClose={3000}
 					hideProgressBar={false}
 					newestOnTop={false}

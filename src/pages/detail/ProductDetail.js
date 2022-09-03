@@ -7,23 +7,38 @@ import _ from 'lodash'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
-import { getProdcutViewAction } from 'redux/actions/laptopAction'
+import { getDetailLaptopAction, getProdcutViewAction } from 'redux/actions/laptopAction'
 import { footerSelector } from 'redux/selector/footerSelector'
 import { detailLaptopSelector } from 'redux/selector/laptopSelector'
 import Markdown from 'markdown-to-jsx';
 import { formatChar, formatNumber, formatSizeDisplay } from 'utils/function'
 import './ProducDetail.scss'
+import { useLocation } from 'react-router-dom'
 
 const ProductDetail = () => {
 	const detailLaptop = useSelector(detailLaptopSelector)
 	const footer = useSelector(footerSelector)
+	const location = useLocation()
+	const laptopSlug = location.pathname.replace('/product/', '')
 	const dispatch = useDispatch()
 	const display = formatSizeDisplay(detailLaptop?.size_display) + "" + formatChar(detailLaptop?.pixel_display) + " " + formatChar(detailLaptop?.panel_display) + " " + formatChar(detailLaptop?.hz_display) + " " + detailLaptop?.display || "_"
+	const updateSlugLaptop = () => {
+		ProductApi.updateSlugLaptop({ id: detailLaptop.id, slug: laptopSlug })
+	}
+	const getDetailLaptop = () => {
+		if (_.isEmpty(detailLaptop)) {
+			dispatch(getDetailLaptopAction(laptopSlug))
+		}
+	}
 	useEffect(() => {
+		updateSlugLaptop()
 		updateView()
 		dispatch(getProdcutViewAction(detailLaptop))
 	}, []);
 
+	useEffect(() => {
+		getDetailLaptop()
+	}, [location])
 
 	const updateView = () => {
 		let view = detailLaptop?.view

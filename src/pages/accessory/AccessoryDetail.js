@@ -12,18 +12,40 @@ import { accessoryDetailSelector } from "redux/selector/accessorySelector"
 import { footerSelector } from 'redux/selector/footerSelector'
 import { formatNumber } from "utils/function"
 import './Accessory.scss'
+import _ from 'lodash'
+import { useLocation } from 'react-router-dom'
+import { getAccessoryDetailAction } from 'redux/actions/accessoryAction'
 const AccessoryDetail = () => {
    const accessoryDetial = useSelector(accessoryDetailSelector)
    const footer = useSelector(footerSelector)
    const dispatch = useDispatch()
+   const location = useLocation()
+	const accessorySlug = location.pathname.replace('/accessory/', '')
    let view = accessoryDetial?.view
    const updateViewAccessory = () => {
-      accessoryApi.updateView({ id: accessoryDetial?.id, view: ++view })
+      if (_.isEmpty(accessoryDetial)) {
+			accessoryApi.updateView({ id: accessoryDetial?.id, view: ++view })
+		}
    }
+   const getDetailLaptop = () => {
+		if (_.isEmpty(accessoryDetial)) {
+			dispatch(getAccessoryDetailAction(accessorySlug))
+		}
+   }
+   const updateSlugAccessory = () => {
+      if (!_.isEmpty(accessoryDetial)) {
+			accessoryApi.updateSlugAccessory({ id: accessoryDetial.id, slug: accessorySlug })
+		}
+		
+	}
    useEffect(() => {
+      updateSlugAccessory()
       updateViewAccessory()
    }, [])
 
+   useEffect(() => {
+		getDetailLaptop()
+	}, [location])
 
    return (
       <Layout>

@@ -26,7 +26,7 @@ const ProductDetail = () => {
 		ProductApi.updateSlugLaptop({ id: detailLaptop.id, slug: laptopSlug })
 	}
 	const getDetailLaptop = () => {
-		if (_.isEmpty(detailLaptop)) {
+		if (_.isNull(detailLaptop)) {
 			dispatch(getDetailLaptopAction(laptopSlug))
 		}
 	}

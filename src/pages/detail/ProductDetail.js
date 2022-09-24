@@ -4,16 +4,16 @@ import { images } from 'assets'
 import { Breadcrumb, SliderSyncing, TableTechnique } from 'components'
 import Layout from 'layouts/Layout'
 import _ from 'lodash'
+import Markdown from 'markdown-to-jsx'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
-import { getDetailLaptopAction, getProdcutViewAction } from 'redux/actions/laptopAction'
+import { getDetailLaptopAction } from 'redux/actions/laptopAction'
 import { footerSelector } from 'redux/selector/footerSelector'
 import { detailLaptopSelector } from 'redux/selector/laptopSelector'
-import Markdown from 'markdown-to-jsx';
 import { formatChar, formatNumber, formatSizeDisplay } from 'utils/function'
 import './ProducDetail.scss'
-import { useLocation } from 'react-router-dom'
 
 const ProductDetail = () => {
 	const detailLaptop = useSelector(detailLaptopSelector)
@@ -21,24 +21,18 @@ const ProductDetail = () => {
 	const location = useLocation()
 	const laptopSlug = location.pathname.replace('/product/', '')
 	const dispatch = useDispatch()
+	console.log(laptopSlug,'laptopSlug')
 	const display = formatSizeDisplay(detailLaptop?.size_display) + "" + formatChar(detailLaptop?.pixel_display) + " " + formatChar(detailLaptop?.panel_display) + " " + formatChar(detailLaptop?.hz_display) + " " + detailLaptop?.display || "_"
-	const updateSlugLaptop = () => {
-		ProductApi.updateSlugLaptop({ id: detailLaptop.id, slug: laptopSlug })
-	}
-	const getDetailLaptop = () => {
-		if (_.isNull(detailLaptop)) {
-			dispatch(getDetailLaptopAction(laptopSlug))
-		}
-	}
-	useEffect(() => {
-		updateSlugLaptop()
-		updateView()
-		dispatch(getProdcutViewAction(detailLaptop))
-	}, []);
 
+	const getDetailLaptop = () => {
+		dispatch(getDetailLaptopAction(laptopSlug))
+	}
 	useEffect(() => {
 		getDetailLaptop()
-	}, [location])
+		// dispatch(getProdcutViewAction(detailLaptop))
+		updateView()
+	}, []);
+
 
 	const updateView = () => {
 		let view = detailLaptop?.view

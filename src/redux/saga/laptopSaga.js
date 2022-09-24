@@ -50,7 +50,7 @@ function* laptopDetailSaga(action) {
    try {
       Loading.show()
       const response = yield call(typeof action.payload === 'number' ? ProductApi.getDetailLaptop : ProductApi.queryDetailLaptop, action.payload)
-      yield put(getDetailLaptopSuccess(response[0] || response))
+      yield put(getDetailLaptopSuccess(response || response?.[0]))
    }
    catch (e) {
       Loading.hide()

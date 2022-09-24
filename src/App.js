@@ -40,8 +40,8 @@ const App = ({ history }) => {
 		<Routes history={history}>
 			<Route path="/" element={<Home />} />
 			{routeLaptop()}
-			<Route path="/product/:slug" element={<ProductDetail />} />
-			<Route path="/accessory/:slug" element={<AccessoryDetail />} />
+			<Route path="/product/:id" element={<ProductDetail />} />
+			<Route path="/accessory/:id" element={<AccessoryDetail />} />
 			<Route path="/search" element={<SearchProduct />} />
 			<Route path="/accessory" element={<AccessoryByCate title="Accessory" />} />
 			<Route path="*" element={<NotFound />} />

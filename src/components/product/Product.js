@@ -19,7 +19,7 @@ const Product = (props) => {
    });
    return (
       <div>
-         <Link to={`/product/${slug}`} onClick={getProductStore}>
+         <Link to={`/product/${props?.product?.id}`} onClick={getProductStore}>
             <div className="product-card">
                <img src={`${API_URL}` + props?.product?.images?.[0]?.url} width={"100%"} height={240}
                   onError={({ currentTarget }) => {

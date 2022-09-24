@@ -16,7 +16,7 @@ const AccessoryItem = (props) => {
 
    return (
       <div>
-         <Link to={`/accessory/${slug}`} onClick={() => dispatch(getAccessoryDetailAction(props?.accessory?.id))}>
+         <Link to={`/accessory/${props?.accessory?.id}`} onClick={() => dispatch(getAccessoryDetailAction(props?.accessory?.id))}>
             <div className="accessory-card">
                <img src={`${API_URL}` + props?.accessory?.images?.[0]?.url}
                   onError={({ currentTarget }) => {

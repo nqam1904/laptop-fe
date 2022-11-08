@@ -21,8 +21,16 @@ const ProductDetail = () => {
 	const location = useLocation()
 	const laptopSlug = location.pathname.replace('/product/', '')
 	const dispatch = useDispatch()
-	console.log(laptopSlug,'laptopSlug')
-	const display = formatSizeDisplay(detailLaptop?.size_display) + "" + formatChar(detailLaptop?.pixel_display) + " " + formatChar(detailLaptop?.panel_display) + " " + formatChar(detailLaptop?.hz_display) + " " + detailLaptop?.display || "_"
+	const display =
+		formatSizeDisplay(detailLaptop?.size_display) +
+			'' +
+			formatChar(detailLaptop?.pixel_display) +
+			' ' +
+			formatChar(detailLaptop?.panel_display) +
+			' ' +
+			formatChar(detailLaptop?.hz_display) +
+			' ' +
+			detailLaptop?.display || '_'
 
 	const getDetailLaptop = () => {
 		dispatch(getDetailLaptopAction(laptopSlug))
@@ -31,24 +39,27 @@ const ProductDetail = () => {
 		getDetailLaptop()
 		// dispatch(getProdcutViewAction(detailLaptop))
 		updateView()
-	}, []);
-
+	}, [])
 
 	const updateView = () => {
 		let view = detailLaptop?.view
 		ProductApi.updateViewLaptop({ id: detailLaptop?.id, view: ++view })
 	}
-	const vga = !_.isEmpty(detailLaptop?.watt) ? formatChar(detailLaptop?.vga_lap) + " " + `(${formatChar(detailLaptop?.watt).trim()})` : formatChar(detailLaptop?.vga_lap) || "_"
+	const vga = !_.isEmpty(detailLaptop?.watt)
+		? formatChar(detailLaptop?.vga_lap) + ' ' + `(${formatChar(detailLaptop?.watt).trim()})`
+		: formatChar(detailLaptop?.vga_lap) || '_'
 
-	const disk = !_.isEmpty(detailLaptop?.hdd_lap) ? formatChar(detailLaptop?.ssd_lap) + ' + ' + formatChar(detailLaptop?.hdd_lap) : formatChar(detailLaptop?.ssd_lap)
+	const disk = !_.isEmpty(detailLaptop?.hdd_lap)
+		? formatChar(detailLaptop?.ssd_lap) + ' + ' + formatChar(detailLaptop?.hdd_lap)
+		: formatChar(detailLaptop?.ssd_lap)
 
 	return (
 		<Layout>
-			<div className='detail_container'>
+			<div className="detail_container">
 				<Breadcrumb product={detailLaptop?.name} category={detailLaptop?.category?.name} />
 				<div className="product-detail-container">
-					<div className='product-detail-left'>
-						<div className='product_detail-left-image'>
+					<div className="product-detail-left">
+						<div className="product_detail-left-image">
 							<SliderSyncing
 								images={detailLaptop?.images}
 								thumbnail={detailLaptop?.images}
@@ -60,49 +71,61 @@ const ProductDetail = () => {
 					</div>
 					<div className="product-detail-right">
 						<h1>{detailLaptop?.name}</h1>
-						<div className='promotion_price-product'>
-							<span className={detailLaptop?.price_promotion > 0 ? 'product-promotion' : 'price'}>{formatNumber(detailLaptop?.price)}₫</span>
-							{detailLaptop?.price_promotion > 0 && <p className="price">{formatNumber(detailLaptop?.price_promotion)}₫</p>}
-						</div>
+						{detailLaptop.count === 0 ? (
+							<div className="product-sold">Liên hệ</div>
+						) : (
+							<div className="promotion_price-product">
+								<span
+									className={
+										detailLaptop?.price_promotion > 0 ? 'product-promotion' : 'price'
+									}>
+									{formatNumber(detailLaptop?.price)}₫
+								</span>
+								{detailLaptop?.price_promotion > 0 && (
+									<p className="price">{formatNumber(detailLaptop?.price_promotion)}₫</p>
+								)}
+							</div>
+						)}
+
 						<hr />
-						<div className='product-detail_info'>
+						<div className="product-detail_info">
 							{/* option map array  */}
-							<div className='product-detail_option'>
+							<div className="product-detail_option">
 								<div className="configuration">
-									<span className='title-option'>CPU:</span>
-									<label className='item-option'>
-										<span>{formatChar(detailLaptop?.cpu_lap) || ""}</span>
+									<span className="title-option">CPU:</span>
+									<label className="item-option">
+										<span>{formatChar(detailLaptop?.cpu_lap) || ''}</span>
 									</label>
 								</div>
 							</div>
-							<div className='product-detail_option'>
+							<div className="product-detail_option">
 								<div className="configuration">
-									<span className='title-option'>RAM:</span>
-									<label className='item-option'>
-										<span>{formatChar(detailLaptop?.ram_lap) || ""}</span>
+									<span className="title-option">RAM:</span>
+									<label className="item-option">
+										<span>{formatChar(detailLaptop?.ram_lap) || ''}</span>
 									</label>
 								</div>
 							</div>
-							<div className='product-detail_option'>
+							<div className="product-detail_option">
 								<div className="configuration">
-									<span className='title-option'>Ổ cứng:</span>
-									<label className='item-option'>
+									<span className="title-option">Ổ cứng:</span>
+									<label className="item-option">
 										<span>{disk}</span>
 									</label>
 								</div>
 							</div>
-							<div className='product-detail_option'>
+							<div className="product-detail_option">
 								<div className="configuration">
-									<span className='title-option'>Màn hình:</span>
-									<label className='item-option'>
+									<span className="title-option">Màn hình:</span>
+									<label className="item-option">
 										<span>{display}</span>
 									</label>
 								</div>
 							</div>
-							<div className='product-detail_option'>
+							<div className="product-detail_option">
 								<div className="configuration">
-									<span className='title-option'>VGA:</span>
-									<label className='item-option'>
+									<span className="title-option">VGA:</span>
+									<label className="item-option">
 										<span>{vga}</span>
 									</label>
 								</div>
@@ -110,29 +133,32 @@ const ProductDetail = () => {
 							{/* option map array  */}
 							<br />
 						</div>
-						<div className='appearence'>
-							<span className='appearence_info-title'>Tình trạng:</span>
+						<div className="appearence">
+							<span className="appearence_info-title">Tình trạng:</span>
 							{/* <h3 className='appearence_info-title'>Tình trạng:</h3> */}
-							<p className='appearence_info-sub'>{detailLaptop?.appearence || ''}</p>
+							<p className="appearence_info-sub">{detailLaptop?.appearence || ''}</p>
 						</div>
 						<hr />
 						<div className="util-product">
 							<h3>Chính sách:</h3>
 							<p> {detailLaptop?.insurance_laptop || ''}</p>
 							<br />
-							<span className="item-promtion_product">
-								{detailLaptop?.promotion || ''}
-							</span>
+							<span className="item-promtion_product">{detailLaptop?.promotion || ''}</span>
 						</div>
-						<div className='mcredit'>
+						<div className="mcredit">
 							<h3>Hỗ trợ trả góp MPOS (Thẻ tín dụng)</h3>
 						</div>
 						<div className="product-button">
-							<button type="button" className="buy-now" onClick={() => swal({
-								title: 'Thông báo!',
-								text: `Bạn vui lòng liên hệ ${footer?.[0]?.phone}`,
-								icon: 'info',
-							})}>
+							<button
+								type="button"
+								className="buy-now"
+								onClick={() =>
+									swal({
+										title: 'Thông báo!',
+										text: `Bạn vui lòng liên hệ ${footer?.[0]?.phone}`,
+										icon: 'info',
+									})
+								}>
 								Mua ngay
 							</button>
 						</div>

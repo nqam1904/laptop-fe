@@ -20,7 +20,7 @@ const AccessoryItem = (props) => {
 				to={`/accessory/${props?.accessory?.id}`}
 				onClick={() => dispatch(getAccessoryDetailAction(props?.accessory?.id))}>
 				<div className="accessory-card">
-					{props?.accessory?.count === 0 && (
+					{!props?.accessory?.show && (
 						<div className="sold_out">
 							<span>Liên hệ</span>
 						</div>
@@ -38,7 +38,7 @@ const AccessoryItem = (props) => {
 					/>
 					<p className="accessory-name">{props?.accessory?.name}</p>
 					<p className="accessory-price">
-						{props.accessory?.count === 0
+						{!props.accessory?.show
 							? 'Liên hệ'
 							: `Giá: ${formatNumber(props?.accessory?.price_promotion)}₫`}
 					</p>

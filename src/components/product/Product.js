@@ -21,7 +21,7 @@ const Product = (props) => {
 		<div>
 			<Link to={`/product/${props?.product?.id}`} onClick={getProductStore}>
 				<div className="product-card">
-					{props?.product?.count === 0 && (
+					{!props?.product?.show && (
 						<div className="sold_out">
 							<span>Liên hệ</span>
 						</div>
@@ -42,7 +42,7 @@ const Product = (props) => {
 						<p className="product-short_config">{props?.product?.short_config || ''}</p>
 					)}
 					<p className="product-card_price">
-						{props.product?.count === 0 ? 'Liên hệ' : `Giá: ${formatNumber(price)}₫`}
+						{!props.product?.show ? 'Liên hệ' : `Giá: ${formatNumber(price)}₫`}
 					</p>
 				</div>
 			</Link>

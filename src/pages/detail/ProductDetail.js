@@ -71,7 +71,7 @@ const ProductDetail = () => {
 					</div>
 					<div className="product-detail-right">
 						<h1>{detailLaptop?.name}</h1>
-						{detailLaptop.count === 0 ? (
+						{detailLaptop.sale_out ? (
 							<div className="product-sold">Liên hệ</div>
 						) : (
 							<div className="promotion_price-product">

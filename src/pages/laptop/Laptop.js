@@ -1,20 +1,29 @@
+import ProductApi from 'api/productApi'
 import { Product } from 'components'
-import { useSelector } from 'react-redux'
-import { laptopSelector } from 'redux/selector/laptopSelector'
+import { useEffect, useState } from 'react'
 import './Laptop.scss'
 
 const Laptop = () => {
-	const listLaptop = useSelector(laptopSelector)
-	const data = () => {
-		const isShowLaptopBest = listLaptop.filter((is) => is.show === true)
-		const productShow = isShowLaptopBest.length > 8 ? listLaptop.slice(0, 8) : listLaptop
-		const showLaptop = productShow.map((item, index) => <Product key={index} product={item} />)
+	const [data, setData] = useState([])
+	const getBestLaptop = async () => {
+		const res = await ProductApi.getBestProduct()
+		if (res.laptops.length > 0) {
+			setData(res.laptops)
+		} else {
+			setData([])
+		}
+	}
+	useEffect(() => {
+		getBestLaptop()
+	}, [])
+	const showList = () => {
+		const showLaptop = data.map((item, index) => <Product key={index} product={item} />)
 		return showLaptop
 	}
 	return (
 		<div className="laptop">
 			<h2 className="title">Laptop bán chạy nhất</h2>
-			<div className="products-container">{data()}</div>
+			<div className="products-container">{showList()}</div>
 		</div>
 	)
 }

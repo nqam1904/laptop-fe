@@ -64,9 +64,23 @@ const ProductDetail = () => {
 		width: 100, // Manually set width
 		height: 100, // Manually set height,
 		scale: {
-			ticks: {
-				beginAtZero: true,
-				fontWeight: 'bold', // Set the font weight to bold
+			r: {
+				min: 0,
+				max: 100,
+				stepSize: 20,
+				showLabelBackdrop: false,
+				backdropColor: 'rgba(203, 197, 11, 1)',
+			},
+			angleLines: {
+				color: 'rgba(255, 255, 255, .3)',
+				lineWidth: 1,
+			},
+			gridLines: {
+				color: 'rgba(255, 255, 255, .3)',
+				circular: true,
+			},
+			pointLabels: {
+				fontSize: 20,
 			},
 		},
 	}
@@ -221,7 +235,7 @@ const ProductDetail = () => {
 						</TabPanel>
 						<TabPanel style={{ paddingLeft: 20, marginTop: 20 }}>
 							<div className="chart">
-								<Radar data={dataChart} options={options} />
+								<Radar options={options} data={dataChart} />
 							</div>
 							<TableTechnique configuration={detailLaptop} />
 						</TabPanel>

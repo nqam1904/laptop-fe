@@ -32,9 +32,56 @@
 		/>
 		<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 	</head>
+	<script>
+		!(function (f, b, e, v, n, t, s) {
+			if (f.fbq) return
+			n = f.fbq = function () {
+				n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			}
+			if (!f._fbq) f._fbq = n
+			n.push = n
+			n.loaded = !0
+			n.version = '2.0'
+			n.queue = []
+			t = b.createElement(e)
+			t.async = !0
+			t.src = v
+			s = b.getElementsByTagName(e)[0]
+			s.parentNode.insertBefore(t, s)
+		})(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
+		fbq('init', '210263781633344')
+		fbq('track', 'PageView')
+	</script>
 	<body>
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root"></div>
+		<!-- Load Facebook SDK for JavaScript -->
+		<div id="fb-root"></div>
+		<script>
+			window.fbAsyncInit = function () {
+				FB.init({
+					xfbml: true,
+					version: 'v9.0',
+				})
+			}
+			;(function (d, s, id) {
+				var js,
+					fjs = d.getElementsByTagName(s)[0]
+				if (d.getElementById(id)) return
+				js = d.createElement(s)
+				js.id = id
+				js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js'
+				fjs.parentNode.insertBefore(js, fjs)
+			})(document, 'script', 'facebook-jssdk')
+		</script>
+		<!-- Your Chat Plugin code -->
+		<div
+			class="fb-customerchat"
+			attribution="setup_tool"
+			page_id="210263781633344"
+			logged_in_greeting="Chào bạn! bạn tìm hiểu sản phẩm Laptop phải không ạ?"
+			logged_out_greeting="Chào bạn! bạn tìm hiểu sản phẩm Laptop phải không ạ?"
+		></div>
 		<script src="https://unpkg.com/react-tabs/dist/react-tabs.production.min.js"></script>
 	</body>
 </html>

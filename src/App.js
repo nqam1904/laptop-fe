@@ -19,7 +19,7 @@ import { getFooterAction } from 'redux/actions/footerAction'
 import { getHeaderAction } from 'redux/actions/headerAction'
 import { getCategoryAction, getListLaptopAction } from 'redux/actions/laptopAction'
 import { headerSelector } from 'redux/selector/headerSeletor'
-import { appId, pageId } from 'utils/constant'
+import { appId } from 'utils/constant'
 const App = ({ history }) => {
 	const header = useSelector(headerSelector)
 	const dispatch = useDispatch()
@@ -77,7 +77,6 @@ const App = ({ history }) => {
 			<Route path="/search" element={<SearchProduct />} />
 			<Route path="/accessory" element={<AccessoryByCate title="Accessory" />} />
 			<Route path="*" element={<NotFound />} />
-			<div className="fb-customerchat" attribution="setup_tool" page_id={pageId}></div>
 		</Routes>
 	)
 }

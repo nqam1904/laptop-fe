@@ -3,7 +3,6 @@ import Layout from 'layouts/Layout'
 import { useSelector } from 'react-redux'
 import { bannerSelector } from 'redux/selector/bannerSelector'
 import { categorySelector, laptopSelector } from 'redux/selector/laptopSelector'
-import { pageId } from 'utils/constant'
 import Accessory from './accessory/Accessory'
 import Laptop from './laptop/Laptop'
 import Section from './section/Section'
@@ -28,7 +27,11 @@ const Home = () => {
 			<Laptop />
 			<Section data={dataSection} />
 			<Accessory />
-			<div className="fb-customerchat" attribution="setup_tool" page_id={pageId}></div>
+			<div
+				id="fb-customer-chat"
+				className="fb-customerchat"
+				attribution="setup_tool"
+				page_id="100085920692236"></div>
 		</Layout>
 	)
 }

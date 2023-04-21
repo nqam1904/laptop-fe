@@ -48,7 +48,15 @@
 
 		<!-- Messenger Chat Plugin Code -->
 		<div id="fb-root"></div>
-		<div id="fb-customer-chat" class="fb-customerchat"></div>
+		<!-- Your Chat Plugin code -->
+		<div
+			id="fb-customer-chat"
+			class="fb-customerchat"
+			attribution="setup_tool"
+			page_id="100085920692236"
+			logged_in_greeting="Chào bạn! bạn tìm hiểu sản phẩm Laptop phải không ạ?"
+			logged_out_greeting="Chào bạn! bạn tìm hiểu sản phẩm Laptop phải không ạ?"
+		></div>
 		<script>
 			var chatbox = document.getElementById('fb-customer-chat')
 			chatbox.setAttribute('page_id', '100085920692236')
@@ -69,15 +77,7 @@
 				fjs.parentNode.insertBefore(js, fjs)
 			})(document, 'script', 'facebook-jssdk')
 		</script>
-		<!-- Your Chat Plugin code -->
-		<div
-			id="fb-customer-chat"
-			class="fb-customerchat"
-			attribution="setup_tool"
-			page_id="100085920692236"
-			logged_in_greeting="Chào bạn! bạn tìm hiểu sản phẩm Laptop phải không ạ?"
-			logged_out_greeting="Chào bạn! bạn tìm hiểu sản phẩm Laptop phải không ạ?"
-		></div>
+
 		<script src="https://unpkg.com/react-tabs/dist/react-tabs.production.min.js"></script>
 	</body>
 </html>

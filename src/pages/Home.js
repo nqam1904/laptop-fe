@@ -1,4 +1,4 @@
-import { Slider } from 'components'
+import { MessengerChat, Slider } from 'components'
 import Layout from 'layouts/Layout'
 import { useSelector } from 'react-redux'
 import { bannerSelector } from 'redux/selector/bannerSelector'
@@ -27,11 +27,7 @@ const Home = () => {
 			<Laptop />
 			<Section data={dataSection} />
 			<Accessory />
-			<div
-				id="fb-customer-chat"
-				className="fb-customerchat"
-				attribution="biz_inbox"
-				page_id="100085920692236"></div>
+			<MessengerChat />
 		</Layout>
 	)
 }

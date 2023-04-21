@@ -1,13 +1,12 @@
-import React from 'react'
-import MessengerCustomerChat from 'react-messenger-customer-chat';
+import MessengerCustomerChat from 'react-messenger-customer-chat'
 const MessengerChat = () => {
-   return (
-      <MessengerCustomerChat
-         pageId="<PAGE_ID>"
-         appId="<APP_ID>"
-         htmlRef="<REF_STRING>"
-      />
-   )
+	return (
+		<MessengerCustomerChat
+			pageId="100085920692236"
+			appId="210263781633344"
+			// htmlRef="<REF_STRING>"
+		/>
+	)
 }
 
-export default MessengerChat;
+export default MessengerChat

@@ -30,7 +30,7 @@ const Home = () => {
 			<div
 				id="fb-customer-chat"
 				className="fb-customerchat"
-				attribution="setup_tool"
+				attribution="biz_inbox"
 				page_id="100085920692236"></div>
 		</Layout>
 	)

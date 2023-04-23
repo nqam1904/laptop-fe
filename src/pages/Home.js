@@ -2,30 +2,24 @@ import { MessengerChat, Slider } from 'components'
 import Layout from 'layouts/Layout'
 import { useSelector } from 'react-redux'
 import { bannerSelector } from 'redux/selector/bannerSelector'
-import { categorySelector, laptopSelector } from 'redux/selector/laptopSelector'
+import { listLaptopHomeSelector } from 'redux/selector/homeSelector'
 import Accessory from './accessory/Accessory'
 import Laptop from './laptop/Laptop'
 import Section from './section/Section'
 
 const Home = () => {
 	const banners = useSelector(bannerSelector)
-	const laptop = useSelector(laptopSelector)
-	const category = useSelector(categorySelector)
 
-	const dataSection = category
-		?.filter((i) => i.show === true)
-		?.map((item) => {
-			const dataFilter = laptop.filter((itemLaptop) => itemLaptop?.category?.name === item?.name)
-			return {
-				dataFilter,
-				nameSec: item?.name,
-			}
-		})
+	const laptopCategory = useSelector(listLaptopHomeSelector)
+
 	return (
 		<Layout>
 			<Slider data={banners} />
+			{/* best seller */}
 			<Laptop />
-			<Section data={dataSection} />
+			{/* best seller category */}
+			<Section data={laptopCategory} />
+			{/* best seller category */}
 			<Accessory />
 			<MessengerChat />
 		</Layout>

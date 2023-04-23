@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { getConfigWeb } from 'constants/common'
 import {
 	AccessoryByCate,
@@ -17,9 +18,9 @@ import { getAccessoryAction } from 'redux/actions/accessoryAction'
 import { getBannerAction } from 'redux/actions/bannerAction'
 import { getFooterAction } from 'redux/actions/footerAction'
 import { getHeaderAction } from 'redux/actions/headerAction'
+import { getListLaptopHome } from 'redux/actions/homeAction'
 import { getCategoryAction, getListLaptopAction } from 'redux/actions/laptopAction'
 import { headerSelector } from 'redux/selector/headerSeletor'
-import { appId } from 'utils/constant'
 const App = ({ history }) => {
 	const header = useSelector(headerSelector)
 	const dispatch = useDispatch()
@@ -35,6 +36,7 @@ const App = ({ history }) => {
 		return listHeader || []
 	}
 	const getAllData = () => {
+		dispatch(getListLaptopHome())
 		dispatch(getBannerAction())
 		dispatch(getHeaderAction())
 		dispatch(getListLaptopAction())
@@ -49,25 +51,7 @@ const App = ({ history }) => {
 			storage.removeItem('persist:root')
 		}
 	}, [])
-	useEffect(() => {
-		window.fbAsyncInit = function () {
-			window.FB.init({
-				appId: appId,
-				cookie: true,
-				xfbml: true,
-				version: 'v12.0',
-			})
-		}
-		;(function (d, s, id) {
-			var js,
-				fjs = d.getElementsByTagName(s)[0]
-			if (d.getElementById(id)) return
-			js = d.createElement(s)
-			js.id = id
-			js.src = 'https://connect.facebook.net/en_US/sdk.js'
-			fjs.parentNode.insertBefore(js, fjs)
-		})(document, 'script', 'facebook-jssdk')
-	}, [])
+
 	return (
 		<Routes history={history}>
 			<Route path="/" element={<Home />} />

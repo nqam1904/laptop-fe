@@ -1,4 +1,5 @@
 import { Product } from 'components'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getLaptopByCateAction } from 'redux/actions/laptopAction'
@@ -9,19 +10,15 @@ const Section = (props) => {
 	const dispatch = useDispatch()
 	const showProduct = () => {
 		return data?.map((item, index) => {
-			const dataFilter =
-				item?.dataFilter?.length > 4 ? item?.dataFilter?.slice(0, 4) : item?.dataFilter
 			return (
 				<div key={index}>
-					<h2 className="title_cate">{item.nameSec}</h2>
+					<h2 className="title_cate">{item?.category?.name}</h2>
 					<div className="section_container-product">
-						{dataFilter?.map((i) => (
-							<Product isHeader key={i?.id} product={i} />
-						))}
+						<Product isHeader product={item.laptop} />
 					</div>
 					<Link
-						to={`/${item.nameSec}`}
-						onClick={() => dispatch(getLaptopByCateAction(item.nameSec))}
+						to={`/${item?.category?.name}`}
+						onClick={() => dispatch(getLaptopByCateAction(item?.category?.name))}
 						className="btn_link">
 						<button type="button" className="section_btn">
 							Xem thêm
@@ -38,4 +35,4 @@ const Section = (props) => {
 		</div>
 	)
 }
-export default Section
+export default React.memo(Section)

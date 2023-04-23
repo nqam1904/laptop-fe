@@ -4,6 +4,7 @@ import { accessoryReducer } from './accessoryReducer'
 import { bannerReducer } from './bannerReducer'
 import { footerReducer } from './footerReducer'
 import { headerReducer } from './headerReducer'
+import { homeReducer } from './homeReducer'
 import { laptopReducer } from './laptopReducer'
 const rootReducer = (history) =>
 	combineReducers({
@@ -12,6 +13,7 @@ const rootReducer = (history) =>
 		header: headerReducer,
 		footer: footerReducer,
 		accessory: accessoryReducer,
+		home: homeReducer,
 		router: connectRouter(history),
 	})
 export default rootReducer

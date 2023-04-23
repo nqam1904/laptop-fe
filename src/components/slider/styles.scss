@@ -19,9 +19,9 @@
 .slick-arrow.slick-prev,
 .slick-arrow.slick-next {
 	background: #515154;
-	opacity: .25;
-	width: 47px;
-	height: 104px;
+	opacity: 0.25;
+	width: 24px;
+	height: 24px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -38,14 +38,12 @@
 
 .slick-prev {
 	left: 0;
-	border-top-right-radius: 7px;
-	border-bottom-right-radius: 7px;
+	border-radius: 50px;
 }
 
 .slick-next {
 	right: 0;
-	border-bottom-left-radius: 7px;
-	border-top-left-radius: 7px;
+	border-radius: 50px;
 }
 
 .slick-prev::before,
@@ -62,7 +60,6 @@
 	.slider {
 		margin-top: unset;
 		margin-bottom: unset;
-
 	}
 
 	.image_slider {
@@ -91,4 +88,3 @@
 		height: 60px;
 	}
 }
-

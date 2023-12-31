@@ -2,214 +2,186 @@
 @import '../../reponsive.scss';
 
 .header {
-   background: $bg;
-   width: 100%;
-   height: $headerHeight;
-   padding: 1rem;
-   position: fixed;
-   top: 0;
-   z-index: 100;
+	background: $bg;
+	width: 100%;
+	height: $headerHeight;
+	padding: 1rem;
+	position: fixed;
+	top: 0;
+	z-index: 100;
 
-   @include breakpoint(md) {
-      padding: 0 1rem;
-   }
+	@include breakpoint(md) {
+		padding: 0 1rem;
+	}
 
-   transition: 0.3s ease all;
+	transition: 0.3s ease all;
 
-   &__content {
-      overflow: hidden;
-      color: $white;
-      margin: 0 auto;
-      max-width: 1920px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 100;
+	&__content {
+		overflow: hidden;
+		color: $white;
+		margin: 0 auto;
+		max-width: 1920px;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 100;
 
-      &__logo {
-         font-size: 1.5rem;
-         font-weight: bold;
-         text-decoration: none;
-         color: $white;
-      }
+		&__logo {
+			font-size: 1.5rem;
+			font-weight: bold;
+			text-decoration: none;
+			color: $white;
+		}
 
-      &__nav {
-         top: 0;
-         right: 100%;
-         bottom: 0;
-         width: 100%;
-         height: 100vh;
-         position: fixed;
-         display: flex;
-         flex-direction: column;
-         font-size: 20px;
-         background: #00000036;
-         backdrop-filter: blur(8px);
+		&__nav {
+			top: 0;
+			right: 100%;
+			bottom: 0;
+			width: 100%;
+			height: 100vh;
+			position: fixed;
+			display: flex;
+			flex-direction: column;
+			font-size: 20px;
+			background: #00000036;
+			backdrop-filter: blur(8px);
 
-         @include breakpoint(md) {
-            transform: none;
-            flex-direction: row;
-            background: transparent;
-            width: auto;
-            height: 100%;
-            position: static;
-         }
+			@include breakpoint(md) {
+				transform: none;
+				flex-direction: row;
+				background: transparent;
+				width: auto;
+				height: 100%;
+				position: static;
+			}
 
-         ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            margin-left: 10px;
+			ul {
+				list-style: none;
+				display: flex;
+				flex-direction: column;
+				margin-left: 10px;
 
-            @include breakpoint(md) {
-               flex-direction: row;
-               align-items: center;
-               margin-bottom: 0;
-               margin-right: calc(0.5rem + #{$spacing-md});
-            }
+				@include breakpoint(md) {
+					flex-direction: row;
+					align-items: center;
+					margin-bottom: 0;
+					margin-right: calc(0.5rem + #{$spacing-md});
+				}
 
-            li {
-               &:not(:last-child) {
-                  margin-bottom: $spacing-lg;
+				li {
+					&:not(:last-child) {
+						margin-bottom: $spacing-lg;
 
-                  @include breakpoint(md) {
-                     margin-bottom: 0;
-                     margin-right: $spacing-md;
-                  }
-               }
+						@include breakpoint(md) {
+							margin-bottom: 0;
+							margin-right: $spacing-md;
+						}
+					}
 
-               a {
-                  text-decoration: none;
-                  color: inherit;
-                  padding: 0.75rem 1.25rem;
-                  border-radius: $borderRadius;
-                  transition: 0.3s ease all;
-                  font-size: 16px;
+					a {
+						text-decoration: none;
+						color: inherit;
+						padding: 0.75rem 1.25rem;
+						border-radius: $borderRadius;
+						transition: 0.3s ease all;
+						font-size: 16px;
 
-                  &:hover {
-                     background: rgba($white, 0.1);
-                  }
+						&:hover {
+							background: rgba($white, 0.1);
+						}
 
-                  &:active {
-                     border-radius: calc(#{$borderRadius} + 6px);
-                     background: linear-gradient(rgba($white, 0.1), rgba($white, 0.2));
-                  }
-               }
-            }
-         }
+						&:active {
+							border-radius: calc(#{$borderRadius} + 6px);
+							background: linear-gradient(rgba($white, 0.1), rgba($white, 0.2));
+						}
+					}
+				}
+			}
 
-         button {
-            cursor: pointer;
-            outline: none;
-            padding: 0.75rem 1.25rem;
-            border-radius: $borderRadius;
-            font-size: 1rem;
-            font-family: inherit;
-            background: $primary;
-            color: $bg;
-            border: 1px solid transparent;
-            transition: 0.3s ease all;
+			button {
+				cursor: pointer;
+				outline: none;
+				padding: 0.75rem 1.25rem;
+				border-radius: $borderRadius;
+				font-size: 1rem;
+				font-family: inherit;
+				background: $primary;
+				color: $bg;
+				border: 1px solid transparent;
+				transition: 0.3s ease all;
 
-            &:hover {
-               border-color: $primary;
-               background: rgba($primary, 0.1);
-               color: $primary;
-            }
+				&:hover {
+					border-color: $primary;
+					background: rgba($primary, 0.1);
+					color: $primary;
+				}
 
-            &:active {
-               border-color: $primary;
-               background: linear-gradient(rgba($primary, 0.2), rgba($primary, 0.3));
-               color: $primary;
-            }
-         }
+				&:active {
+					border-color: $primary;
+					background: linear-gradient(rgba($primary, 0.2), rgba($primary, 0.3));
+					color: $primary;
+				}
+			}
 
-         &.isMenu {
-            transform: translate(100%);
-         }
-      }
+			&.isMenu {
+				transform: translate(100%);
+			}
+		}
 
-      &__toggle {
-         cursor: pointer;
-         display: flex;
-         align-items: center;
-         font-size: 2rem;
-         transition: 0.3s ease all;
-         position: absolute;
-         left: 10px;
+		&__toggle {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			font-size: 2rem;
+			transition: 0.3s ease all;
+			position: absolute;
+			left: 10px;
 
-         &:hover {
-            color: $primary;
-         }
+			&:hover {
+				color: $primary;
+			}
 
-         @include breakpoint(md) {
-            display: none;
-         }
-      }
-   }
-
-
+			@include breakpoint(md) {
+				display: none;
+			}
+		}
+	}
 }
 
 .header__search {
-   font-size: 18px;
-   color: $white;
-   margin-top: 5px;
+	font-size: 18px;
+	color: $white;
+	margin-top: 5px;
 }
-
-@media (max-width: 768px) {
-   .header {
-      height: unset;
-   }
-
-   .header ul {
-      width: 60%;
-      flex-direction: column;
-      background-color: $white;
-      color: $black;
-      padding: 40px !important;
-      margin-left: unset !important;
-      height: inherit;
-   }
-
-   .header__search {
-      // font-size: 22px;
-      // position: absolute;
-      // top: 0px;
-      // right: 10px;
-      margin-top: 0;
-   }
-}
-
-
 
 @media (max-width: 1023px) {
-   .header {
-      // height: unset;
-   }
+	.header {
+		// height: unset;
+	}
 
-   .header ul {
-      color: $white;
-      height: inherit;
-      margin-left: 0 !important;
-   }
+	.header ul {
+		color: $white;
+		height: inherit;
+		margin-left: 0 !important;
+	}
 
-   .header__search {
-      font-size: 22px;
-      position: absolute;
-      right: 10px;
-   }
+	.header__search {
+		font-size: 22px;
+		position: absolute;
+		right: 10px;
+	}
 }
 
 @media (max-width: 768px) {
-   .header ul {
-      width: 60%;
-      flex-direction: column;
-      background-color: $white;
-      color: $black;
-      padding: 40px !important;
-      margin-left: unset !important;
-      height: inherit;
-   }
+	.header ul {
+		width: 60%;
+		flex-direction: column;
+		background-color: $white;
+		color: $black;
+		padding: 24px 0;
+		margin-left: unset !important;
+		height: inherit;
+	}
 }
